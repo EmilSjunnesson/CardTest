@@ -25,6 +25,7 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f070000;
+        public static final int checkBox1=0x7f070002;
         public static final int imageButton1=0x7f070001;
     }
     public static final class layout {

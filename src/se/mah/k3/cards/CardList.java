@@ -2,7 +2,7 @@ package se.mah.k3.cards;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
+//poop
 public class CardList {
 	
 	public ArrayList<Card> getAllCards(ArrayList<Card> cardList){

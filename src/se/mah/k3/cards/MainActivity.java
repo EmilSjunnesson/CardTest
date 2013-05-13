@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 	private boolean fillingState;
 	private boolean setState;
 
-	@Override
+	@Override //hej
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);

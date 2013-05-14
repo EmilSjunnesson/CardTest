@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 	private boolean shapeState;
 	private boolean fillingState;
 	private boolean setState;
-
+    //ToDo Fick ni rätt på GitHub nu?
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 import android.app.Activity;
 
 public class MainActivity extends Activity {
-	//hejsan allihopa! :) :) :)
 
 	CardList cardList = new CardList();
 	ArrayList<Card> cardArray = new ArrayList<Card>();

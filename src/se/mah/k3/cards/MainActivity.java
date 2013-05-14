@@ -25,10 +25,9 @@ public class MainActivity extends Activity {
 		Card c1 = cardArray.get(0);
 		Card c2 = cardArray.get(1);
 		Card c3 = cardArray.get(2);
-
-		for (int i = 0; i < 3; i++) {
-			Log.i("TagBag", "Card " + i + ": " + cardArray.get(i).toString());
-		}
+		
+		String s = Integer.toString(cardArray.size());
+		Log.i("TagBag", s);
 		
 		setState = isSet(c1, c2, c3);
 		if (setState) {

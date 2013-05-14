@@ -42,9 +42,6 @@ public class CardList {
 		cardList.add(new Card(3, "green", "circle", "full", R.drawable.ic_launcher));
 		cardList.add(new Card(3, "blue", "circle", "full", R.drawable.ic_launcher));
 		
-		
-		
-		
 		cardList.add(new Card(1, "red", "triangle", "empty", R.drawable.ic_launcher));
 		cardList.add(new Card(1, "green", "triangle", "empty", R.drawable.ic_launcher));
 		cardList.add(new Card(1, "blue", "triangle", "empty", R.drawable.ic_launcher));
@@ -80,11 +77,6 @@ public class CardList {
 		cardList.add(new Card(3, "red", "circle", "empty", R.drawable.ic_launcher));
 		cardList.add(new Card(3, "green", "circle", "empty", R.drawable.ic_launcher));
 		cardList.add(new Card(3, "blue", "circle", "empty", R.drawable.ic_launcher));
-		
-		
-		
-		
-		
 		
 		cardList.add(new Card(1, "red", "triangle", "striped", R.drawable.ic_launcher));
 		cardList.add(new Card(1, "green", "triangle", "striped", R.drawable.ic_launcher));

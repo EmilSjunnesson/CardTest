@@ -11,14 +11,27 @@ public class MainActivity extends Activity {
 	CardCompare cardCompare= new CardCompare();
 	CardList cardList = new CardList();
 	ArrayList<Card> cardArray = new ArrayList<Card>();
+	ArrayList<Card> activeCards = new ArrayList<Card>();
 	
 	private boolean setState;
-    // Yepp, verkar så.
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		cardList.getAllCards(cardArray);
+		
+		
+		
+		for (int i = 0; i < 12; i++) {
+			activeCards.add(cardArray.get(i));
+			cardArray.remove(i);
+		}
+		for (int i = 0; i < activeCards.size(); i++) {
+			Log.i("TagBag", activeCards.get(i).toString());
+		}
+
+		
 		Card c1 = cardArray.get(0);
 		Card c2 = cardArray.get(1);
 		Card c3 = cardArray.get(2);

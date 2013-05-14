@@ -6,7 +6,7 @@ public class CardCompare {
 	private boolean colorState;
 	private boolean shapeState;
 	private boolean fillingState;
-	//HEJ
+	
 	
 	public boolean isSetNumber(Card card1, Card card2, Card card3) {
 		if ((card1.getNumber() == card2.getNumber() && card2.getNumber() == card3
@@ -67,5 +67,6 @@ public class CardCompare {
 			return false;
 		}
 	}
+
 }
 

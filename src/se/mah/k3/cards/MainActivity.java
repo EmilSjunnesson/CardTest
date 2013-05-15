@@ -3,6 +3,8 @@ package se.mah.k3.cards;
 import java.util.ArrayList;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.app.Activity;
 
 public class MainActivity extends Activity {
@@ -10,23 +12,20 @@ public class MainActivity extends Activity {
 	Deck deck = new Deck();
 	ArrayList<Card> deckArray = new ArrayList<Card>();
 	ArrayList<Card> activeCards = new ArrayList<Card>();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 		
+		//fullscreen
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		setContentView(R.layout.activity_main);
+
 		controller.placeCardsOnTable(12);
 		controller.placeCardsOnTable(3);
 	}
 
-	
-
-	
-
-	
-
-	
-
-	
 }

@@ -1,12 +1,32 @@
 package se.mah.k3.cards;
 
-public class CardCompare {
+import java.util.ArrayList;
+
+import android.util.Log;
+
+public class Controller {
 	
 	private boolean numberState;
 	private boolean colorState;
 	private boolean shapeState;
 	private boolean fillingState;
+	Deck deck = new Deck();
+	ArrayList<Card> deckArray = new ArrayList<Card>();
+	ArrayList<Card> activeCards = new ArrayList<Card>();
 	
+	public void placeCardsOnTable(int cardsNeeded){
+		if (deckArray.isEmpty()) {
+			deck.getAllCards(deckArray);
+		}
+		for (int i = 0; i < cardsNeeded; i++) {
+			activeCards.add(deckArray.get(0));
+			deckArray.remove(0);
+		}
+		for (int i = 0; i < activeCards.size(); i++) {
+			Log.i("TagBag", activeCards.get(i).toString());
+		}
+		Log.i("TagBag", "Kort kvar: "+deckArray.size());
+	}
 	
 	public boolean isSetNumber(Card card1, Card card2, Card card3) {
 		if ((card1.getNumber() == card2.getNumber() && card2.getNumber() == card3

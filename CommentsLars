@@ -1,0 +1,19 @@
+Lite Lars-kommentarer
+Tittade lite och som jag förstår det och så här tänker jag.
+
+Jag tror att ni skall döpa om CardList till Deck och tänka er att den motsvarar hela kortleken 
+och alla metoder som hör till det som dela ut kort etc.
+
+En tredje klass som innehåller spellogiken kanske heter den Controller eller Table för det är
+egentligen alla korten på bordet som man sen pekar på från en Activity.
+
+Ni kan sen börja med att definiera vilka metoder som skall finnas i den klassen alla jämförelsemetoder
+metoder och till exempel 
+public int isSet(Card a, Card b, Card c)
+mfl
+public ArryaList<Card> getCurrentCardsOnTable()
+Så att ni inte har någon logik eller datastruktur i era Activities utan bara i GUI
+
+Men det var kanske ditåt ni var på väg?
+/L
+

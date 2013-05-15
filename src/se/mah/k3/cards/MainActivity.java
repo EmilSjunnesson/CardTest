@@ -24,17 +24,17 @@ public class MainActivity extends Activity {
 		
 		
 		for (int i = 0; i < 12; i++) {
-			activeCards.add(cardArray.get(i));
-			cardArray.remove(i);
+			activeCards.add(cardArray.get(0));
+			cardArray.remove(0);
 		}
 		for (int i = 0; i < activeCards.size(); i++) {
 			Log.i("TagBag", activeCards.get(i).toString());
 		}
 
 		
-		Card c1 = cardArray.get(0);
-		Card c2 = cardArray.get(1);
-		Card c3 = cardArray.get(2);
+		Card c1 = activeCards.get(0);
+		Card c2 = activeCards.get(1);
+		Card c3 = activeCards.get(2);
 		
 		String s = Integer.toString(cardArray.size());
 		Log.i("TagBag", s);

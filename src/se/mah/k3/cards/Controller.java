@@ -25,7 +25,7 @@ public class Controller {
 		for (int i = 0; i < activeCards.size(); i++) {
 			Log.i("TagBag", activeCards.get(i).toString());
 		}
-		Log.i("TagBag", "Kort kvar: "+deckArray.size());
+		Log.i("TagBag", "Kort kvar i deck: "+deckArray.size());
 	}
 	
 	public boolean isSet(Card card1, Card card2, Card card3) {

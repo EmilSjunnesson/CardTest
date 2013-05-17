@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import android.util.Log;
 
 public class Controller {
-	
+
 	private boolean numberState;
 	private boolean colorState;
 	private boolean shapeState;
@@ -13,8 +13,8 @@ public class Controller {
 	Deck deck = new Deck();
 	ArrayList<Card> deckArray = new ArrayList<Card>();
 	ArrayList<Card> activeCards = new ArrayList<Card>();
-	
-	public void placeCardsOnTable(int cardsNeeded){
+
+	public void placeCardsOnTable(int cardsNeeded) {
 		if (deckArray.isEmpty()) {
 			deck.getAllCards(deckArray);
 		}
@@ -25,9 +25,15 @@ public class Controller {
 		for (int i = 0; i < activeCards.size(); i++) {
 			Log.i("TagBag", activeCards.get(i).toString());
 		}
-		Log.i("TagBag", "Kort kvar i deck: "+deckArray.size());
+		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
 	}
-	
+
+	public ArrayList<Card> getActiveCards(int cardsNeeded) {
+		placeCardsOnTable(cardsNeeded);
+		return activeCards;
+
+	}
+
 	public boolean isSet(Card card1, Card card2, Card card3) {
 		numberState = isSetNumber(card1, card2, card3);
 		colorState = isSetColor(card1, card2, card3);
@@ -39,7 +45,7 @@ public class Controller {
 			return false;
 		}
 	}
-	
+
 	public boolean isSetNumber(Card card1, Card card2, Card card3) {
 		if ((card1.getNumber() == card2.getNumber() && card2.getNumber() == card3
 				.getNumber())
@@ -89,4 +95,3 @@ public class Controller {
 	}
 
 }
-

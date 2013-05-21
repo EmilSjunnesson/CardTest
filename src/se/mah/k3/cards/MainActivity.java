@@ -28,11 +28,12 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		setupImageViews();
-		
+
 		cardImages(controller.getActiveCards(12));
-		
-//		controller.placeCardsOnTable(12);
-//		controller.placeCardsOnTable(3);
+		controller.checkForSet();
+
+		// controller.placeCardsOnTable(12);
+		// controller.placeCardsOnTable(3);
 		Log.i("TagBag", "Kort aktiva: " + controller.activeCards.size());
 	}
 

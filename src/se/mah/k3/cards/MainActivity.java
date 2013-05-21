@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 
 	Controller controller;
 	ImageView[] iv;
-	ImageView bild;
+	ImageView[] selectedImg;
 	private boolean[] toggle;
 
 	@Override
@@ -31,8 +31,8 @@ public class MainActivity extends Activity {
 
 		controller = new Controller();
 		iv = new ImageView[12];
+		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
-		bild = (ImageView) findViewById(R.id.frame1);
 
 		setupImageViews();
 		cardImages(controller.getActiveCards(12));
@@ -45,48 +45,40 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.card1:
-				Log.i("TagBag", controller.activeCards.get(0).toString());
-				toggle[0] = !toggle[0];
-				if (toggle[0] == true) {
-					Log.i("TagBag", "sant");
-					bild.setVisibility(View.VISIBLE);
-				} else if (toggle[0] == false) {
-					Log.i("TagBag", "falskt");
-					bild.setVisibility(View.INVISIBLE);
-				}
+				toggleState(0);
 				break;
 			case R.id.card2:
-				Log.i("TagBag", controller.activeCards.get(1).toString());
+				toggleState(1);
 				break;
 			case R.id.card3:
-				Log.i("TagBag", controller.activeCards.get(2).toString());
+				toggleState(2);
 				break;
 			case R.id.card4:
-				Log.i("TagBag", controller.activeCards.get(3).toString());
+				toggleState(3);
 				break;
 			case R.id.card5:
-				Log.i("TagBag", controller.activeCards.get(4).toString());
+				toggleState(4);
 				break;
 			case R.id.card6:
-				Log.i("TagBag", controller.activeCards.get(5).toString());
+				toggleState(5);
 				break;
 			case R.id.card7:
-				Log.i("TagBag", controller.activeCards.get(6).toString());
+				toggleState(6);
 				break;
 			case R.id.card8:
-				Log.i("TagBag", controller.activeCards.get(7).toString());
+				toggleState(7);
 				break;
 			case R.id.card9:
-				Log.i("TagBag", controller.activeCards.get(8).toString());
+				toggleState(8);
 				break;
 			case R.id.card10:
-				Log.i("TagBag", controller.activeCards.get(9).toString());
+				toggleState(9);
 				break;
 			case R.id.card11:
-				Log.i("TagBag", controller.activeCards.get(10).toString());
+				toggleState(10);
 				break;
 			case R.id.card12:
-				Log.i("TagBag", controller.activeCards.get(11).toString());
+				toggleState(11);
 				break;
 			}
 		}
@@ -110,11 +102,34 @@ public class MainActivity extends Activity {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setOnClickListener(onClickListener);
 		}
+
+		selectedImg[0] = (ImageView) findViewById(R.id.frame1);
+		selectedImg[1] = (ImageView) findViewById(R.id.frame2);
+		selectedImg[2] = (ImageView) findViewById(R.id.frame3);
+		selectedImg[3] = (ImageView) findViewById(R.id.frame4);
+		selectedImg[4] = (ImageView) findViewById(R.id.frame5);
+		selectedImg[5] = (ImageView) findViewById(R.id.frame6);
+		selectedImg[6] = (ImageView) findViewById(R.id.frame7);
+		selectedImg[7] = (ImageView) findViewById(R.id.frame8);
+		selectedImg[8] = (ImageView) findViewById(R.id.frame9);
+		selectedImg[9] = (ImageView) findViewById(R.id.frame10);
+		selectedImg[10] = (ImageView) findViewById(R.id.frame11);
+		selectedImg[11] = (ImageView) findViewById(R.id.frame12);
 	}
 
 	public void cardImages(ArrayList<Card> activeCards) {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
+		}
+	}
+
+	public void toggleState(int pos) {
+		Log.i("TagBag", controller.activeCards.get(pos).toString());
+		toggle[pos] = !toggle[pos];
+		if (toggle[pos] == true) {
+			selectedImg[pos].setVisibility(View.VISIBLE);
+		} else if (toggle[pos] == false) {
+			selectedImg[pos].setVisibility(View.INVISIBLE);
 		}
 	}
 

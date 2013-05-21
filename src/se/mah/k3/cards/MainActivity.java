@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
 
 		cardImages(controller.getActiveCards(12));
 		controller.checkForSet();
+		controller.reDealCards();
 
 		// controller.placeCardsOnTable(12);
 		// controller.placeCardsOnTable(3);

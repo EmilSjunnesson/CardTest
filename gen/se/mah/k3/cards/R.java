@@ -120,7 +120,18 @@ public final class R {
         public static final int card8=0x7f070008;
         public static final int card9=0x7f070009;
         public static final int frame1=0x7f07000d;
-        public static final int progressBar1=0x7f07000e;
+        public static final int frame10=0x7f070016;
+        public static final int frame11=0x7f070017;
+        public static final int frame12=0x7f070018;
+        public static final int frame2=0x7f07000e;
+        public static final int frame3=0x7f07000f;
+        public static final int frame4=0x7f070010;
+        public static final int frame5=0x7f070011;
+        public static final int frame6=0x7f070012;
+        public static final int frame7=0x7f070013;
+        public static final int frame8=0x7f070014;
+        public static final int frame9=0x7f070015;
+        public static final int progressBar1=0x7f070019;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

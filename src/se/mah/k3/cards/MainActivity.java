@@ -30,9 +30,6 @@ public class MainActivity extends Activity {
 		setupImageViews();
 
 		cardImages(controller.getActiveCards(12));
-		controller.checkForSet();
-		controller.reDealCards();
-
 		// controller.placeCardsOnTable(12);
 		// controller.placeCardsOnTable(3);
 		Log.i("TagBag", "Kort aktiva: " + controller.activeCards.size());

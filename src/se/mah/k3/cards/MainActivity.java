@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
 
 	Controller controller = new Controller();
 	ImageView[] iv = new ImageView[12];
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
 
 		setupImageViews();
 		cardImages(controller.getActiveCards(12));
+		
 		// controller.placeCardsOnTable(12);
 		// controller.placeCardsOnTable(3);
 		Log.i("TagBag", "Kort aktiva: " + controller.activeCards.size());

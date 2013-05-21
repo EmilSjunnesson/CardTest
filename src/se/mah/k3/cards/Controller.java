@@ -1,6 +1,7 @@
 package se.mah.k3.cards;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.util.Log;
 
@@ -10,6 +11,7 @@ public class Controller {
 	private boolean colorState;
 	private boolean shapeState;
 	private boolean fillingState;
+	private boolean setOnTable;
 	private int nbrOfSets = 0;
 	Deck deck = new Deck();
 	ArrayList<Card> deckArray = new ArrayList<Card>();
@@ -31,8 +33,24 @@ public class Controller {
 
 	public ArrayList<Card> getActiveCards(int cardsNeeded) {
 		placeCardsOnTable(cardsNeeded);
+		nbrOfSets = 0;
+		setOnTable = false;
+		checkForSet();
+		while (setOnTable = false) {
+			Log.i("TagBag", "Inget SET");
+			removeFromActive();
+			Collections.shuffle(deckArray);
+			placeCardsOnTable(cardsNeeded);
+			checkForSet();
+		}
 		return activeCards;
+	}
 
+	public void removeFromActive() {
+		for (int i = 0; i < activeCards.size(); i++) {
+			deckArray.add(activeCards.get(0));
+			activeCards.remove(0);
+		}
 	}
 
 	public boolean isSet(Card card1, Card card2, Card card3) {
@@ -104,242 +122,337 @@ public class Controller {
 			return false;
 		}
 	}
-	
-	public int getNbrOfSets(){
-		return nbrOfSets;	
+
+	public int getNbrOfSets() {
+		return nbrOfSets;
 	}
-	
-	public void reDealCards(){
-		nbrOfSets=0;
-		checkForSet();
-		if (nbrOfSets<1) {
-			Log.i("TagBag", "Inget SET");
-		}else {
-			Log.i("TagBag", "Flera SET");
-		}
-	}
-	
+
 	public void checkForSet() {
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(2));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(3));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(4));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(5));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(6));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(7));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(8));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(3));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(4));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(5));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(6));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(7));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(8));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(2),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(4));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(5));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(6));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(7));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(8));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(3),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(4),activeCards.get(5));
-		isSetOnTable(activeCards.get(0),activeCards.get(4),activeCards.get(6));
-		isSetOnTable(activeCards.get(0),activeCards.get(4),activeCards.get(7));
-		isSetOnTable(activeCards.get(0),activeCards.get(4),activeCards.get(8));
-		isSetOnTable(activeCards.get(0),activeCards.get(4),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(4),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(4),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(5),activeCards.get(6));
-		isSetOnTable(activeCards.get(0),activeCards.get(5),activeCards.get(7));
-		isSetOnTable(activeCards.get(0),activeCards.get(5),activeCards.get(8));
-		isSetOnTable(activeCards.get(0),activeCards.get(5),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(5),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(5),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(6),activeCards.get(7));
-		isSetOnTable(activeCards.get(0),activeCards.get(6),activeCards.get(8));
-		isSetOnTable(activeCards.get(0),activeCards.get(6),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(6),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(6),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(7),activeCards.get(8));
-		isSetOnTable(activeCards.get(0),activeCards.get(7),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(7),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(7),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(0),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(0),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(0),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(3));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(4));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(5));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(6));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(7));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(8));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(9));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(2),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(4));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(5));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(6));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(7));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(8));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(9));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(3),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(4),activeCards.get(5));
-		isSetOnTable(activeCards.get(1),activeCards.get(4),activeCards.get(6));
-		isSetOnTable(activeCards.get(1),activeCards.get(4),activeCards.get(7));
-		isSetOnTable(activeCards.get(1),activeCards.get(4),activeCards.get(8));
-		isSetOnTable(activeCards.get(1),activeCards.get(4),activeCards.get(9));
-		isSetOnTable(activeCards.get(1),activeCards.get(4),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(4),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(5),activeCards.get(6));
-		isSetOnTable(activeCards.get(1),activeCards.get(5),activeCards.get(7));
-		isSetOnTable(activeCards.get(1),activeCards.get(5),activeCards.get(8));
-		isSetOnTable(activeCards.get(1),activeCards.get(5),activeCards.get(9));
-		isSetOnTable(activeCards.get(1),activeCards.get(5),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(5),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(6),activeCards.get(7));
-		isSetOnTable(activeCards.get(1),activeCards.get(6),activeCards.get(8));
-		isSetOnTable(activeCards.get(1),activeCards.get(6),activeCards.get(9));
-		isSetOnTable(activeCards.get(1),activeCards.get(6),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(6),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(7),activeCards.get(8));
-		isSetOnTable(activeCards.get(1),activeCards.get(7),activeCards.get(9));
-		isSetOnTable(activeCards.get(1),activeCards.get(7),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(7),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(1),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(1),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(1),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(4));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(5));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(6));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(7));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(8));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(9));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(10));
-		isSetOnTable(activeCards.get(2),activeCards.get(3),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(4),activeCards.get(5));
-		isSetOnTable(activeCards.get(2),activeCards.get(4),activeCards.get(6));
-		isSetOnTable(activeCards.get(2),activeCards.get(4),activeCards.get(7));
-		isSetOnTable(activeCards.get(2),activeCards.get(4),activeCards.get(8));
-		isSetOnTable(activeCards.get(2),activeCards.get(4),activeCards.get(9));
-		isSetOnTable(activeCards.get(2),activeCards.get(4),activeCards.get(10));
-		isSetOnTable(activeCards.get(2),activeCards.get(4),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(5),activeCards.get(6));
-		isSetOnTable(activeCards.get(2),activeCards.get(5),activeCards.get(7));
-		isSetOnTable(activeCards.get(2),activeCards.get(5),activeCards.get(8));
-		isSetOnTable(activeCards.get(2),activeCards.get(5),activeCards.get(9));
-		isSetOnTable(activeCards.get(2),activeCards.get(5),activeCards.get(10));
-		isSetOnTable(activeCards.get(2),activeCards.get(5),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(6),activeCards.get(7));
-		isSetOnTable(activeCards.get(2),activeCards.get(6),activeCards.get(8));
-		isSetOnTable(activeCards.get(2),activeCards.get(6),activeCards.get(9));
-		isSetOnTable(activeCards.get(2),activeCards.get(6),activeCards.get(10));
-		isSetOnTable(activeCards.get(2),activeCards.get(6),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(7),activeCards.get(8));
-		isSetOnTable(activeCards.get(2),activeCards.get(7),activeCards.get(9));
-		isSetOnTable(activeCards.get(2),activeCards.get(7),activeCards.get(10));
-		isSetOnTable(activeCards.get(2),activeCards.get(7),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(2),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(2),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(2),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(2),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(3),activeCards.get(4),activeCards.get(5));
-		isSetOnTable(activeCards.get(3),activeCards.get(4),activeCards.get(6));
-		isSetOnTable(activeCards.get(3),activeCards.get(4),activeCards.get(7));
-		isSetOnTable(activeCards.get(3),activeCards.get(4),activeCards.get(8));
-		isSetOnTable(activeCards.get(3),activeCards.get(4),activeCards.get(9));
-		isSetOnTable(activeCards.get(3),activeCards.get(4),activeCards.get(10));
-		isSetOnTable(activeCards.get(3),activeCards.get(4),activeCards.get(11));
-		isSetOnTable(activeCards.get(3),activeCards.get(5),activeCards.get(6));
-		isSetOnTable(activeCards.get(3),activeCards.get(5),activeCards.get(7));
-		isSetOnTable(activeCards.get(3),activeCards.get(5),activeCards.get(8));
-		isSetOnTable(activeCards.get(3),activeCards.get(5),activeCards.get(9));
-		isSetOnTable(activeCards.get(3),activeCards.get(5),activeCards.get(10));
-		isSetOnTable(activeCards.get(3),activeCards.get(5),activeCards.get(11));
-		isSetOnTable(activeCards.get(3),activeCards.get(6),activeCards.get(7));
-		isSetOnTable(activeCards.get(3),activeCards.get(6),activeCards.get(8));
-		isSetOnTable(activeCards.get(3),activeCards.get(6),activeCards.get(9));
-		isSetOnTable(activeCards.get(3),activeCards.get(6),activeCards.get(10));
-		isSetOnTable(activeCards.get(3),activeCards.get(6),activeCards.get(11));
-		isSetOnTable(activeCards.get(3),activeCards.get(7),activeCards.get(8));
-		isSetOnTable(activeCards.get(3),activeCards.get(7),activeCards.get(9));
-		isSetOnTable(activeCards.get(3),activeCards.get(7),activeCards.get(10));
-		isSetOnTable(activeCards.get(3),activeCards.get(7),activeCards.get(11));
-		isSetOnTable(activeCards.get(3),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(3),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(3),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(3),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(3),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(3),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(4),activeCards.get(5),activeCards.get(6));
-		isSetOnTable(activeCards.get(4),activeCards.get(5),activeCards.get(7));
-		isSetOnTable(activeCards.get(4),activeCards.get(5),activeCards.get(8));
-		isSetOnTable(activeCards.get(4),activeCards.get(5),activeCards.get(9));
-		isSetOnTable(activeCards.get(4),activeCards.get(5),activeCards.get(10));
-		isSetOnTable(activeCards.get(4),activeCards.get(5),activeCards.get(11));
-		isSetOnTable(activeCards.get(4),activeCards.get(6),activeCards.get(7));
-		isSetOnTable(activeCards.get(4),activeCards.get(6),activeCards.get(8));
-		isSetOnTable(activeCards.get(4),activeCards.get(6),activeCards.get(9));
-		isSetOnTable(activeCards.get(4),activeCards.get(6),activeCards.get(10));
-		isSetOnTable(activeCards.get(4),activeCards.get(6),activeCards.get(11));
-		isSetOnTable(activeCards.get(4),activeCards.get(7),activeCards.get(8));
-		isSetOnTable(activeCards.get(4),activeCards.get(7),activeCards.get(9));
-		isSetOnTable(activeCards.get(4),activeCards.get(7),activeCards.get(10));
-		isSetOnTable(activeCards.get(4),activeCards.get(7),activeCards.get(11));
-		isSetOnTable(activeCards.get(4),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(4),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(4),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(4),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(4),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(4),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(5),activeCards.get(6),activeCards.get(7));
-		isSetOnTable(activeCards.get(5),activeCards.get(6),activeCards.get(8));
-		isSetOnTable(activeCards.get(5),activeCards.get(6),activeCards.get(9));
-		isSetOnTable(activeCards.get(5),activeCards.get(6),activeCards.get(10));
-		isSetOnTable(activeCards.get(5),activeCards.get(6),activeCards.get(11));
-		isSetOnTable(activeCards.get(5),activeCards.get(7),activeCards.get(8));
-		isSetOnTable(activeCards.get(5),activeCards.get(7),activeCards.get(9));
-		isSetOnTable(activeCards.get(5),activeCards.get(7),activeCards.get(10));
-		isSetOnTable(activeCards.get(5),activeCards.get(7),activeCards.get(11));
-		isSetOnTable(activeCards.get(5),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(5),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(5),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(5),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(5),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(5),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(6),activeCards.get(7),activeCards.get(8));
-		isSetOnTable(activeCards.get(6),activeCards.get(7),activeCards.get(9));
-		isSetOnTable(activeCards.get(6),activeCards.get(7),activeCards.get(10));
-		isSetOnTable(activeCards.get(6),activeCards.get(7),activeCards.get(11));
-		isSetOnTable(activeCards.get(6),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(6),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(6),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(6),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(6),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(6),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(7),activeCards.get(8),activeCards.get(9));
-		isSetOnTable(activeCards.get(7),activeCards.get(8),activeCards.get(10));
-		isSetOnTable(activeCards.get(7),activeCards.get(8),activeCards.get(11));
-		isSetOnTable(activeCards.get(7),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(7),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(7),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(8),activeCards.get(9),activeCards.get(10));
-		isSetOnTable(activeCards.get(8),activeCards.get(9),activeCards.get(11));
-		isSetOnTable(activeCards.get(8),activeCards.get(10),activeCards.get(11));
-		isSetOnTable(activeCards.get(9),activeCards.get(10),activeCards.get(11));
-		Log.i("TagBag", "SET i kort: "+nbrOfSets);
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(2));
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(3));
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(4));
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(5));
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(6));
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(7));
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(8));
+		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(1),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(1),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(2), activeCards.get(3));
+		isSetOnTable(activeCards.get(0), activeCards.get(2), activeCards.get(4));
+		isSetOnTable(activeCards.get(0), activeCards.get(2), activeCards.get(5));
+		isSetOnTable(activeCards.get(0), activeCards.get(2), activeCards.get(6));
+		isSetOnTable(activeCards.get(0), activeCards.get(2), activeCards.get(7));
+		isSetOnTable(activeCards.get(0), activeCards.get(2), activeCards.get(8));
+		isSetOnTable(activeCards.get(0), activeCards.get(2), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(2),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(2),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(3), activeCards.get(4));
+		isSetOnTable(activeCards.get(0), activeCards.get(3), activeCards.get(5));
+		isSetOnTable(activeCards.get(0), activeCards.get(3), activeCards.get(6));
+		isSetOnTable(activeCards.get(0), activeCards.get(3), activeCards.get(7));
+		isSetOnTable(activeCards.get(0), activeCards.get(3), activeCards.get(8));
+		isSetOnTable(activeCards.get(0), activeCards.get(3), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(3),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(3),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(4), activeCards.get(5));
+		isSetOnTable(activeCards.get(0), activeCards.get(4), activeCards.get(6));
+		isSetOnTable(activeCards.get(0), activeCards.get(4), activeCards.get(7));
+		isSetOnTable(activeCards.get(0), activeCards.get(4), activeCards.get(8));
+		isSetOnTable(activeCards.get(0), activeCards.get(4), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(4),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(4),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(5), activeCards.get(6));
+		isSetOnTable(activeCards.get(0), activeCards.get(5), activeCards.get(7));
+		isSetOnTable(activeCards.get(0), activeCards.get(5), activeCards.get(8));
+		isSetOnTable(activeCards.get(0), activeCards.get(5), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(5),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(5),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(6), activeCards.get(7));
+		isSetOnTable(activeCards.get(0), activeCards.get(6), activeCards.get(8));
+		isSetOnTable(activeCards.get(0), activeCards.get(6), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(6),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(6),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(7), activeCards.get(8));
+		isSetOnTable(activeCards.get(0), activeCards.get(7), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(7),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(7),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(0), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(0), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(0), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(2), activeCards.get(3));
+		isSetOnTable(activeCards.get(1), activeCards.get(2), activeCards.get(4));
+		isSetOnTable(activeCards.get(1), activeCards.get(2), activeCards.get(5));
+		isSetOnTable(activeCards.get(1), activeCards.get(2), activeCards.get(6));
+		isSetOnTable(activeCards.get(1), activeCards.get(2), activeCards.get(7));
+		isSetOnTable(activeCards.get(1), activeCards.get(2), activeCards.get(8));
+		isSetOnTable(activeCards.get(1), activeCards.get(2), activeCards.get(9));
+		isSetOnTable(activeCards.get(1), activeCards.get(2),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(2),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(3), activeCards.get(4));
+		isSetOnTable(activeCards.get(1), activeCards.get(3), activeCards.get(5));
+		isSetOnTable(activeCards.get(1), activeCards.get(3), activeCards.get(6));
+		isSetOnTable(activeCards.get(1), activeCards.get(3), activeCards.get(7));
+		isSetOnTable(activeCards.get(1), activeCards.get(3), activeCards.get(8));
+		isSetOnTable(activeCards.get(1), activeCards.get(3), activeCards.get(9));
+		isSetOnTable(activeCards.get(1), activeCards.get(3),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(3),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(4), activeCards.get(5));
+		isSetOnTable(activeCards.get(1), activeCards.get(4), activeCards.get(6));
+		isSetOnTable(activeCards.get(1), activeCards.get(4), activeCards.get(7));
+		isSetOnTable(activeCards.get(1), activeCards.get(4), activeCards.get(8));
+		isSetOnTable(activeCards.get(1), activeCards.get(4), activeCards.get(9));
+		isSetOnTable(activeCards.get(1), activeCards.get(4),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(4),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(5), activeCards.get(6));
+		isSetOnTable(activeCards.get(1), activeCards.get(5), activeCards.get(7));
+		isSetOnTable(activeCards.get(1), activeCards.get(5), activeCards.get(8));
+		isSetOnTable(activeCards.get(1), activeCards.get(5), activeCards.get(9));
+		isSetOnTable(activeCards.get(1), activeCards.get(5),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(5),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(6), activeCards.get(7));
+		isSetOnTable(activeCards.get(1), activeCards.get(6), activeCards.get(8));
+		isSetOnTable(activeCards.get(1), activeCards.get(6), activeCards.get(9));
+		isSetOnTable(activeCards.get(1), activeCards.get(6),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(6),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(7), activeCards.get(8));
+		isSetOnTable(activeCards.get(1), activeCards.get(7), activeCards.get(9));
+		isSetOnTable(activeCards.get(1), activeCards.get(7),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(7),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(1), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(1), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(1), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(3), activeCards.get(4));
+		isSetOnTable(activeCards.get(2), activeCards.get(3), activeCards.get(5));
+		isSetOnTable(activeCards.get(2), activeCards.get(3), activeCards.get(6));
+		isSetOnTable(activeCards.get(2), activeCards.get(3), activeCards.get(7));
+		isSetOnTable(activeCards.get(2), activeCards.get(3), activeCards.get(8));
+		isSetOnTable(activeCards.get(2), activeCards.get(3), activeCards.get(9));
+		isSetOnTable(activeCards.get(2), activeCards.get(3),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(2), activeCards.get(3),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(4), activeCards.get(5));
+		isSetOnTable(activeCards.get(2), activeCards.get(4), activeCards.get(6));
+		isSetOnTable(activeCards.get(2), activeCards.get(4), activeCards.get(7));
+		isSetOnTable(activeCards.get(2), activeCards.get(4), activeCards.get(8));
+		isSetOnTable(activeCards.get(2), activeCards.get(4), activeCards.get(9));
+		isSetOnTable(activeCards.get(2), activeCards.get(4),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(2), activeCards.get(4),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(5), activeCards.get(6));
+		isSetOnTable(activeCards.get(2), activeCards.get(5), activeCards.get(7));
+		isSetOnTable(activeCards.get(2), activeCards.get(5), activeCards.get(8));
+		isSetOnTable(activeCards.get(2), activeCards.get(5), activeCards.get(9));
+		isSetOnTable(activeCards.get(2), activeCards.get(5),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(2), activeCards.get(5),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(6), activeCards.get(7));
+		isSetOnTable(activeCards.get(2), activeCards.get(6), activeCards.get(8));
+		isSetOnTable(activeCards.get(2), activeCards.get(6), activeCards.get(9));
+		isSetOnTable(activeCards.get(2), activeCards.get(6),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(2), activeCards.get(6),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(7), activeCards.get(8));
+		isSetOnTable(activeCards.get(2), activeCards.get(7), activeCards.get(9));
+		isSetOnTable(activeCards.get(2), activeCards.get(7),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(2), activeCards.get(7),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(2), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(2), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(2), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(2), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(3), activeCards.get(4), activeCards.get(5));
+		isSetOnTable(activeCards.get(3), activeCards.get(4), activeCards.get(6));
+		isSetOnTable(activeCards.get(3), activeCards.get(4), activeCards.get(7));
+		isSetOnTable(activeCards.get(3), activeCards.get(4), activeCards.get(8));
+		isSetOnTable(activeCards.get(3), activeCards.get(4), activeCards.get(9));
+		isSetOnTable(activeCards.get(3), activeCards.get(4),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(3), activeCards.get(4),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(3), activeCards.get(5), activeCards.get(6));
+		isSetOnTable(activeCards.get(3), activeCards.get(5), activeCards.get(7));
+		isSetOnTable(activeCards.get(3), activeCards.get(5), activeCards.get(8));
+		isSetOnTable(activeCards.get(3), activeCards.get(5), activeCards.get(9));
+		isSetOnTable(activeCards.get(3), activeCards.get(5),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(3), activeCards.get(5),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(3), activeCards.get(6), activeCards.get(7));
+		isSetOnTable(activeCards.get(3), activeCards.get(6), activeCards.get(8));
+		isSetOnTable(activeCards.get(3), activeCards.get(6), activeCards.get(9));
+		isSetOnTable(activeCards.get(3), activeCards.get(6),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(3), activeCards.get(6),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(3), activeCards.get(7), activeCards.get(8));
+		isSetOnTable(activeCards.get(3), activeCards.get(7), activeCards.get(9));
+		isSetOnTable(activeCards.get(3), activeCards.get(7),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(3), activeCards.get(7),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(3), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(3), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(3), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(3), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(3), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(3), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(4), activeCards.get(5), activeCards.get(6));
+		isSetOnTable(activeCards.get(4), activeCards.get(5), activeCards.get(7));
+		isSetOnTable(activeCards.get(4), activeCards.get(5), activeCards.get(8));
+		isSetOnTable(activeCards.get(4), activeCards.get(5), activeCards.get(9));
+		isSetOnTable(activeCards.get(4), activeCards.get(5),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(4), activeCards.get(5),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(4), activeCards.get(6), activeCards.get(7));
+		isSetOnTable(activeCards.get(4), activeCards.get(6), activeCards.get(8));
+		isSetOnTable(activeCards.get(4), activeCards.get(6), activeCards.get(9));
+		isSetOnTable(activeCards.get(4), activeCards.get(6),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(4), activeCards.get(6),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(4), activeCards.get(7), activeCards.get(8));
+		isSetOnTable(activeCards.get(4), activeCards.get(7), activeCards.get(9));
+		isSetOnTable(activeCards.get(4), activeCards.get(7),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(4), activeCards.get(7),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(4), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(4), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(4), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(4), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(4), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(4), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(5), activeCards.get(6), activeCards.get(7));
+		isSetOnTable(activeCards.get(5), activeCards.get(6), activeCards.get(8));
+		isSetOnTable(activeCards.get(5), activeCards.get(6), activeCards.get(9));
+		isSetOnTable(activeCards.get(5), activeCards.get(6),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(5), activeCards.get(6),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(5), activeCards.get(7), activeCards.get(8));
+		isSetOnTable(activeCards.get(5), activeCards.get(7), activeCards.get(9));
+		isSetOnTable(activeCards.get(5), activeCards.get(7),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(5), activeCards.get(7),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(5), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(5), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(5), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(5), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(5), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(5), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(6), activeCards.get(7), activeCards.get(8));
+		isSetOnTable(activeCards.get(6), activeCards.get(7), activeCards.get(9));
+		isSetOnTable(activeCards.get(6), activeCards.get(7),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(6), activeCards.get(7),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(6), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(6), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(6), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(6), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(6), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(6), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(7), activeCards.get(8), activeCards.get(9));
+		isSetOnTable(activeCards.get(7), activeCards.get(8),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(7), activeCards.get(8),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(7), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(7), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(7), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(8), activeCards.get(9),
+				activeCards.get(10));
+		isSetOnTable(activeCards.get(8), activeCards.get(9),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(8), activeCards.get(10),
+				activeCards.get(11));
+		isSetOnTable(activeCards.get(9), activeCards.get(10),
+				activeCards.get(11));
+		Log.i("TagBag", "SET i kort: " + nbrOfSets);
+		if (nbrOfSets < 1) {
+			setOnTable = false;
+		} else {
+			setOnTable = true;
+		}
 	}
 }

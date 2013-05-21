@@ -13,8 +13,9 @@ import android.app.Activity;
 
 public class MainActivity extends Activity {
 
-	Controller controller = new Controller();
-	ImageView[] iv = new ImageView[12];
+	Controller controller;
+	ImageView[] iv;
+	private boolean[] toggle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,10 @@ public class MainActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_main);
+
+		controller = new Controller();
+		iv = new ImageView[12];
+		toggle = new boolean[12];
 
 		setupImageViews();
 		cardImages(controller.getActiveCards(12));
@@ -39,7 +44,12 @@ public class MainActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.card1:
 				Log.i("TagBag", controller.activeCards.get(0).toString());
-
+				toggle[0] = !toggle[0];
+				if (toggle[0] == true) {
+					Log.i("TagBag", "sant");
+				} else if (toggle[0] == false) {
+					Log.i("TagBag", "falskt");
+				}
 				break;
 			case R.id.card2:
 				Log.i("TagBag", controller.activeCards.get(1).toString());

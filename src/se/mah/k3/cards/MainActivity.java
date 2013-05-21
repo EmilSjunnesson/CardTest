@@ -9,10 +9,11 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.app.Activity;
 
 public class MainActivity extends Activity {
-
+	
 	Controller controller = new Controller();
 	ImageView[] iv = new ImageView[12];
 
@@ -28,7 +29,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		setupImageViews();
-
 		cardImages(controller.getActiveCards(12));
 		// controller.placeCardsOnTable(12);
 		// controller.placeCardsOnTable(3);

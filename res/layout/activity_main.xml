@@ -10,145 +10,143 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+    <ImageView
+        android:id="@+id/card1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="260dp"
+        
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card1" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/card2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/card1"
+        android:layout_toRightOf="@+id/card1"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card2" />
 
-            <ImageView
-                android:id="@+id/card1"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card1" />
+    <ImageView
+        android:id="@+id/card3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/card2"
+        android:layout_toRightOf="@+id/card2"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card3" />
 
-            <ImageView
-                android:id="@+id/card5"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card5" />
+    <ImageView
+        android:id="@+id/card4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/card3"
+        android:layout_toRightOf="@+id/card3"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card4" />
 
-            <ImageView
-                android:id="@+id/card9"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card9" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/card5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card1"
+        android:layout_below="@+id/card1"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card5" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/card6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card2"
+        android:layout_alignTop="@+id/card5"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card6" />
 
-            <ImageView
-                android:id="@+id/card2"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card2" />
+    <ImageView
+        android:id="@+id/card7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card3"
+        android:layout_alignTop="@+id/card6"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card7" />
 
-            <ImageView
-                android:id="@+id/card6"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card6" />
+    <ImageView
+        android:id="@+id/card8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card4"
+        android:layout_alignTop="@+id/card7"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card8" />
 
-            <ImageView
-                android:id="@+id/card10"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card10" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/card9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card5"
+        android:layout_below="@+id/card5"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card9" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/card10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card6"
+        android:layout_alignTop="@+id/card9"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card10" />
 
-            <ImageView
-                android:id="@+id/card3"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card3" />
+    <ImageView
+        android:id="@+id/card11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card7"
+        android:layout_alignTop="@+id/card10"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card11" />
 
-            <ImageView
-                android:id="@+id/card7"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card7" />
-
-            <ImageView
-                android:id="@+id/card11"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card11" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/card4"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card4" />
-
-            <ImageView
-                android:id="@+id/card8"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card8" />
-
-            <ImageView
-                android:id="@+id/card12"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:src="@drawable/card12" />
-        </LinearLayout>
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/card12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card8"
+        android:layout_alignTop="@+id/card11"
+        android:adjustViewBounds="true"
+        android:maxHeight="218dp"
+        android:maxWidth="116dp"
+        android:src="@drawable/card12" />
 
 </RelativeLayout>

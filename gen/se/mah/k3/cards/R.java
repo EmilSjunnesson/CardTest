@@ -103,6 +103,7 @@ public final class R {
         public static final int card81=0x7f02004f;
         public static final int card9=0x7f020050;
         public static final int ic_launcher=0x7f020051;
+        public static final int starsandwhiteframe=0x7f020052;
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f070000;

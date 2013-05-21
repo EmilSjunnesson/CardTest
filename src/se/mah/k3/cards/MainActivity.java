@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.card1:
 				Log.i("TagBag", controller.activeCards.get(0).toString());
+				
 				break;
 			case R.id.card2:
 				Log.i("TagBag", controller.activeCards.get(1).toString());

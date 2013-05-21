@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
 
 	Controller controller;
 	ImageView[] iv;
+	ImageView bild;
 	private boolean[] toggle;
 
 	@Override
@@ -31,6 +32,7 @@ public class MainActivity extends Activity {
 		controller = new Controller();
 		iv = new ImageView[12];
 		toggle = new boolean[12];
+		bild = (ImageView) findViewById(R.id.frame1);
 
 		setupImageViews();
 		cardImages(controller.getActiveCards(12));
@@ -47,8 +49,10 @@ public class MainActivity extends Activity {
 				toggle[0] = !toggle[0];
 				if (toggle[0] == true) {
 					Log.i("TagBag", "sant");
+					bild.setVisibility(View.VISIBLE);
 				} else if (toggle[0] == false) {
 					Log.i("TagBag", "falskt");
+					bild.setVisibility(View.INVISIBLE);
 				}
 				break;
 			case R.id.card2:

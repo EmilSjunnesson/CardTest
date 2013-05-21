@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.app.Activity;
 //Testar
+//Test2
 public class MainActivity extends Activity {
 	
 	Controller controller = new Controller();

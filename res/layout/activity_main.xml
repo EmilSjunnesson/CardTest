@@ -11,6 +11,7 @@
     tools:context=".MainActivity" >
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -47,7 +48,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/card9" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -82,7 +82,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/card10" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -116,7 +115,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/card11" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -150,9 +148,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/card12" />
-
         </LinearLayout>
-
     </LinearLayout>
 
 </RelativeLayout>

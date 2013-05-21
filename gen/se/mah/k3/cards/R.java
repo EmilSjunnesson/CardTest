@@ -107,19 +107,20 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f070000;
-        public static final int card1=0x7f070001;
-        public static final int card10=0x7f070006;
-        public static final int card11=0x7f070009;
-        public static final int card12=0x7f07000c;
-        public static final int card2=0x7f070004;
-        public static final int card3=0x7f070007;
-        public static final int card4=0x7f07000a;
-        public static final int card5=0x7f070002;
-        public static final int card6=0x7f070005;
-        public static final int card7=0x7f070008;
-        public static final int card8=0x7f07000b;
-        public static final int card9=0x7f070003;
-        public static final int progressBar1=0x7f07000d;
+        public static final int card1=0x7f070002;
+        public static final int card10=0x7f070007;
+        public static final int card11=0x7f07000a;
+        public static final int card12=0x7f07000d;
+        public static final int card2=0x7f070005;
+        public static final int card3=0x7f070008;
+        public static final int card4=0x7f07000b;
+        public static final int card5=0x7f070003;
+        public static final int card6=0x7f070006;
+        public static final int card7=0x7f070009;
+        public static final int card8=0x7f07000c;
+        public static final int card9=0x7f070004;
+        public static final int linearLayout1=0x7f070001;
+        public static final int progressBar1=0x7f07000e;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

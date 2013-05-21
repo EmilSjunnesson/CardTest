@@ -149,4 +149,16 @@
         android:maxWidth="121dp"
         android:src="@drawable/card12" />
 
+    <ImageView
+        android:id="@+id/frame1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card1"
+        android:layout_alignTop="@+id/card1"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
+
 </RelativeLayout>

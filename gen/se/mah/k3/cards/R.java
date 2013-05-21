@@ -119,7 +119,8 @@ public final class R {
         public static final int card7=0x7f070007;
         public static final int card8=0x7f070008;
         public static final int card9=0x7f070009;
-        public static final int progressBar1=0x7f07000d;
+        public static final int frame1=0x7f07000d;
+        public static final int progressBar1=0x7f07000e;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

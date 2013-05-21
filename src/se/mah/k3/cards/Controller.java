@@ -104,7 +104,21 @@ public class Controller {
 			return false;
 		}
 	}
-
+	
+	public int getNbrOfSets(){
+		return nbrOfSets;	
+	}
+	
+	public void reDealCards(){
+		nbrOfSets=0;
+		checkForSet();
+		if (nbrOfSets<1) {
+			Log.i("TagBag", "Inget SET");
+		}else {
+			Log.i("TagBag", "Flera SET");
+		}
+	}
+	
 	public void checkForSet() {
 		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(2));
 		isSetOnTable(activeCards.get(0),activeCards.get(1),activeCards.get(3));
@@ -326,7 +340,6 @@ public class Controller {
 		isSetOnTable(activeCards.get(8),activeCards.get(9),activeCards.get(11));
 		isSetOnTable(activeCards.get(8),activeCards.get(10),activeCards.get(11));
 		isSetOnTable(activeCards.get(9),activeCards.get(10),activeCards.get(11));
-		
 		Log.i("TagBag", "SET i kort: "+nbrOfSets);
 	}
 }

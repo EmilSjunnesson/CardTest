@@ -25,9 +25,6 @@ public class Controller {
 			activeCards.add(deckArray.get(0));
 			deckArray.remove(0);
 		}
-		for (int i = 0; i < activeCards.size(); i++) {
-			Log.i("TagBag", activeCards.get(i).toString());
-		}
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
 	}
 
@@ -43,6 +40,10 @@ public class Controller {
 			placeCardsOnTable(cardsNeeded);
 			checkForSet();
 		}
+		return activeCards;
+	}
+
+	public ArrayList<Card> getActiveArray() {
 		return activeCards;
 	}
 
@@ -449,7 +450,7 @@ public class Controller {
 		isSetOnTable(activeCards.get(9), activeCards.get(10),
 				activeCards.get(11));
 		Log.i("TagBag", "SET i kort: " + nbrOfSets);
-		if (nbrOfSets < 1) {
+		if (nbrOfSets <= 0) {
 			setOnTable = false;
 		} else {
 			setOnTable = true;

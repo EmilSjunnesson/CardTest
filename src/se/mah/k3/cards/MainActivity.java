@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
 	Controller controller;
 	ImageView[] iv;
 	ImageView[] selectedImg;
+	Card currCard, compareCard1, compareCard2, compareCard3;
 	private boolean[] toggle;
 	private int pressedCount;
 
@@ -83,7 +84,16 @@ public class MainActivity extends Activity {
 				toggleState(11);
 				break;
 			}
-			Log.i("TagBag", "Cards selected: "+pressedCount);
+			if (pressedCount == 1) {
+				compareCard1 = currCard;
+			} else if (pressedCount == 2) {
+				compareCard2 = currCard;
+			} else if (pressedCount == 3) {
+				compareCard3 = currCard;
+				Log.i("TagBag", compareCard1.toString());
+				Log.i("TagBag", compareCard2.toString());
+				Log.i("TagBag", compareCard3.toString());
+			}
 		}
 
 	};
@@ -127,10 +137,10 @@ public class MainActivity extends Activity {
 	}
 
 	public void toggleState(int pos) {
-		Log.i("TagBag", controller.activeCards.get(pos).toString());
 		toggle[pos] = !toggle[pos];
 		if (toggle[pos] == true) {
 			selectedImg[pos].setVisibility(View.VISIBLE);
+			currCard = controller.getActiveArray().get(pos);
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);

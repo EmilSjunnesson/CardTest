@@ -12,7 +12,7 @@ import android.widget.Toast;
 import android.app.Activity;
 
 public class MainActivity extends Activity {
-
+	//Hej
 	Controller controller;
 	ImageView[] iv;
 	ImageView[] selectedImg;

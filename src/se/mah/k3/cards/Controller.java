@@ -45,6 +45,10 @@ public class Controller {
 		return activeCards;
 	}
 
+	public ArrayList<Card> getDeckArray() {
+		return deckArray;
+	}
+
 	public void removeFromActive() {
 		for (int i = 0; i < activeCards.size(); i++) {
 			deckArray.add(activeCards.get(0));
@@ -60,7 +64,6 @@ public class Controller {
 		deckArray.remove(0);
 		activeCards.set(card3Index, deckArray.get(0));
 		deckArray.remove(0);
-
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
 
 		nbrOfSets = 0;

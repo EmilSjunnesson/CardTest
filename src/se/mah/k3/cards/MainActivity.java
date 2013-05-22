@@ -99,8 +99,13 @@ public class MainActivity extends Activity {
 				if (set == true) {
 					Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT)
 							.show();
-					updateUI(controller.getNewCards(compareCard1Index,
-							compareCard2Index, compareCard3Index));
+					if (!controller.getDeckArray().isEmpty()) {
+						updateUI(controller.getNewCards(compareCard1Index,
+								compareCard2Index, compareCard3Index));
+					}
+					if (controller.getDeckArray().isEmpty()) {
+
+					}
 					resetSelect();
 					set = false;
 				} else if (set == false) {

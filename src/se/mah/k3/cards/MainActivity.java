@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.app.Activity;
 
 public class MainActivity extends Activity {
@@ -19,6 +20,7 @@ public class MainActivity extends Activity {
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	private boolean[] toggle;
 	private int pressedCount;
+	private int index, compareCard1Index, compareCard2Index, compareCard3Index;
 	private boolean set;
 
 	@Override
@@ -87,17 +89,27 @@ public class MainActivity extends Activity {
 			}
 			if (pressedCount == 1) {
 				compareCard1 = currCard;
+				compareCard1Index = index;
 			} else if (pressedCount == 2) {
 				compareCard2 = currCard;
+				compareCard2Index = index;
 			} else if (pressedCount == 3) {
 				compareCard3 = currCard;
-				Log.i("TagBag", compareCard1.toString());
-				Log.i("TagBag", compareCard2.toString());
-				Log.i("TagBag", compareCard3.toString());
+				compareCard3Index = index;
+				Log.i("TagBag", "Card index " + compareCard1Index + ": "
+						+ compareCard1.toString());
+				Log.i("TagBag", "Card index " + compareCard2Index + ": "
+						+ compareCard2.toString());
+				Log.i("TagBag", "Card index " + compareCard3Index + ": "
+						+ compareCard3.toString());
+
 				set = controller
 						.isSet(compareCard1, compareCard2, compareCard3);
 				if (set == true) {
-					Log.i("TagBag", "SET");
+					Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT)
+							.show();
+					cardImages(controller.getNewCards(compareCard1Index,
+							compareCard2Index, compareCard3Index));
 				} else if (set == false) {
 					noSet();
 				}
@@ -149,6 +161,7 @@ public class MainActivity extends Activity {
 		if (toggle[pos] == true) {
 			selectedImg[pos].setVisibility(View.VISIBLE);
 			currCard = controller.getActiveArray().get(pos);
+			index = pos;
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
@@ -157,7 +170,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void noSet() {
-		Log.i("TagBag", "Inget SET");
+		Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT).show();
 		for (int i = 0; i < toggle.length; i++) {
 			toggle[i] = false;
 			selectedImg[i].setVisibility(View.INVISIBLE);

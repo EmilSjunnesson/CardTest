@@ -54,6 +54,18 @@ public class Controller {
 		}
 	}
 
+	public ArrayList<Card> getNewCards(int card1Index, int card2Index,
+			int card3Index) {
+		activeCards.add(card1Index, deckArray.get(0));
+		deckArray.remove(0);
+		activeCards.add(card2Index, deckArray.get(0));
+		deckArray.remove(0);
+		activeCards.add(card3Index, deckArray.get(0));
+		deckArray.remove(0);
+		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
+		return activeCards;
+	}
+
 	public boolean isSet(Card card1, Card card2, Card card3) {
 		numberState = isSetNumber(card1, card2, card3);
 		colorState = isSetColor(card1, card2, card3);

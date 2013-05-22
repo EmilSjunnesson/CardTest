@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	private boolean[] toggle;
 	private int pressedCount;
+	private boolean set;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,13 @@ public class MainActivity extends Activity {
 				Log.i("TagBag", compareCard1.toString());
 				Log.i("TagBag", compareCard2.toString());
 				Log.i("TagBag", compareCard3.toString());
+				set = controller
+						.isSet(compareCard1, compareCard2, compareCard3);
+				if (set == true) {
+					Log.i("TagBag", "SET");
+				} else if (set == false) {
+					Log.i("TagBag", "Inget SET");
+				}
 			}
 		}
 

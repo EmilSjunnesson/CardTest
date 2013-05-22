@@ -103,8 +103,39 @@ public final class R {
         public static final int card81=0x7f02004f;
         public static final int card9=0x7f020050;
         public static final int ic_launcher=0x7f020051;
-        public static final int set1000=0x7f020052;
-        public static final int starsandwhiteframe=0x7f020053;
+        public static final int select_anim=0x7f020052;
+        public static final int select_anim00=0x7f020053;
+        public static final int select_anim01=0x7f020054;
+        public static final int select_anim02=0x7f020055;
+        public static final int select_anim03=0x7f020056;
+        public static final int select_anim04=0x7f020057;
+        public static final int select_anim05=0x7f020058;
+        public static final int select_anim06=0x7f020059;
+        public static final int select_anim07=0x7f02005a;
+        public static final int select_anim08=0x7f02005b;
+        public static final int select_anim09=0x7f02005c;
+        public static final int select_anim10=0x7f02005d;
+        public static final int select_anim11=0x7f02005e;
+        public static final int select_anim12=0x7f02005f;
+        public static final int select_anim13=0x7f020060;
+        public static final int select_anim14=0x7f020061;
+        public static final int select_anim15=0x7f020062;
+        public static final int select_anim16=0x7f020063;
+        public static final int select_anim17=0x7f020064;
+        public static final int select_anim18=0x7f020065;
+        public static final int select_anim19=0x7f020066;
+        public static final int select_anim20=0x7f020067;
+        public static final int select_anim21=0x7f020068;
+        public static final int select_anim22=0x7f020069;
+        public static final int select_anim23=0x7f02006a;
+        public static final int select_anim24=0x7f02006b;
+        public static final int select_anim25=0x7f02006c;
+        public static final int select_anim26=0x7f02006d;
+        public static final int select_anim27=0x7f02006e;
+        public static final int select_anim28=0x7f02006f;
+        public static final int select_anim29=0x7f020070;
+        public static final int set1000=0x7f020071;
+        public static final int starsandwhiteframe=0x7f020072;
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f070000;
@@ -120,6 +151,7 @@ public final class R {
         public static final int card7=0x7f070007;
         public static final int card8=0x7f070008;
         public static final int card9=0x7f070009;
+        public static final int cardAnim=0x7f070019;
         public static final int frame1=0x7f07000d;
         public static final int frame10=0x7f070016;
         public static final int frame11=0x7f070017;
@@ -132,7 +164,7 @@ public final class R {
         public static final int frame7=0x7f070013;
         public static final int frame8=0x7f070014;
         public static final int frame9=0x7f070015;
-        public static final int progressBar1=0x7f070019;
+        public static final int progressBar1=0x7f07001a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

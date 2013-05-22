@@ -3,7 +3,6 @@ package se.mah.k3.cards;
 import java.util.ArrayList;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -42,8 +41,6 @@ public class MainActivity extends Activity {
 
 		setupImageViews();
 		cardImages(controller.getActiveCards(12));
-
-		Log.i("TagBag", "Kort aktiva: " + controller.activeCards.size());
 	}
 
 	public OnClickListener onClickListener = new OnClickListener() {
@@ -96,12 +93,6 @@ public class MainActivity extends Activity {
 			} else if (pressedCount == 3) {
 				compareCard3 = currCard;
 				compareCard3Index = index;
-				Log.i("TagBag", "Card index " + compareCard1Index + ": "
-						+ compareCard1.toString());
-				Log.i("TagBag", "Card index " + compareCard2Index + ": "
-						+ compareCard2.toString());
-				Log.i("TagBag", "Card index " + compareCard3Index + ": "
-						+ compareCard3.toString());
 
 				set = controller
 						.isSet(compareCard1, compareCard2, compareCard3);
@@ -110,8 +101,12 @@ public class MainActivity extends Activity {
 							.show();
 					cardImages(controller.getNewCards(compareCard1Index,
 							compareCard2Index, compareCard3Index));
+					resetSelect();
+					set = false;
 				} else if (set == false) {
-					noSet();
+					Toast.makeText(MainActivity.this, "No SET",
+							Toast.LENGTH_SHORT).show();
+					resetSelect();
 				}
 			}
 		}
@@ -169,8 +164,7 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	public void noSet() {
-		Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT).show();
+	public void resetSelect() {
 		for (int i = 0; i < toggle.length; i++) {
 			toggle[i] = false;
 			selectedImg[i].setVisibility(View.INVISIBLE);

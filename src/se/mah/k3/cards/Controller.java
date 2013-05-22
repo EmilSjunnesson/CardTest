@@ -56,13 +56,25 @@ public class Controller {
 
 	public ArrayList<Card> getNewCards(int card1Index, int card2Index,
 			int card3Index) {
-		activeCards.add(card1Index, deckArray.get(0));
+		activeCards.set(card1Index, deckArray.get(0));
 		deckArray.remove(0);
-		activeCards.add(card2Index, deckArray.get(0));
+		activeCards.set(card2Index, deckArray.get(0));
 		deckArray.remove(0);
-		activeCards.add(card3Index, deckArray.get(0));
+		activeCards.set(card3Index, deckArray.get(0));
 		deckArray.remove(0);
+
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
+
+		nbrOfSets = 0;
+		setOnTable = false;
+		checkForSet();
+		while (setOnTable = false) {
+			Log.i("TagBag", "Inget SET");
+			removeFromActive();
+			Collections.shuffle(deckArray);
+			placeCardsOnTable(12);
+			checkForSet();
+		}
 		return activeCards;
 	}
 
@@ -138,6 +150,10 @@ public class Controller {
 
 	public int getNbrOfSets() {
 		return nbrOfSets;
+	}
+
+	public int getNbrOfCardsLeft() {
+		return deckArray.size();
 	}
 
 	public void checkForSet() {

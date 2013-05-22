@@ -2,6 +2,10 @@ package se.mah.k3.cards;
 
 import java.util.ArrayList;
 
+
+
+import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,13 +13,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.app.Activity;
 
 public class MainActivity extends Activity {
 	//Hej
 	Controller controller;
 	ImageView[] iv;
 	ImageView[] selectedImg;
+	ImageView animView1;
+	AnimationDrawable animation1;
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	private boolean[] toggle;
 	private int pressedCount;
@@ -37,6 +42,9 @@ public class MainActivity extends Activity {
 		iv = new ImageView[12];
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
+		animView1 = (ImageView) findViewById(R.id.cardAnim);
+		animView1.setBackgroundResource(R.drawable.select_anim);
+		animation1 =(AnimationDrawable) animView1.getBackground();
 		pressedCount = 0;
 
 		setupImageViews();
@@ -49,6 +57,8 @@ public class MainActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.card1:
 				toggleState(0);
+				animation1.stop();
+				animation1.start();
 				break;
 			case R.id.card2:
 				toggleState(1);

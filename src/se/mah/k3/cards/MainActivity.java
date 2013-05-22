@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 		pressedCount = 0;
 
 		setupImageViews();
-		cardImages(controller.getActiveCards(12));
+		updateUI(controller.getActiveCards(12));
 	}
 
 	public OnClickListener onClickListener = new OnClickListener() {
@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
 				if (set == true) {
 					Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT)
 							.show();
-					cardImages(controller.getNewCards(compareCard1Index,
+					updateUI(controller.getNewCards(compareCard1Index,
 							compareCard2Index, compareCard3Index));
 					resetSelect();
 					set = false;
@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
 		selectedImg[11] = (ImageView) findViewById(R.id.frame12);
 	}
 
-	public void cardImages(ArrayList<Card> activeCards) {
+	public void updateUI(ArrayList<Card> activeCards) {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
 		}

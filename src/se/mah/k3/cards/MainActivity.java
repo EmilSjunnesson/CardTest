@@ -2,8 +2,6 @@ package se.mah.k3.cards;
 
 import java.util.ArrayList;
 
-
-
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -15,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-	//Hej
+
 	Controller controller;
 	ImageView[] iv;
 	ImageView[] selectedImg;
@@ -44,7 +42,7 @@ public class MainActivity extends Activity {
 		toggle = new boolean[12];
 		animView1 = (ImageView) findViewById(R.id.cardAnim);
 		animView1.setBackgroundResource(R.drawable.select_anim);
-		animation1 =(AnimationDrawable) animView1.getBackground();
+		animation1 = (AnimationDrawable) animView1.getBackground();
 		pressedCount = 0;
 
 		setupImageViews();
@@ -112,9 +110,13 @@ public class MainActivity extends Activity {
 					if (!controller.getDeckArray().isEmpty()) {
 						updateUI(controller.getNewCards(compareCard1Index,
 								compareCard2Index, compareCard3Index));
-					}
-					if (controller.getDeckArray().isEmpty()) {
-
+					} else if (controller.getDeckArray().isEmpty()) {
+						// kolla efter nbr of sets
+						if (controller.getNbrOfSets() <= 0) {
+							// Game Over
+						} else {
+							// ta bort 3 kort i array och gör invisble
+						}
 					}
 					resetSelect();
 					set = false;

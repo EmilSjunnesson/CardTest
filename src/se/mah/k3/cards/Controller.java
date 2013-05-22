@@ -29,15 +29,7 @@ public class Controller {
 
 	public ArrayList<Card> getActiveCards(int cardsNeeded) {
 		placeCardsOnTable(cardsNeeded);
-		nbrOfSets = 0;
-		checkForSet();
-		while (nbrOfSets <= 0) {
-			Log.i("TagBag", "Inget SET");
-			removeFromActive();
-			Collections.shuffle(deckArray);
-			placeCardsOnTable(cardsNeeded);
-			checkForSet();
-		}
+		checkAndRedeal();
 		return activeCards;
 	}
 
@@ -65,7 +57,11 @@ public class Controller {
 		activeCards.set(card3Index, deckArray.get(0));
 		deckArray.remove(0);
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
+		checkAndRedeal();
+		return activeCards;
+	}
 
+	public void checkAndRedeal() {
 		nbrOfSets = 0;
 		checkForSet();
 		while (nbrOfSets <= 0) {
@@ -75,7 +71,6 @@ public class Controller {
 			placeCardsOnTable(12);
 			checkForSet();
 		}
-		return activeCards;
 	}
 
 	public boolean isSet(Card card1, Card card2, Card card3) {

@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
 				if (set == true) {
 					Log.i("TagBag", "SET");
 				} else if (set == false) {
-					Log.i("TagBag", "Inget SET");
+					noSet();
 				}
 			}
 		}
@@ -153,6 +153,15 @@ public class MainActivity extends Activity {
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
 			pressedCount--;
+		}
+	}
+
+	public void noSet() {
+		Log.i("TagBag", "Inget SET");
+		for (int i = 0; i < toggle.length; i++) {
+			toggle[i] = false;
+			selectedImg[i].setVisibility(View.INVISIBLE);
+			pressedCount = 0;
 		}
 	}
 

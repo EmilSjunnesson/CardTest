@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
 	ImageView[] iv;
 	ImageView[] selectedImg;
 	private boolean[] toggle;
+	private int pressedCount;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends Activity {
 		iv = new ImageView[12];
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
+		pressedCount = 0;
 
 		setupImageViews();
 		cardImages(controller.getActiveCards(12));
@@ -81,6 +83,7 @@ public class MainActivity extends Activity {
 				toggleState(11);
 				break;
 			}
+			Log.i("TagBag", "Cards selected: "+pressedCount);
 		}
 
 	};
@@ -128,8 +131,10 @@ public class MainActivity extends Activity {
 		toggle[pos] = !toggle[pos];
 		if (toggle[pos] == true) {
 			selectedImg[pos].setVisibility(View.VISIBLE);
+			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
+			pressedCount--;
 		}
 	}
 

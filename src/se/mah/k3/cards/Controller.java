@@ -11,7 +11,6 @@ public class Controller {
 	private boolean colorState;
 	private boolean shapeState;
 	private boolean fillingState;
-	private boolean setOnTable;
 	private int nbrOfSets = 0;
 	Deck deck = new Deck();
 	ArrayList<Card> deckArray = new ArrayList<Card>();
@@ -31,9 +30,8 @@ public class Controller {
 	public ArrayList<Card> getActiveCards(int cardsNeeded) {
 		placeCardsOnTable(cardsNeeded);
 		nbrOfSets = 0;
-		setOnTable = false;
 		checkForSet();
-		while (setOnTable = false) {
+		while (nbrOfSets <= 0) {
 			Log.i("TagBag", "Inget SET");
 			removeFromActive();
 			Collections.shuffle(deckArray);
@@ -66,9 +64,8 @@ public class Controller {
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
 
 		nbrOfSets = 0;
-		setOnTable = false;
 		checkForSet();
-		while (setOnTable = false) {
+		while (nbrOfSets <= 0) {
 			Log.i("TagBag", "Inget SET");
 			removeFromActive();
 			Collections.shuffle(deckArray);
@@ -478,10 +475,5 @@ public class Controller {
 		isSetOnTable(activeCards.get(9), activeCards.get(10),
 				activeCards.get(11));
 		Log.i("TagBag", "SET i kort: " + nbrOfSets);
-		if (nbrOfSets <= 0) {
-			setOnTable = false;
-		} else {
-			setOnTable = true;
-		}
 	}
 }

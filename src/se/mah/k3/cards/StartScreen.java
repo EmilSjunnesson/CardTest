@@ -10,7 +10,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 public class StartScreen extends Activity {
-
+	
+	MediaPlayer mediaplayer;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,10 +23,6 @@ public class StartScreen extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.menuscreen);
-
-		// Skapar en mediaplayer som spelar ljud när man trycker på korten
-		final MediaPlayer mp = MediaPlayer.create(this, R.raw.playbutton);
-
 		// Gör en imageview av playkortet
 		ImageView playcard = (ImageView) findViewById(R.id.playcard);
 		// Gör en imageview av highscorekortet
@@ -34,7 +32,21 @@ public class StartScreen extends Activity {
 		playcard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				mp.start();
+				if (mediaplayer == null) {
+					mediaplayer = MediaPlayer.create(StartScreen.this, R.raw.playbutton);
+					mediaplayer.start();
+				}else {
+					mediaplayer.stop();
+					mediaplayer.release();
+					mediaplayer = null;
+					mediaplayer = MediaPlayer.create(this, R.raw.playbutton);
+					mediaplayer.start();
+				}
+					
+					
+					
+				}
+				
 				switch (v.getId()) {
 				case R.drawable.playkort:
 					break;
@@ -48,6 +60,7 @@ public class StartScreen extends Activity {
 		highscorecard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mp.stop();
 				mp.start();
 				switch (v.getId()) {
 				case R.drawable.highscorekort:

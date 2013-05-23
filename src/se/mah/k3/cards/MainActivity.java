@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 	private int pressedCount;
 	private int index, compareCard1Index, compareCard2Index, compareCard3Index;
 	private boolean set;
-	private boolean newset;
+	private boolean newset=true;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -180,8 +180,12 @@ public class MainActivity extends Activity {
 	public void updateUI(ArrayList<Card> activeCards) {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
-		//If-sats fšr att animera fšrsta utlŠgget av kort.
-		iv[i].startAnimation(placeCards[i]);
+		if (newset==true) {
+			iv[i].startAnimation(placeCards[i]);
+		newset=false;
+		}
+			//If-sats fšr att animera fšrsta utlŠgget av kort.
+		
 		}
 
 		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());

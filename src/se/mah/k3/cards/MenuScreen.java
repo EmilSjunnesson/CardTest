@@ -29,7 +29,8 @@ public class MenuScreen extends Activity {
 				case R.drawable.playkort:
 					break;
 				}
-				
+				Intent intent = new Intent(v.getContext(),MainActivity.class);
+				startActivityForResult(intent, 0);
 			}
 		});
 		

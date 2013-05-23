@@ -17,8 +17,8 @@ public class MainActivity extends Activity {
 	Controller controller;
 	ImageView[] iv;
 	ImageView[] selectedImg;
-	ImageView animView1;
-	AnimationDrawable animation1;
+	ImageView [] animView;
+	AnimationDrawable select_Anim;
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	private boolean[] toggle;
 	private int pressedCount;
@@ -40,9 +40,10 @@ public class MainActivity extends Activity {
 		iv = new ImageView[12];
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
-		animView1 = (ImageView) findViewById(R.id.cardAnim);
-		animView1.setBackgroundResource(R.drawable.select_anim);
-		animation1 = (AnimationDrawable) animView1.getBackground();
+		animView = new ImageView[12];
+		
+		
+		//animation1 = (AnimationDrawable) animView1.getBackground();
 		pressedCount = 0;
 
 		setupImageViews();
@@ -55,8 +56,6 @@ public class MainActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.card1:
 				toggleState(0);
-				animation1.stop();
-				animation1.start();
 				break;
 			case R.id.card2:
 				toggleState(1);
@@ -143,7 +142,26 @@ public class MainActivity extends Activity {
 		iv[9] = (ImageView) findViewById(R.id.card10);
 		iv[10] = (ImageView) findViewById(R.id.card11);
 		iv[11] = (ImageView) findViewById(R.id.card12);
-
+		
+		animView[0]=(ImageView) findViewById(R.id.cardAnim1);
+		animView[1]=(ImageView) findViewById(R.id.cardAnim2);
+		animView[2]=(ImageView) findViewById(R.id.cardAnim3);
+		animView[3]=(ImageView) findViewById(R.id.cardAnim4);
+		animView[4]=(ImageView) findViewById(R.id.cardAnim5);
+		animView[5]=(ImageView) findViewById(R.id.cardAnim6);
+		animView[6]=(ImageView) findViewById(R.id.cardAnim7);
+		animView[7]=(ImageView) findViewById(R.id.cardAnim8);
+		animView[8]=(ImageView) findViewById(R.id.cardAnim9);
+		animView[9]=(ImageView) findViewById(R.id.cardAnim10);
+		animView[10]=(ImageView) findViewById(R.id.cardAnim11);
+		animView[11]=(ImageView) findViewById(R.id.cardAnim12);
+		
+		for (int i = 0; i< animView.length;i++){
+			animView[i].setBackgroundResource(R.drawable.select_anim);
+			select_Anim = (AnimationDrawable) animView[i].getBackground();
+		}
+		
+		
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setOnClickListener(onClickListener);
 		}
@@ -172,6 +190,8 @@ public class MainActivity extends Activity {
 		toggle[pos] = !toggle[pos];
 		if (toggle[pos] == true) {
 			selectedImg[pos].setVisibility(View.VISIBLE);
+			select_Anim.stop();
+			select_Anim.start();
 			currCard = controller.getActiveArray().get(pos);
 			index = pos;
 			pressedCount++;

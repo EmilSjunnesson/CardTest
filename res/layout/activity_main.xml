@@ -423,6 +423,25 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/select_anim" />		 
+        android:src="@drawable/select_anim" />
+
+		<TextView
+		    android:id="@+id/textView1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_alignTop="@+id/card1"
+		    android:text="Large Text"
+		    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		<TextView
+		    android:id="@+id/textView2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignRight="@+id/textView1"
+		    android:layout_below="@+id/textView1"
+		    android:layout_marginTop="60dp"
+		    android:text="Large Text"
+		    android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

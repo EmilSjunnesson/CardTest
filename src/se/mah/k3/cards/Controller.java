@@ -62,7 +62,6 @@ public class Controller {
 	}
 
 	public void checkAndRedeal() {
-		nbrOfSets = 0;
 		checkForSet();
 		while (nbrOfSets <= 0) {
 			Log.i("TagBag", "Inget SET");
@@ -71,6 +70,10 @@ public class Controller {
 			placeCardsOnTable(12);
 			checkForSet();
 		}
+	}
+
+	public void win() {
+
 	}
 
 	public boolean isSet(Card card1, Card card2, Card card3) {
@@ -152,6 +155,7 @@ public class Controller {
 	}
 
 	public void checkForSet() {
+		nbrOfSets = 0;
 		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(2));
 		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(3));
 		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(4));

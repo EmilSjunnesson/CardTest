@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -19,6 +20,7 @@ public class MainActivity extends Activity {
 	ImageView[] selectedImg;
 	ImageView[] animView;
 	AnimationDrawable[] select_Anim;
+	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	private boolean[] toggle;
 	private int pressedCount;
@@ -42,6 +44,9 @@ public class MainActivity extends Activity {
 		toggle = new boolean[12];
 		animView = new ImageView[12];
 		select_Anim = new AnimationDrawable[12];
+
+		leftInDeck = (TextView) findViewById(R.id.textView1);
+		setsOnTable = (TextView) findViewById(R.id.textView2);
 
 		pressedCount = 0;
 
@@ -99,30 +104,7 @@ public class MainActivity extends Activity {
 			} else if (pressedCount == 3) {
 				compareCard3 = currCard;
 				compareCard3Index = index;
-
-				set = controller
-						.isSet(compareCard1, compareCard2, compareCard3);
-				if (set == true) {
-					Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT)
-							.show();
-					if (!controller.getDeckArray().isEmpty()) {
-						updateUI(controller.getNewCards(compareCard1Index,
-								compareCard2Index, compareCard3Index));
-					} else if (controller.getDeckArray().isEmpty()) {
-						// kolla efter nbr of sets
-						if (controller.getNbrOfSets() <= 0) {
-							// Game Over
-						} else {
-							// ta bort 3 kort i array och gör invisble
-						}
-					}
-					resetSelect();
-					set = false;
-				} else if (set == false) {
-					Toast.makeText(MainActivity.this, "No SET",
-							Toast.LENGTH_SHORT).show();
-					resetSelect();
-				}
+				checkSelection();
 			}
 		}
 
@@ -182,6 +164,9 @@ public class MainActivity extends Activity {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
 		}
+
+		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());
+		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());
 	}
 
 	public void toggleState(int pos) {
@@ -204,6 +189,38 @@ public class MainActivity extends Activity {
 			toggle[i] = false;
 			selectedImg[i].setVisibility(View.INVISIBLE);
 			pressedCount = 0;
+		}
+	}
+
+	public void checkSelection() {
+		set = controller.isSet(compareCard1, compareCard2, compareCard3);
+		if (set == true) {
+			Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT).show();
+			if (!controller.getDeckArray().isEmpty()) {
+				updateUI(controller.getNewCards(compareCard1Index,
+						compareCard2Index, compareCard3Index));
+			} else if (controller.getDeckArray().isEmpty()) {
+				controller.checkForSet();
+				if (controller.getNbrOfSets() <= 0) {
+					controller.win();
+				} else {
+					controller.getActiveArray().set(compareCard1Index, null);
+					controller.getActiveArray().set(compareCard2Index, null);
+					controller.getActiveArray().set(compareCard3Index, null);
+					iv[compareCard1Index].setVisibility(View.INVISIBLE);
+					iv[compareCard1Index].setEnabled(false);
+					iv[compareCard2Index].setVisibility(View.INVISIBLE);
+					iv[compareCard2Index].setEnabled(false);
+					iv[compareCard3Index].setVisibility(View.INVISIBLE);
+					iv[compareCard3Index].setEnabled(false);
+				}
+			}
+			resetSelect();
+			set = false;
+		} else if (set == false) {
+			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
+					.show();
+			resetSelect();
 		}
 	}
 

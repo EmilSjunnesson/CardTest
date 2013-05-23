@@ -178,3 +178,4 @@ gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
+gen/se/mah/k3/cards/R.java

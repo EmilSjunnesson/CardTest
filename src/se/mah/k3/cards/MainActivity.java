@@ -182,12 +182,15 @@ public class MainActivity extends Activity {
 			iv[i].setImageResource(activeCards.get(i).getResId());
 		if (newset==true) {
 			iv[i].startAnimation(placeCards[i]);
-		newset=false;
+		
 		}
 			//If-sats för att animera första utlägget av kort.
 		
 		}
-
+		if (newset==true){
+			newset=false;
+		}
+		
 		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());
 		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());
 	}

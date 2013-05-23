@@ -4,8 +4,8 @@
     android:startOffset="300"
     android:fillAfter="true"
     android:fillEnabled="true"
-    android:fromXDelta="-800"
-    android:fromYDelta="-800"
+    android:fromXDelta="-100"
+    android:fromYDelta="900"
     android:interpolator="@android:anim/linear_interpolator"
     android:toXDelta="0"
     android:toYDelta="0" >

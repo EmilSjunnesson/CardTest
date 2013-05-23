@@ -6,7 +6,7 @@
    	android:fromYDelta="-800"
    	android:toYDelta="0"
    	android:duration="150"
-   	android:startOffset="1350"
+   	android:startOffset="1600"
    	android:interpolator="@android:anim/linear_interpolator"
    	android:fillEnabled="true"
    	android:fillAfter="true"

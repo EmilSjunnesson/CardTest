@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +21,8 @@ public class MainActivity extends Activity {
 	ImageView[] iv;
 	ImageView[] selectedImg;
 	ImageView[] animView;
+	Animation[] placeCards;
+	
 	AnimationDrawable[] select_Anim;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
@@ -26,7 +30,7 @@ public class MainActivity extends Activity {
 	private int pressedCount;
 	private int index, compareCard1Index, compareCard2Index, compareCard3Index;
 	private boolean set;
-
+	private boolean newset;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,7 +48,7 @@ public class MainActivity extends Activity {
 		toggle = new boolean[12];
 		animView = new ImageView[12];
 		select_Anim = new AnimationDrawable[12];
-
+		placeCards= new Animation[12];
 		leftInDeck = (TextView) findViewById(R.id.textView1);
 		setsOnTable = (TextView) findViewById(R.id.textView2);
 
@@ -136,7 +140,20 @@ public class MainActivity extends Activity {
 		animView[9] = (ImageView) findViewById(R.id.cardAnim10);
 		animView[10] = (ImageView) findViewById(R.id.cardAnim11);
 		animView[11] = (ImageView) findViewById(R.id.cardAnim12);
-
+		
+		placeCards[0]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim1);
+		placeCards[1]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim2);
+		placeCards[2]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim3);
+		placeCards[3]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim4);
+		placeCards[4]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim5);
+		placeCards[5]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim6);
+		placeCards[6]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim7);
+		placeCards[7]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim8);
+		placeCards[8]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim9);
+		placeCards[9]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim10);
+		placeCards[10]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim11);
+		placeCards[11]=AnimationUtils.loadAnimation(this, R.anim.placecard_anim12);
+		
 		for (int i = 0; i < animView.length; i++) {
 			animView[i].setBackgroundResource(R.drawable.select_anim);
 			select_Anim[i] = (AnimationDrawable) animView[i].getBackground();
@@ -163,6 +180,8 @@ public class MainActivity extends Activity {
 	public void updateUI(ArrayList<Card> activeCards) {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
+		//If-sats fšr att animera fšrsta utlŠgget av kort.
+		iv[i].startAnimation(placeCards[i]);
 		}
 
 		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());

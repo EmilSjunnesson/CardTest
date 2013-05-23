@@ -12,8 +12,8 @@ public class SplashScreen extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//fullscreen
+
+		// fullscreen
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -26,7 +26,7 @@ public class SplashScreen extends Activity {
 	}
 
 	private class IntentLauncher extends Thread {
-		
+
 		@Override
 		public void run() {
 			try {
@@ -34,9 +34,9 @@ public class SplashScreen extends Activity {
 			} catch (Exception e) {
 				Log.e("TagBag", "could not load application");
 			}
-			
-			//Start main activity
-			Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+
+			// Start main activity
+			Intent intent = new Intent(SplashScreen.this, StartScreen.class);
 			SplashScreen.this.startActivity(intent);
 			SplashScreen.this.finish();
 		}

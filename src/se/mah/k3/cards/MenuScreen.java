@@ -33,7 +33,7 @@ public class MenuScreen extends Activity {
 			}
 		});
 		
-		//Ljud fšr highscorekortet
+		//  Ljud fšr highscorekortet
 		highscorecard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

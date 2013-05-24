@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 	Animation[] placeCards;
 	MediaPlayer selectSound;
 	MediaPlayer bgMusic;
-	
+
 	AnimationDrawable[] select_Anim;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
@@ -55,7 +55,8 @@ public class MainActivity extends Activity {
 		placeCards = new Animation[12];
 		leftInDeck = (TextView) findViewById(R.id.textView1);
 		setsOnTable = (TextView) findViewById(R.id.textView2);
-		selectSound=MediaPlayer.create(getApplicationContext(), R.raw.playbutton);
+		selectSound = MediaPlayer.create(getApplicationContext(),
+				R.raw.playbutton);
 		pressedCount = 0;
 
 		setupImageViews();
@@ -66,7 +67,7 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.card1:				
+			case R.id.card1:
 				toggleState(0);
 				break;
 			case R.id.card2:
@@ -242,21 +243,18 @@ public class MainActivity extends Activity {
 				resetSelect();
 			} else if (controller.getDeckArray().isEmpty()) {
 				controller.checkForSet();
-				if (controller.getNbrOfSets()<=0){
-				Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
-						.show();
-				controller.win();
-
+				if (controller.getNbrOfSets() <= 0) {
+					Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
+							.show();
+					controller.win();
+				}
+				set = false;
 			}
-			resetSelect();
-			
-			set = false;
-		} else if (set == false) {
+		}
+		if (set == false) {
 			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
 					.show();
-			resetSelect();
 		}
+		resetSelect();
 	}
-
-}
 }

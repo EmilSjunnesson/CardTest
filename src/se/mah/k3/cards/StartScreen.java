@@ -41,7 +41,7 @@ public class StartScreen extends Activity {
 				startsound.start();
 				
 				
-				
+				startmusic.stop();
 				Intent intent = new Intent(v.getContext(), MainActivity.class);
 				startActivityForResult(intent, 0);
 			}

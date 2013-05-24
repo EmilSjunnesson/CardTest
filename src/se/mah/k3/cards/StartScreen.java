@@ -1,5 +1,7 @@
 package se.mah.k3.cards;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -11,7 +13,7 @@ import android.widget.ImageView;
 
 public class StartScreen extends Activity {
 	
-	MediaPlayer mediaplayer;
+	MediaPlayer startsound;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,36 +23,22 @@ public class StartScreen extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+		startsound=MediaPlayer.create(getApplicationContext(), R.raw.playbutton);
 		setContentView(R.layout.menuscreen);
 		// Gšr en imageview av playkortet
 		ImageView playcard = (ImageView) findViewById(R.id.playcard);
 		// Gšr en imageview av highscorekortet
 		ImageView highscorecard = (ImageView) findViewById(R.id.highscorecard);
-
 		// Ljud fšr playkortet
 		playcard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (mediaplayer == null) {
-					mediaplayer = MediaPlayer.create(StartScreen.this, R.raw.playbutton);
-					mediaplayer.start();
-				}else {
-					mediaplayer.stop();
-					mediaplayer.release();
-					mediaplayer = null;
-					mediaplayer = MediaPlayer.create(this, R.raw.playbutton);
-					mediaplayer.start();
-				}
 					
-					
-					
-				}
+				startsound.seekTo(0);
+				startsound.start();
 				
-				switch (v.getId()) {
-				case R.drawable.playkort:
-					break;
-				}
+				
+				
 				Intent intent = new Intent(v.getContext(), MainActivity.class);
 				startActivityForResult(intent, 0);
 			}
@@ -60,8 +48,13 @@ public class StartScreen extends Activity {
 		highscorecard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				mp.stop();
-				mp.start();
+					
+					
+						startsound.seekTo(0);
+						startsound.start();
+					
+					
+					
 				switch (v.getId()) {
 				case R.drawable.highscorekort:
 					break;

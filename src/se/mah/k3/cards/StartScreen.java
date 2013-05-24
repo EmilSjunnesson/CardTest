@@ -14,7 +14,7 @@ import android.widget.ImageView;
 public class StartScreen extends Activity {
 	
 	MediaPlayer startsound;
-	
+	MediaPlayer startmusic;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,12 +24,15 @@ public class StartScreen extends Activity {
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		startsound=MediaPlayer.create(getApplicationContext(), R.raw.playbutton);
+		startmusic=MediaPlayer.create(getApplicationContext(), R.raw.startmusic);
 		setContentView(R.layout.menuscreen);
 		// Gšr en imageview av playkortet
 		ImageView playcard = (ImageView) findViewById(R.id.playcard);
 		// Gšr en imageview av highscorekortet
 		ImageView highscorecard = (ImageView) findViewById(R.id.highscorecard);
 		// Ljud fšr playkortet
+		startmusic.setLooping(true);
+		startmusic.start();
 		playcard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

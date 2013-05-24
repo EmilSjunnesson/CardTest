@@ -235,6 +235,8 @@ public class MainActivity extends Activity {
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
 			} else if (controller.getDeckArray().isEmpty()) {
+				controller.checkForSet();
+				if (controller.getNbrOfSets()<=0){
 				Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
 						.show();
 				controller.win();
@@ -249,4 +251,5 @@ public class MainActivity extends Activity {
 		}
 	}
 
+}
 }

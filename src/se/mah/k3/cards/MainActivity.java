@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +23,9 @@ public class MainActivity extends Activity {
 	ImageView[] selectedImg;
 	ImageView[] animView;
 	Animation[] placeCards;
-
+	MediaPlayer selectSound;
+	MediaPlayer bgMusic;
+	
 	AnimationDrawable[] select_Anim;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
@@ -52,7 +55,7 @@ public class MainActivity extends Activity {
 		placeCards = new Animation[12];
 		leftInDeck = (TextView) findViewById(R.id.textView1);
 		setsOnTable = (TextView) findViewById(R.id.textView2);
-
+		selectSound=MediaPlayer.create(getApplicationContext(), R.raw.playbutton);
 		pressedCount = 0;
 
 		setupImageViews();
@@ -63,7 +66,7 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.card1:
+			case R.id.card1:				
 				toggleState(0);
 				break;
 			case R.id.card2:
@@ -212,6 +215,8 @@ public class MainActivity extends Activity {
 			select_Anim[pos].start();
 			currCard = controller.getActiveArray().get(pos);
 			index = pos;
+			selectSound.seekTo(0);
+			selectSound.start();
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
@@ -234,6 +239,7 @@ public class MainActivity extends Activity {
 			if (!controller.getDeckArray().isEmpty()) {
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
+				resetSelect();
 			} else if (controller.getDeckArray().isEmpty()) {
 				controller.checkForSet();
 				if (controller.getNbrOfSets()<=0){
@@ -243,6 +249,7 @@ public class MainActivity extends Activity {
 
 			}
 			resetSelect();
+			
 			set = false;
 		} else if (set == false) {
 			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)

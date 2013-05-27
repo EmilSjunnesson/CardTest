@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class StartScreen extends Activity {
-	Animation startanim1;
-	Animation startanim2;
+	Animation startanim1, startanim2,clickanim1,clickanim2;
 	MediaPlayer startsound;
 	MediaPlayer startmusic;
 	@Override
@@ -28,9 +28,10 @@ public class StartScreen extends Activity {
 		startmusic=MediaPlayer.create(getApplicationContext(), R.raw.startmusic);
 		startanim1= AnimationUtils.loadAnimation(this, R.anim.menuanim1);
 		startanim2= AnimationUtils.loadAnimation(this, R.anim.menuanim2);
+		clickanim1=AnimationUtils.loadAnimation(this, R.anim.menuanim3);
 		setContentView(R.layout.menuscreen);
 		// Gšr en imageview av playkortet
-		ImageView playcard = (ImageView) findViewById(R.id.playcard);
+		final ImageView playcard = (ImageView) findViewById(R.id.playcard);
 		// Gšr en imageview av highscorekortet
 		ImageView highscorecard = (ImageView) findViewById(R.id.highscorecard);
 		// Ljud fšr playkortet
@@ -38,19 +39,43 @@ public class StartScreen extends Activity {
 		startmusic.start();
 		playcard.startAnimation(startanim1);
 		highscorecard.startAnimation(startanim2);
-		
+		playcard.setVisibility(View.VISIBLE);
 		playcard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
+				playcard.startAnimation(clickanim1);
 				startsound.seekTo(0);
 				startsound.start();
 				
 				
-				startmusic.pause();
 				
-				Intent intent = new Intent(v.getContext(), MainActivity.class);
+				
+				startmusic.pause();
+				//Intent intent = new Intent(v.getContext(), MainActivity.class);
+				//startActivityForResult(intent, 0);
+				
+				}
+		});
+		clickanim1.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 				startActivityForResult(intent, 0);
+				playcard.setVisibility(View.INVISIBLE);
 			}
 		});
 
@@ -59,7 +84,7 @@ public class StartScreen extends Activity {
 			@Override
 			public void onClick(View v) {
 					
-					
+						
 						startsound.seekTo(0);
 						startsound.start();
 					

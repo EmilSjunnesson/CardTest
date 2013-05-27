@@ -20,6 +20,5 @@
         android:fillEnabled="true"
         android:fillAfter="true">
         </alpha>
-
-       
+		       
 </set>

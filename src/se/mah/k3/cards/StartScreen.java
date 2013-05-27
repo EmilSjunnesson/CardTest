@@ -2,6 +2,7 @@ package se.mah.k3.cards;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,8 @@ public class StartScreen extends Activity {
 	Animation startanim1, startanim2,clickanim1,clickanim2;
 	MediaPlayer startsound;
 	MediaPlayer startmusic;
+	ImageView playcard;
+	ImageView highscorecard;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,11 +32,12 @@ public class StartScreen extends Activity {
 		startanim1= AnimationUtils.loadAnimation(this, R.anim.menuanim1);
 		startanim2= AnimationUtils.loadAnimation(this, R.anim.menuanim2);
 		clickanim1=AnimationUtils.loadAnimation(this, R.anim.menuanim3);
+		clickanim2=AnimationUtils.loadAnimation(this, R.anim.menuanim4);
 		setContentView(R.layout.menuscreen);
 		// Gšr en imageview av playkortet
-		final ImageView playcard = (ImageView) findViewById(R.id.playcard);
+		playcard = (ImageView) findViewById(R.id.playcard);
 		// Gšr en imageview av highscorekortet
-		ImageView highscorecard = (ImageView) findViewById(R.id.highscorecard);
+		highscorecard = (ImageView) findViewById(R.id.highscorecard);
 		// Ljud fšr playkortet
 		startmusic.setLooping(true);
 		startmusic.start();
@@ -84,7 +88,7 @@ public class StartScreen extends Activity {
 			@Override
 			public void onClick(View v) {
 					
-						
+						highscorecard.startAnimation(clickanim2);
 						startsound.seekTo(0);
 						startsound.start();
 					
@@ -105,11 +109,13 @@ public class StartScreen extends Activity {
 protected void onPause(){
 	super.onPause();
 	startmusic.pause();
+	
 }
 @Override
 protected void onResume(){
 	super.onResume();
 	startmusic.start();	
+	playcard.setVisibility(View.VISIBLE);
 	
 }
 @Override

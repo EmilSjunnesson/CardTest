@@ -1,7 +1,5 @@
 package se.mah.k3.cards;
 
-import java.io.IOException;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -9,10 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class StartScreen extends Activity {
-	
+	Animation startanim1;
+	Animation startanim2;
 	MediaPlayer startsound;
 	MediaPlayer startmusic;
 	@Override
@@ -25,6 +26,8 @@ public class StartScreen extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		startsound=MediaPlayer.create(getApplicationContext(), R.raw.playbutton);
 		startmusic=MediaPlayer.create(getApplicationContext(), R.raw.startmusic);
+		startanim1= AnimationUtils.loadAnimation(this, R.anim.menuanim1);
+		startanim2= AnimationUtils.loadAnimation(this, R.anim.menuanim2);
 		setContentView(R.layout.menuscreen);
 		// Gšr en imageview av playkortet
 		ImageView playcard = (ImageView) findViewById(R.id.playcard);
@@ -33,16 +36,19 @@ public class StartScreen extends Activity {
 		// Ljud fšr playkortet
 		startmusic.setLooping(true);
 		startmusic.start();
+		playcard.startAnimation(startanim1);
+		highscorecard.startAnimation(startanim2);
+		
 		playcard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-					
+				
 				startsound.seekTo(0);
 				startsound.start();
 				
 				
-				startmusic.stop();
-				startmusic.release();
+				startmusic.pause();
+				
 				Intent intent = new Intent(v.getContext(), MainActivity.class);
 				startActivityForResult(intent, 0);
 			}
@@ -69,5 +75,23 @@ public class StartScreen extends Activity {
 
 	}
 	
+		
+@Override
+protected void onPause(){
+	super.onPause();
+	startmusic.pause();
+}
+@Override
+protected void onResume(){
+	super.onResume();
+	startmusic.start();	
+	
+}
+@Override
+protected void onDestroy(){
+	super.onDestroy();
+	startmusic.release();
+	startsound.release();
+}
 }
 

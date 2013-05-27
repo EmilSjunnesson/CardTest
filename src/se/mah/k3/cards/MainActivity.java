@@ -237,21 +237,34 @@ public class MainActivity extends Activity {
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
 		if (set == true) {
 			Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT).show();
-			if (!controller.getDeckArray().isEmpty()) {
+			if (controller.getDeckArray().size() > 3) {
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
-				resetSelect();
-			} else if (controller.getDeckArray().isEmpty()) {
+			} else if (controller.getDeckArray().size() == 3) {
+				updateUI(controller.getLastCards(compareCard1Index,
+						compareCard2Index, compareCard3Index));
 				controller.checkForSet();
 				if (controller.getNbrOfSets() <= 0) {
 					Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
 							.show();
 					controller.win();
 				}
-				set = false;
+			} else if (controller.getDeckArray().isEmpty()) {
+				controller.getActiveArray().set(compareCard1Index, null);
+				controller.getActiveArray().set(compareCard2Index, null);
+				controller.getActiveArray().set(compareCard3Index, null);
+				iv[compareCard1Index].setVisibility(View.INVISIBLE);
+				iv[compareCard2Index].setVisibility(View.INVISIBLE);
+				iv[compareCard3Index].setVisibility(View.INVISIBLE);
+				controller.checkForSet();
+				if (controller.getNbrOfSets() <= 0) {
+					Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
+							.show();
+					controller.win();
+				}
 			}
-		}
-		if (set == false) {
+			set = false;
+		} else if (set == false) {
 			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
 					.show();
 		}

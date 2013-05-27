@@ -447,4 +447,13 @@
 		    android:textColor="#FFFFFF"
 		    android:textAppearance="?android:attr/textAppearanceLarge" />
 
+		<TextView
+		    android:id="@+id/highscoreView"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/textView2"
+		    android:layout_below="@+id/card10"
+		    android:textColor="#FFFFFF"
+		    android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>

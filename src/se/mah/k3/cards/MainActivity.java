@@ -2,12 +2,16 @@ package se.mah.k3.cards;
 
 import java.util.ArrayList;
 
+
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -34,10 +38,55 @@ public class MainActivity extends Activity {
 	private int index, compareCard1Index, compareCard2Index, compareCard3Index;
 	private boolean set;
 	private boolean newset = true;
+	private Score scoreClass = new Score();
+	private int score;   //An int that saves your total score
+	private Toast toast1000, toast1500, toast2000, toast3000, toast5000, toast10000;
+	private TextView highscore;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//Create custom toasts
+		LayoutInflater inflater = getLayoutInflater();
+		View layout1 = inflater.inflate(R.layout.toast_layout,(ViewGroup) findViewById(R.id.toast_layout_root));
+		View layout2 = inflater.inflate(R.layout.toast_layout_1500,(ViewGroup) findViewById(R.id.toast_layout_1500_root));
+		View layout3 = inflater.inflate(R.layout.toast_layout_2000,(ViewGroup) findViewById(R.id.toast_layout_2000_root));
+		View layout4 = inflater.inflate(R.layout.toast_layout_3000,(ViewGroup) findViewById(R.id.toast_layout_3000_root));
+		View layout5 = inflater.inflate(R.layout.toast_layout_5000,(ViewGroup) findViewById(R.id.toast_layout_5000_root));
+		View layout6 = inflater.inflate(R.layout.toast_layout_10000,(ViewGroup) findViewById(R.id.toast_layout_10000_root));
+		toast1000 = new Toast(getApplicationContext());
+		toast1000.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast1000.setDuration(Toast.LENGTH_SHORT);
+		toast1000.setView(layout1);
+		
+		toast1500 = new Toast(getApplicationContext());
+		toast1500.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast1500.setDuration(Toast.LENGTH_SHORT);
+		toast1500.setView(layout2);
+		
+		toast2000 = new Toast(getApplicationContext());
+		toast2000.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast2000.setDuration(Toast.LENGTH_SHORT);
+		toast2000.setView(layout3);
+		
+		toast3000 = new Toast(getApplicationContext());
+		toast3000.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast3000.setDuration(Toast.LENGTH_SHORT);
+		toast3000.setView(layout4);
+		
+		toast5000 = new Toast(getApplicationContext());
+		toast5000.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast5000.setDuration(Toast.LENGTH_SHORT);
+		toast5000.setView(layout5);
+		
+		toast10000 = new Toast(getApplicationContext());
+		toast10000.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast10000.setDuration(Toast.LENGTH_SHORT);
+		toast10000.setView(layout6);
+		
+		//Highscore textview
+		highscore = (TextView) findViewById(R.id.highscoreView);
 
 		// fullscreen
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -236,7 +285,38 @@ public class MainActivity extends Activity {
 	public void checkSelection() {
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
 		if (set == true) {
-			Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT).show();
+			
+			scoreClass.killOldTimer();
+			scoreClass.add1000Points(); 
+			scoreClass.startComboTimer();
+			
+			//Add the score you get to the total score
+			score = score+scoreClass.getPoints(); 
+			
+			//Show custom toast based on how much points you get from your set
+			if (scoreClass.getPoints() == 1000){
+				toast1000.show();
+			}
+			if(scoreClass.getPoints() == 1500){
+				toast1500.show();
+			}
+			if(scoreClass.getPoints() == 2000){
+				toast2000.show();
+			}
+			if(scoreClass.getPoints() == 3000){
+				toast3000.show();
+			}
+			if(scoreClass.getPoints() == 5000){
+				toast5000.show();
+			}
+			if(scoreClass.getPoints() == 10000){
+				toast10000.show();
+			}
+			
+			highscore.setText(score);
+			scoreClass.clearAll();
+			
+			//Toast.makeText(MainActivity.this, "SET", Toast.LENGTH_SHORT).show();
 			if (controller.getDeckArray().size() > 3) {
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
@@ -253,5 +333,17 @@ public class MainActivity extends Activity {
 					.show();
 		}
 		resetSelect();
+	}
+
+	@Override
+	protected void onDestroy() {
+		scoreClass.killOldTimer();
+		super.onDestroy();
+	}
+
+	@Override
+	protected void onPause() {
+		scoreClass.killOldTimer();
+		super.onPause();
 	}
 }

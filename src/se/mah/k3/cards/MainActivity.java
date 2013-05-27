@@ -243,25 +243,9 @@ public class MainActivity extends Activity {
 			} else if (controller.getDeckArray().size() == 3) {
 				updateUI(controller.getLastCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
-				controller.checkForSet();
-				if (controller.getNbrOfSets() <= 0) {
-					Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
-							.show();
-					controller.win();
-				}
-			} else if (controller.getDeckArray().isEmpty()) {
-				controller.getActiveArray().set(compareCard1Index, null);
-				controller.getActiveArray().set(compareCard2Index, null);
-				controller.getActiveArray().set(compareCard3Index, null);
-				iv[compareCard1Index].setVisibility(View.INVISIBLE);
-				iv[compareCard2Index].setVisibility(View.INVISIBLE);
-				iv[compareCard3Index].setVisibility(View.INVISIBLE);
-				controller.checkForSet();
-				if (controller.getNbrOfSets() <= 0) {
-					Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
-							.show();
-					controller.win();
-				}
+				Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
+						.show();
+				controller.win();
 			}
 			set = false;
 		} else if (set == false) {

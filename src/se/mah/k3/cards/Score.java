@@ -6,53 +6,51 @@ import android.util.Log;
 
 
 public class Score {
-
 	
-	Timer comboTimer = new Timer();
+	private Timer comboTimer;
+	private int points = 0;   //An int that contains the score you get for each set
+	private String pointsString = "";
+	private int comboScore1 = 0;
+	private int comboScore2 = 0;
 	
-	public int points = 0;
-	public String pointsString = "";
-	int comboScore1 = 0;
-	int comboScore2 = 0;
-	
-	public Score (Boolean isSet){
+	//return points
+	public int getPoints(){
+		Log.i("score", "returns points");
+		return points;
 	}
 	
-	//Add combo points to "regular" points and return them
-	public int getPoints(){
+	//Mer logiskt om man r�knar ut comboscore n�r man d�dar timern f�r det h�nger v�l ihop.
+	public void killOldTimer(){
+		if (comboTimer!=null){
+			comboTimer.cancel();
+		}
 		comboScore2 = convertComboPoints(comboScore1);
 		points = points+comboScore2;
-		Log.i("score", "returns points");
-		
 		comboScore1 = 0;
-		return points;
 	}
 	
 	//Add 1000 points and start comboTimer to calculate bonus-points
-	public int add1000Points(){
+	public void add1000Points(){
 		points = points+1000;
 		Log.i("score", "adds 1000 points");
-		startComboTimer();
-		return points;
 	}
 	
 	//Start the time to calculate how much bonus-points you will get
 	public int startComboTimer(){
-			comboTimer.schedule(new TimerTask() {
+		comboTimer = new Timer(); //H�r s� vi skapar bara en timer n�r det beh�vs
+  		comboTimer.schedule(new TimerTask() {
 		                @Override
 		                public void run(){
-		                	
-			                	Log.i("score", "adds to comboScore");
-			                	comboScore1++;
-			                	
-			                	//If the player takes too long, stop the counter
-			                	if(comboScore1 > 100){
-			                		cancel();
-			                	}
-		                	
+			                Log.i("score", this.toString()+" comboScore: " + comboScore1);
+			                comboScore1++;
+			                //If the player takes too long, stop the counter
+			                if(comboScore1 > 100){
+			                	cancel();
+			                }
+			                
 		                }
 		            
-		    }, 500, 500);
+		    }, 10, 500);
 		
 		return comboScore1;
 	}
@@ -73,16 +71,41 @@ public class Score {
 			comboPoints2 = 2000;
 		} else if (comboPoints < 45 && comboPoints > 30){
 			comboPoints2 = 1000;
-		} else if (comboPoints > 45){
+		} else if (comboPoints < 70 && comboPoints > 45){
+			comboPoints2 = 500;
+		} else {
 			comboPoints2 = 0;
 		}
 		return comboPoints2;
 	}
 	
 	//Clear all points
+	public void clearAll(){		
+		clearPoints();
+		clearPointsString();
+		clearComboScore1();
+		clearComboScore2();
+	}
+	
 	public int clearPoints(){
 		points = 0;
 		return points;
 	}
-
+	
+	public String clearPointsString(){
+		pointsString = "";
+		return pointsString;
 	}
+	
+	public int clearComboScore1(){
+		comboScore1 = 0;
+		return comboScore1;
+	}
+	
+	public int clearComboScore2(){
+		comboScore2 = 0;
+		return comboScore2;
+	}
+
+
+}

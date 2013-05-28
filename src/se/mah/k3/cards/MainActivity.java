@@ -3,6 +3,7 @@ package se.mah.k3.cards;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
 	Animation[] placeCards;
 	MediaPlayer selectSound;
 	MediaPlayer bgMusic;
-
+	Dialog exitDialog, winDialog;
 	AnimationDrawable[] select_Anim;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
@@ -61,6 +62,14 @@ public class MainActivity extends Activity {
 		// Highscore textview
 		highscore = (TextView) findViewById(R.id.highscoreView);
 		highscore.setText("Highscore" + Integer.toString(score));
+
+		// Create custom dialogs
+		exitDialog = new Dialog(MainActivity.this);
+		exitDialog = controller.createCustomDialog(exitDialog,
+				R.layout.exit_dialog);
+		winDialog = new Dialog(MainActivity.this);
+		winDialog = controller.createCustomDialog(winDialog,
+				R.layout.win_dialog);
 
 		controller = new Controller();
 		scoreClass = new Score();
@@ -241,7 +250,13 @@ public class MainActivity extends Activity {
 			finish();
 		} else {
 			// popup
+			winDialog.show();
 		}
+	}
+
+	public void onBackPressed() {
+		exitDialog.show();
+		return;
 	}
 
 	public void setupToasts() {

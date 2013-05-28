@@ -3,7 +3,10 @@ package se.mah.k3.cards;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
+import android.view.Window;
 
 public class Controller {
 
@@ -82,6 +85,14 @@ public class Controller {
 			placeCardsOnTable(12);
 			checkForSet();
 		}
+	}
+
+	public Dialog createCustomDialog(Dialog d, int layoutId) {
+		d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		d.setContentView(layoutId);
+		d.getWindow().setBackgroundDrawable(
+				new ColorDrawable(android.graphics.Color.TRANSPARENT));
+		return d;
 	}
 
 	public boolean isSet(Card card1, Card card2, Card card3) {

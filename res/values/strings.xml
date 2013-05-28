@@ -19,4 +19,10 @@
 
     <string name="sds">exit the game?</string>
 
+    <string name="congrats">CONGRATULATIONS</string>
+
+    <string name="do">Do you want to</string>
+
+    <string name="again">play again?</string>
+
 </resources>

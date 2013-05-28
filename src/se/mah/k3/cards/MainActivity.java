@@ -56,6 +56,20 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.activity_main);
 
+		controller = new Controller();
+		scoreClass = new Score();
+		iv = new ImageView[12];
+		selectedImg = new ImageView[12];
+		toggle = new boolean[12];
+		animView = new ImageView[12];
+		select_Anim = new AnimationDrawable[12];
+		placeCards = new Animation[12];
+		leftInDeck = (TextView) findViewById(R.id.textView1);
+		setsOnTable = (TextView) findViewById(R.id.textView2);
+		selectSound = MediaPlayer.create(getApplicationContext(),
+				R.raw.playbutton);
+		pressedCount = 0;
+
 		// Create custom toasts
 		setupToasts();
 
@@ -70,20 +84,6 @@ public class MainActivity extends Activity {
 		winDialog = new Dialog(MainActivity.this);
 		winDialog = controller.createCustomDialog(winDialog,
 				R.layout.win_dialog);
-
-		controller = new Controller();
-		scoreClass = new Score();
-		iv = new ImageView[12];
-		selectedImg = new ImageView[12];
-		toggle = new boolean[12];
-		animView = new ImageView[12];
-		select_Anim = new AnimationDrawable[12];
-		placeCards = new Animation[12];
-		leftInDeck = (TextView) findViewById(R.id.textView1);
-		setsOnTable = (TextView) findViewById(R.id.textView2);
-		selectSound = MediaPlayer.create(getApplicationContext(),
-				R.raw.playbutton);
-		pressedCount = 0;
 
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));

@@ -44,7 +44,7 @@ public class Score {
 			                Log.i("score", this.toString()+" comboScore: " + comboScore1);
 			                comboScore1++;
 			                //If the player takes too long, stop the counter
-			                if(comboScore1 > 100){
+			                if(comboScore1 > 131){
 			                	cancel();
 			                }
 			                
@@ -63,15 +63,15 @@ public class Score {
 			comboPoints2=0;
 			
 		//Since addPoints adds 1000 points this calculates -1000 to make the final score correct
-		} else if (comboPoints < 15){
+		} else if (comboPoints < 20){
 			comboPoints2 = 9000;
-		} else if(comboPoints < 20 && comboPoints > 15) {
+		} else if(comboPoints < 45 && comboPoints > 20) {
 			comboPoints2 = 4000;
-		} else if (comboPoints < 30 && comboPoints > 20){
+		} else if (comboPoints < 60 && comboPoints > 45){
 			comboPoints2 = 2000;
-		} else if (comboPoints < 45 && comboPoints > 30){
+		} else if (comboPoints < 90 && comboPoints > 60){
 			comboPoints2 = 1000;
-		} else if (comboPoints < 70 && comboPoints > 45){
+		} else if (comboPoints < 130 && comboPoints > 90){
 			comboPoints2 = 500;
 		} else {
 			comboPoints2 = 0;

@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	private boolean set;
 	private boolean newset = true;
 	private Score scoreClass = new Score();
-	private int score; // An int that saves your total score
+	private int score = 0; // An int that saves your total score
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private TextView highscore;
@@ -100,6 +100,7 @@ public class MainActivity extends Activity {
 
 		// Highscore textview
 		highscore = (TextView) findViewById(R.id.highscoreView);
+		highscore.setText("Highscore" + Integer.toString(score));
 
 		controller = new Controller();
 		iv = new ImageView[12];
@@ -319,7 +320,7 @@ public class MainActivity extends Activity {
 				toast10000.show();
 			}
 
-			highscore.setText(score);
+			highscore.setText("Highscore: "+Integer.toString(score));
 			scoreClass.clearAll();
 
 			// Toast.makeText(MainActivity.this, "SET",

@@ -218,8 +218,6 @@ public class MainActivity extends Activity {
 			highscore.setText("Highscore: " + Integer.toString(score));
 			scoreClass.clearAll();
 
-			// Toast.makeText(MainActivity.this, "SET",
-			// Toast.LENGTH_SHORT).show();
 			if (controller.getDeckArray().size() > 3) {
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
@@ -239,7 +237,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void win() {
-		// placholder
+		// placeholder
 		int minHighScore = 0;
 		if (score > minHighScore) {
 			// till skriv highscore

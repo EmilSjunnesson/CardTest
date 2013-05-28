@@ -60,7 +60,7 @@ public class Controller {
 		checkAndRedeal();
 		return activeCards;
 	}
-	
+
 	public ArrayList<Card> getLastCards(int card1Index, int card2Index,
 			int card3Index) {
 		activeCards.set(card1Index, deckArray.get(0));
@@ -82,10 +82,6 @@ public class Controller {
 			placeCardsOnTable(12);
 			checkForSet();
 		}
-	}
-
-	public void win() {
-
 	}
 
 	public boolean isSet(Card card1, Card card2, Card card3) {

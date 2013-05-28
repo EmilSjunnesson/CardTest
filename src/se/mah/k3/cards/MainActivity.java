@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
 
 		// Highscore textview
 		highscore = (TextView) findViewById(R.id.highscoreView);
-		highscore.setText("Highscore" + Integer.toString(score));
+		highscore.setText("Highscore: " + Integer.toString(score));
 
 		// Create custom dialogs
 		exitDialog = new Dialog(MainActivity.this);

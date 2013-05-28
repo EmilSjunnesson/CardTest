@@ -3,4 +3,20 @@
 
     <string name="app_name">Cards</string>
 
+    <string name="dsa">WARNING!</string>
+
+    <string name="exit">"Are you sure you want to exit the game? "</string>
+
+    <string name="sure">Are you sure you</string>
+
+    <string name="game">want to exit the game?</string>
+
+    <string name="yes">YES</string>
+
+    <string name="no">NO</string>
+
+    <string name="er">Are you sure you want to</string>
+
+    <string name="sds">exit the game?</string>
+
 </resources>

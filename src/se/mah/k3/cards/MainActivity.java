@@ -30,6 +30,7 @@ public class MainActivity extends Activity {
 	ImageView[] selectedImg;
 	ImageView[] animView;
 	Animation[] placeCards;
+	Animation[] replaceCards;
 	MediaPlayer selectSound;
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
@@ -67,6 +68,7 @@ public class MainActivity extends Activity {
 		animView = new ImageView[12];
 		select_Anim = new AnimationDrawable[12];
 		placeCards = new Animation[12];
+		replaceCards=new Animation[3];
 		leftInDeck = (TextView) findViewById(R.id.textView1);
 		setsOnTable = (TextView) findViewById(R.id.textView2);
 		selectSound = MediaPlayer.create(getApplicationContext(),
@@ -225,6 +227,13 @@ public class MainActivity extends Activity {
 			scoreClass.clearAll();
 
 			if (controller.getDeckArray().size() > 3) {
+				
+				//Byta bild animation.
+				
+				iv[compareCard1Index].startAnimation(replaceCards[0]);
+				iv[compareCard2Index].startAnimation(replaceCards[1]);
+				iv[compareCard3Index].startAnimation(replaceCards[2]);
+				
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
 			} else if (controller.getDeckArray().size() == 3) {
@@ -360,7 +369,11 @@ public class MainActivity extends Activity {
 				R.anim.placecard_anim11);
 		placeCards[11] = AnimationUtils.loadAnimation(this,
 				R.anim.placecard_anim12);
-
+		
+		replaceCards[0] = AnimationUtils.loadAnimation(this,R.anim.replacecard_anim1);
+		replaceCards[1] = AnimationUtils.loadAnimation(this,R.anim.replacecard_anim2);
+		replaceCards[2] = AnimationUtils.loadAnimation(this,R.anim.replacecard_anim3);
+		
 		for (int i = 0; i < animView.length; i++) {
 			animView[i].setBackgroundResource(R.drawable.select_anim);
 			select_Anim[i] = (AnimationDrawable) animView[i].getBackground();

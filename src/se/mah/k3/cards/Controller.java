@@ -26,6 +26,7 @@ public class Controller {
 		for (int i = 0; i < cardsNeeded; i++) {
 			activeCards.add(deckArray.get(0));
 			deckArray.remove(0);
+			activeCards.get(i).setIndex(i);
 		}
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
 	}
@@ -54,10 +55,13 @@ public class Controller {
 	public ArrayList<Card> getNewCards(int card1Index, int card2Index,
 			int card3Index) {
 		activeCards.set(card1Index, deckArray.get(0));
+		activeCards.get(card1Index).setIndex(card1Index);
 		deckArray.remove(0);
 		activeCards.set(card2Index, deckArray.get(0));
+		activeCards.get(card2Index).setIndex(card2Index);
 		deckArray.remove(0);
 		activeCards.set(card3Index, deckArray.get(0));
+		activeCards.get(card3Index).setIndex(card3Index);
 		deckArray.remove(0);
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
 		checkAndRedeal();
@@ -114,6 +118,9 @@ public class Controller {
 		fillingState = isSetFilling(card1, card2, card3);
 		if (numberState && colorState && shapeState && fillingState) {
 			nbrOfSets++;
+			Log.i("TagBag",
+					"Index of SET:" + card1.getIndex() + " | "
+							+ card2.getIndex() + " | " + card3.getIndex());
 		}
 	}
 

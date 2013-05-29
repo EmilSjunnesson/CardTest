@@ -28,7 +28,7 @@
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:text="@string/do" />
+        android:text="@string/doyou" />
 
     <TextView
         android:id="@+id/textView3"
@@ -46,13 +46,13 @@
         android:layout_marginTop="15dp" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/winYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/winNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/no" />

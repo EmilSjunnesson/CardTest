@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Gravity;
@@ -17,6 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ public class MainActivity extends Activity {
 	AnimationDrawable[] select_Anim;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
+	Button exitYes, exitNo, winYes, winNo;
 	private boolean[] toggle;
 	private int pressedCount;
 	private int index, compareCard1Index, compareCard2Index, compareCard3Index;
@@ -78,16 +81,19 @@ public class MainActivity extends Activity {
 		highscore.setText("Highscore: " + Integer.toString(score));
 
 		// Create custom dialogs
-		exitDialog = new Dialog(MainActivity.this);
-		exitDialog = controller.createCustomDialog(exitDialog,
-				R.layout.exit_dialog);
-		winDialog = new Dialog(MainActivity.this);
-		winDialog = controller.createCustomDialog(winDialog,
-				R.layout.win_dialog);
+		setupCustomDialogs();
 
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));
 	}
+
+	public OnClickListener dialogListener = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			Log.i("TagBag", "Click");
+		}
+	};
 
 	public OnClickListener onClickListener = new OnClickListener() {
 		@Override
@@ -376,6 +382,24 @@ public class MainActivity extends Activity {
 		selectedImg[9] = (ImageView) findViewById(R.id.frame10);
 		selectedImg[10] = (ImageView) findViewById(R.id.frame11);
 		selectedImg[11] = (ImageView) findViewById(R.id.frame12);
+	}
+
+	public void setupCustomDialogs() {
+		exitDialog = new Dialog(MainActivity.this);
+		exitDialog = controller.createCustomDialog(exitDialog,
+				R.layout.exit_dialog);
+		exitYes = (Button) exitDialog.findViewById(R.id.yes);
+		exitYes.setOnClickListener(dialogListener);
+		exitNo = (Button) exitDialog.findViewById(R.id.no);
+		exitNo.setOnClickListener(dialogListener);
+
+		winDialog = new Dialog(MainActivity.this);
+		winDialog = controller.createCustomDialog(winDialog,
+				R.layout.win_dialog);
+		winYes = (Button) winDialog.findViewById(R.id.winYes);
+		winYes.setOnClickListener(dialogListener);
+		winNo = (Button) winDialog.findViewById(R.id.winNo);
+		winNo.setOnClickListener(dialogListener);
 	}
 
 	@Override

@@ -7,6 +7,7 @@ public class Card {
 	private String shape;
 	private String filling;
 	private int resId;
+	private int index;
 
 	public Card(int number, String color, String shape, String filling,
 			int resId) {
@@ -15,6 +16,7 @@ public class Card {
 		this.shape = shape;
 		this.filling = filling;
 		this.resId = resId;
+		index = -1;
 	}
 
 	public int getNumber() {
@@ -37,9 +39,18 @@ public class Card {
 		return resId;
 	}
 
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
 	@Override
 	public String toString() {
-		return number+" | "+color+" | "+shape+" | "+filling;
+		return "Card at " + index + ": " + number + " | " + color + " | "
+				+ shape + " | " + filling;
 	}
-	
+
 }

@@ -80,6 +80,7 @@ public class StartScreen extends Activity {
 				Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 				startActivityForResult(intent, 0);
 				playcard.setVisibility(View.INVISIBLE);
+				finish();
 			}
 		});
 

@@ -68,18 +68,6 @@ public class Controller {
 		return activeCards;
 	}
 
-	public ArrayList<Card> getLastCards(int card1Index, int card2Index,
-			int card3Index) {
-		activeCards.set(card1Index, deckArray.get(0));
-		deckArray.remove(0);
-		activeCards.set(card2Index, deckArray.get(0));
-		deckArray.remove(0);
-		activeCards.set(card3Index, deckArray.get(0));
-		deckArray.remove(0);
-		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
-		return activeCards;
-	}
-
 	public void checkAndRedeal() {
 		checkForSet();
 		while (nbrOfSets <= 0) {

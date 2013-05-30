@@ -265,14 +265,12 @@ public class MainActivity extends Activity {
 			highscore.setText("Highscore: " + Integer.toString(score));
 			scoreClass.clearAll();
 
-			if (controller.getDeckArray().size() > 3) {
+			if (!controller.getDeckArray().isEmpty()) {
 
 				updateUI(controller.getNewCards(compareCard1.getIndex(),
 						compareCard2.getIndex(), compareCard3.getIndex()));
 
-			} else if (controller.getDeckArray().size() >= 3) {
-				updateUI(controller.getLastCards(compareCard1.getIndex(),
-						compareCard2.getIndex(), compareCard3.getIndex()));
+			} else if (controller.getDeckArray().isEmpty()) {
 				win();
 			}
 			set = false;

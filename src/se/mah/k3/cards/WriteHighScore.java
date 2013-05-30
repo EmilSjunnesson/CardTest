@@ -20,7 +20,7 @@ public class WriteHighScore extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.write_highscore);
-		score = getIntent().getExtras().getLong("score");
+		score = (long) getIntent().getExtras().getInt("score");
 		
 		player = (EditText)findViewById(R.id.player); //edittext komponent
 		scoreview = (TextView)findViewById(R.id.scoreview); //textview komponent

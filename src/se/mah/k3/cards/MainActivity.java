@@ -26,6 +26,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	Controller controller;
+	Highscore hs;
 	ImageView[] iv;
 	ImageView[] selectedImg;
 	ImageView[] animView;
@@ -61,6 +62,7 @@ public class MainActivity extends Activity {
 		bgMusic = new MediaPlayer().create(getApplicationContext(),
 				R.raw.startmusic);
 		controller = new Controller();
+		hs = new Highscore(this);
 		scoreClass = new Score();
 		iv = new ImageView[12];
 		selectedImg = new ImageView[12];
@@ -268,11 +270,9 @@ public class MainActivity extends Activity {
 				updateUI(controller.getNewCards(compareCard1.getIndex(),
 						compareCard2.getIndex(), compareCard3.getIndex()));
 
-			} else if (controller.getDeckArray().size() == 3) {
+			} else if (controller.getDeckArray().size() >= 3) {
 				updateUI(controller.getLastCards(compareCard1.getIndex(),
 						compareCard2.getIndex(), compareCard3.getIndex()));
-				Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
-						.show();
 				win();
 			}
 			set = false;
@@ -284,9 +284,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void win() {
-		// placeholder
-		int minHighScore = 0;
-		if (score > minHighScore) {
+		if (score > hs.getScore(9)) {
 			// till skriv highscore
 			Intent highScoreIntent = new Intent(getApplicationContext(),
 					WriteHighScore.class);

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,7 +40,6 @@ public class MainActivity extends Activity {
 	Button exitYes, exitNo, winYes, winNo;
 	private boolean[] toggle;
 	private int pressedCount;
-	private int index, compareCard1Index, compareCard2Index, compareCard3Index;
 	private boolean set;
 	private boolean newset = true;
 	private Score scoreClass;
@@ -51,14 +51,15 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		// commit
 		// fullscreen
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_main);
-
+		bgMusic = new MediaPlayer().create(getApplicationContext(),
+				R.raw.startmusic);
 		controller = new Controller();
 		scoreClass = new Score();
 		iv = new ImageView[12];
@@ -106,7 +107,8 @@ public class MainActivity extends Activity {
 				winDialog.cancel();
 				break;
 			case R.id.winNo:
-				Intent toStart = new Intent(MainActivity.this, StartScreen.class);
+				Intent toStart = new Intent(MainActivity.this,
+						StartScreen.class);
 				startActivity(toStart);
 				finish();
 				break;
@@ -157,13 +159,10 @@ public class MainActivity extends Activity {
 			}
 			if (pressedCount == 1) {
 				compareCard1 = currCard;
-				compareCard1Index = index;
 			} else if (pressedCount == 2) {
 				compareCard2 = currCard;
-				compareCard2Index = index;
 			} else if (pressedCount == 3) {
 				compareCard3 = currCard;
-				compareCard3Index = index;
 				checkSelection();
 			}
 		}
@@ -173,12 +172,34 @@ public class MainActivity extends Activity {
 	public void updateUI(ArrayList<Card> activeCards) {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
-			if (newset == true) {
-				iv[i].startAnimation(placeCards[i]);
-			}
 		}
 		if (newset == true) {
+			for (int i = 0; i < iv.length; i++) {
+				iv[i].startAnimation(placeCards[i]);
+			}
 			newset = false;
+		} else if (newset == false) {
+			// Byta bild animation.
+			iv[compareCard1.getIndex()].startAnimation(replaceCards[0]);
+			iv[compareCard2.getIndex()].startAnimation(replaceCards[1]);
+			iv[compareCard3.getIndex()].startAnimation(replaceCards[2]);
+			replaceCards[2].setAnimationListener(new AnimationListener() {
+				
+				@Override
+				public void onAnimationStart(Animation animation) {
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+				}
+				
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					iv[compareCard1.getIndex()].clearAnimation();
+					iv[compareCard2.getIndex()].clearAnimation();
+					iv[compareCard3.getIndex()].clearAnimation();
+				}
+			});
 		}
 		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());
 		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());
@@ -191,7 +212,6 @@ public class MainActivity extends Activity {
 			select_Anim[pos].stop();
 			select_Anim[pos].start();
 			currCard = controller.getActiveArray().get(pos);
-			index = pos;
 			selectSound.seekTo(0);
 			selectSound.start();
 			pressedCount++;
@@ -245,17 +265,12 @@ public class MainActivity extends Activity {
 
 			if (controller.getDeckArray().size() > 3) {
 
-				// Byta bild animation.
+				updateUI(controller.getNewCards(compareCard1.getIndex(),
+						compareCard2.getIndex(), compareCard3.getIndex()));
 
-				iv[compareCard1Index].startAnimation(replaceCards[0]);
-				iv[compareCard2Index].startAnimation(replaceCards[1]);
-				iv[compareCard3Index].startAnimation(replaceCards[2]);
-
-				updateUI(controller.getNewCards(compareCard1Index,
-						compareCard2Index, compareCard3Index));
 			} else if (controller.getDeckArray().size() == 3) {
-				updateUI(controller.getLastCards(compareCard1Index,
-						compareCard2Index, compareCard3Index));
+				updateUI(controller.getLastCards(compareCard1.getIndex(),
+						compareCard2.getIndex(), compareCard3.getIndex()));
 				Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
 						.show();
 				win();

@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.activity_main);
 		bgMusic = new MediaPlayer().create(getApplicationContext(),
-				R.raw.startmusic);
+				R.raw.mainmusic);
 		controller = new Controller();
 		hs = new Highscore(this);
 		scoreClass = new Score();
@@ -75,8 +75,7 @@ public class MainActivity extends Activity {
 		setsOnTable = (TextView) findViewById(R.id.textView2);
 		selectSound = MediaPlayer.create(getApplicationContext(),
 				R.raw.playbutton);
-		pressedCount = 0;
-
+		pressedCount = 0;				
 		// Create custom toasts
 		setupToasts();
 
@@ -86,7 +85,8 @@ public class MainActivity extends Activity {
 
 		// Create custom dialogs
 		setupCustomDialogs();
-
+		bgMusic.setLooping(true);
+		bgMusic.start();
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));
 	}
@@ -449,14 +449,24 @@ public class MainActivity extends Activity {
 	}
 
 	@Override
+	protected void onResume(){
+		super.onResume();
+		bgMusic.start();
+	}
+	
+	@Override
 	protected void onDestroy() {
 		scoreClass.killOldTimer();
 		super.onDestroy();
+	bgMusic.release();
+	selectSound.release();
 	}
 
 	@Override
 	protected void onPause() {
 		scoreClass.killOldTimer();
+		bgMusic.pause();
+		
 		super.onPause();
 	}
 }

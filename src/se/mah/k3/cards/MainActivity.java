@@ -40,7 +40,6 @@ public class MainActivity extends Activity {
 	Button exitYes, exitNo, winYes, winNo;
 	private boolean[] toggle;
 	private int pressedCount;
-	private int index, compareCard1Index, compareCard2Index, compareCard3Index;
 	private boolean set;
 	private boolean newset = true;
 	private Score scoreClass;
@@ -48,7 +47,6 @@ public class MainActivity extends Activity {
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private TextView highscore;
-	int animIndex1, animIndex2, animIndex3;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -161,13 +159,10 @@ public class MainActivity extends Activity {
 			}
 			if (pressedCount == 1) {
 				compareCard1 = currCard;
-				compareCard1Index = index;
 			} else if (pressedCount == 2) {
 				compareCard2 = currCard;
-				compareCard2Index = index;
 			} else if (pressedCount == 3) {
 				compareCard3 = currCard;
-				compareCard3Index = index;
 				checkSelection();
 			}
 		}
@@ -185,28 +180,24 @@ public class MainActivity extends Activity {
 			newset = false;
 		} else if (newset == false) {
 			// Byta bild animation.
-			iv[animIndex1].startAnimation(replaceCards[0]);
-			iv[animIndex2].startAnimation(replaceCards[1]);
-			iv[animIndex3].startAnimation(replaceCards[2]);
+			iv[compareCard1.getIndex()].startAnimation(replaceCards[0]);
+			iv[compareCard2.getIndex()].startAnimation(replaceCards[1]);
+			iv[compareCard3.getIndex()].startAnimation(replaceCards[2]);
 			replaceCards[2].setAnimationListener(new AnimationListener() {
 				
 				@Override
 				public void onAnimationStart(Animation animation) {
-					// TODO Auto-generated method stub
-					
 				}
 				
 				@Override
 				public void onAnimationRepeat(Animation animation) {
-					// TODO Auto-generated method stub
-					
 				}
 				
 				@Override
 				public void onAnimationEnd(Animation animation) {
-					iv[animIndex1].clearAnimation();
-					iv[animIndex2].clearAnimation();
-					iv[animIndex3].clearAnimation();
+					iv[compareCard1.getIndex()].clearAnimation();
+					iv[compareCard2.getIndex()].clearAnimation();
+					iv[compareCard3.getIndex()].clearAnimation();
 				}
 			});
 		}
@@ -221,7 +212,6 @@ public class MainActivity extends Activity {
 			select_Anim[pos].stop();
 			select_Anim[pos].start();
 			currCard = controller.getActiveArray().get(pos);
-			index = pos;
 			selectSound.seekTo(0);
 			selectSound.start();
 			pressedCount++;
@@ -240,9 +230,6 @@ public class MainActivity extends Activity {
 	}
 
 	public void checkSelection() {
-		animIndex1 = compareCard1Index;
-		animIndex2 = compareCard2Index;
-		animIndex3 = compareCard3Index;
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
 		if (set == true) {
 
@@ -278,12 +265,12 @@ public class MainActivity extends Activity {
 
 			if (controller.getDeckArray().size() > 3) {
 
-				updateUI(controller.getNewCards(compareCard1Index,
-						compareCard2Index, compareCard3Index));
+				updateUI(controller.getNewCards(compareCard1.getIndex(),
+						compareCard2.getIndex(), compareCard3.getIndex()));
 
 			} else if (controller.getDeckArray().size() == 3) {
-				updateUI(controller.getLastCards(compareCard1Index,
-						compareCard2Index, compareCard3Index));
+				updateUI(controller.getLastCards(compareCard1.getIndex(),
+						compareCard2.getIndex(), compareCard3.getIndex()));
 				Toast.makeText(MainActivity.this, "WIN", Toast.LENGTH_SHORT)
 						.show();
 				win();

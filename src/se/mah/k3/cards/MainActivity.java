@@ -78,8 +78,8 @@ public class MainActivity extends Activity {
 		setupToasts();
 
 		// Highscore textview
-		highscore = (TextView) findViewById(R.id.highscoreView);
-		highscore.setText("Highscore: " + Integer.toString(score));
+		//highscore = (TextView) findViewById(R.id.highscoreView);
+		//highscore.setText("Highscore: " + Integer.toString(score));
 
 		// Create custom dialogs
 		setupCustomDialogs();
@@ -247,9 +247,9 @@ public class MainActivity extends Activity {
 
 				// Byta bild animation.
 
-				iv[compareCard1Index].startAnimation(replaceCards[0]);
-				iv[compareCard2Index].startAnimation(replaceCards[1]);
-				iv[compareCard3Index].startAnimation(replaceCards[2]);
+				//iv[compareCard1Index].startAnimation(replaceCards[0]);
+				//iv[compareCard2Index].startAnimation(replaceCards[1]);
+				//iv[compareCard3Index].startAnimation(replaceCards[2]);
 
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
@@ -387,12 +387,12 @@ public class MainActivity extends Activity {
 		placeCards[11] = AnimationUtils.loadAnimation(this,
 				R.anim.placecard_anim12);
 
-		replaceCards[0] = AnimationUtils.loadAnimation(this,
-				R.anim.replacecard_anim1);
-		replaceCards[1] = AnimationUtils.loadAnimation(this,
-				R.anim.replacecard_anim2);
-		replaceCards[2] = AnimationUtils.loadAnimation(this,
-				R.anim.replacecard_anim3);
+//		replaceCards[0] = AnimationUtils.loadAnimation(this,
+//				R.anim.replacecard_anim1);
+//		replaceCards[1] = AnimationUtils.loadAnimation(this,
+//				R.anim.replacecard_anim2);
+//		replaceCards[2] = AnimationUtils.loadAnimation(this,
+//				R.anim.replacecard_anim3);
 
 		for (int i = 0; i < animView.length; i++) {
 			animView[i].setBackgroundResource(R.drawable.select_anim);

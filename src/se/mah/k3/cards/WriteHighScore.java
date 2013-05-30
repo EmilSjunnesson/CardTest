@@ -20,20 +20,24 @@ public class WriteHighScore extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.write_highscore);
+		//get score from MainActivity
 		score = (long) getIntent().getExtras().getInt("score");
 		
-		player = (EditText)findViewById(R.id.player); //edittext komponent
-		scoreview = (TextView)findViewById(R.id.scoreview); //textview komponent
+		player = (EditText)findViewById(R.id.player); //edittext component
+		scoreview = (TextView)findViewById(R.id.scoreview); //textview component
 		highscore = new Highscore(this);
 		scoreview.setText(String.valueOf(score));
+		
+		//override button on keyboard
 		player.setOnKeyListener(new OnKeyListener() {
 			
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				// TODO Auto-generated method stub
 				if((event.getAction() == KeyEvent.ACTION_DOWN)&&(keyCode == KeyEvent.KEYCODE_ENTER)){
 					name=player.getText().toString();
+					//adds score to highscore
 					highscore.addScore(name, score);
+					//start next activity
 					Intent intent = new Intent(WriteHighScore.this,HighScoreView.class);
 					startActivity(intent);
 					finish();

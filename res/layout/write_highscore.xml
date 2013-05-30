@@ -4,4 +4,33 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg" >
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/highscore1" />
+
+    <EditText
+        android:id="@+id/ed1"
+        android:layout_width="436dp"
+        android:layout_height="125dp"
+        android:layout_alignLeft="@+id/tv1"
+        android:layout_below="@+id/tv1"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter your name"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="436dp"
+        android:layout_height="125dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="212dp"
+        android:gravity="center"
+        android:hint="Your score"
+        android:textSize="30dp" />
+    
 </RelativeLayout>

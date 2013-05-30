@@ -3,7 +3,7 @@
 
     <string name="app_name">Cards</string>
 
-    <string name="dsa">WARNING!</string>
+    <string name="dsa">Really quit?</string>
 
     <string name="exit">"Are you sure you want to exit the game? "</string>
 
@@ -15,9 +15,9 @@
 
     <string name="no">NO</string>
 
-    <string name="er">Are you sure you want to</string>
+    <string name="er">You will lose the</string>
 
-    <string name="sds">exit the game?</string>
+    <string name="sds">current game.</string>
 
     <string name="congrats">CONGRATULATIONS</string>
 

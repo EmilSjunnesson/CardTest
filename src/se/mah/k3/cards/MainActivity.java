@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_main);
-
+		bgMusic= new MediaPlayer().create(getApplicationContext(), R.raw.startmusic);
 		controller = new Controller();
 		scoreClass = new Score();
 		iv = new ImageView[12];

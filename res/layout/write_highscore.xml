@@ -11,7 +11,7 @@
         android:src="@drawable/highscore1" />
 
     <EditText
-        android:id="@+id/ed1"
+        android:id="@+id/player"
         android:layout_width="436dp"
         android:layout_height="125dp"
         android:layout_alignLeft="@+id/tv1"
@@ -20,10 +20,12 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Enter your name"
-        android:textSize="30dp" />
+        android:textSize="30dp" 
+        android:singleLine="true"
+        android:imeOptions="actionGo"/>
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/scoreview"
         android:layout_width="436dp"
         android:layout_height="125dp"
         android:layout_alignParentTop="true"

@@ -184,10 +184,18 @@ public class MainActivity extends Activity {
 			newset = false;
 		} else if (newset == false) {
 			// Byta bild animation.
-
 			iv[animIndex1].startAnimation(replaceCards[0]);
 			iv[animIndex2].startAnimation(replaceCards[1]);
 			iv[animIndex3].startAnimation(replaceCards[2]);
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			iv[animIndex1].clearAnimation();
+			iv[animIndex2].clearAnimation();
+			iv[animIndex3].clearAnimation();
 		}
 		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());
 		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());

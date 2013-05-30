@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -187,15 +188,27 @@ public class MainActivity extends Activity {
 			iv[animIndex1].startAnimation(replaceCards[0]);
 			iv[animIndex2].startAnimation(replaceCards[1]);
 			iv[animIndex3].startAnimation(replaceCards[2]);
-			try {
-				Thread.sleep(4000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			iv[animIndex1].clearAnimation();
-			iv[animIndex2].clearAnimation();
-			iv[animIndex3].clearAnimation();
+			replaceCards[2].setAnimationListener(new AnimationListener() {
+				
+				@Override
+				public void onAnimationStart(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					iv[animIndex1].clearAnimation();
+					iv[animIndex2].clearAnimation();
+					iv[animIndex3].clearAnimation();
+				}
+			});
 		}
 		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());
 		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());

@@ -119,8 +119,8 @@ public class Controller {
 		if (numberState && colorState && shapeState && fillingState) {
 			nbrOfSets++;
 			Log.i("TagBag",
-					"Index of SET:" + card1.getIndex() + " | "
-							+ card2.getIndex() + " | " + card3.getIndex());
+					"Index of SET:" + (card1.getIndex()+1) + " | "
+							+ (card2.getIndex()+1) + " | " + (card3.getIndex()+1));
 		}
 	}
 

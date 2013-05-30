@@ -47,18 +47,20 @@ public class MainActivity extends Activity {
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private TextView highscore;
+	int animIndex1, animIndex2, animIndex3;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//commit
+		// commit
 		// fullscreen
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_main);
-		bgMusic= new MediaPlayer().create(getApplicationContext(), R.raw.startmusic);
+		bgMusic = new MediaPlayer().create(getApplicationContext(),
+				R.raw.startmusic);
 		controller = new Controller();
 		scoreClass = new Score();
 		iv = new ImageView[12];
@@ -106,7 +108,8 @@ public class MainActivity extends Activity {
 				winDialog.cancel();
 				break;
 			case R.id.winNo:
-				Intent toStart = new Intent(MainActivity.this, StartScreen.class);
+				Intent toStart = new Intent(MainActivity.this,
+						StartScreen.class);
 				startActivity(toStart);
 				finish();
 				break;
@@ -173,12 +176,18 @@ public class MainActivity extends Activity {
 	public void updateUI(ArrayList<Card> activeCards) {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
-			if (newset == true) {
-				iv[i].startAnimation(placeCards[i]);
-			}
 		}
 		if (newset == true) {
+			for (int i = 0; i < iv.length; i++) {
+				iv[i].startAnimation(placeCards[i]);
+			}
 			newset = false;
+		} else if (newset == false) {
+			// Byta bild animation.
+
+			iv[animIndex1].startAnimation(replaceCards[0]);
+			iv[animIndex2].startAnimation(replaceCards[1]);
+			iv[animIndex3].startAnimation(replaceCards[2]);
 		}
 		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());
 		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());
@@ -210,6 +219,9 @@ public class MainActivity extends Activity {
 	}
 
 	public void checkSelection() {
+		animIndex1 = compareCard1Index;
+		animIndex2 = compareCard2Index;
+		animIndex3 = compareCard3Index;
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
 		if (set == true) {
 
@@ -245,14 +257,9 @@ public class MainActivity extends Activity {
 
 			if (controller.getDeckArray().size() > 3) {
 
-				// Byta bild animation.
-
-				iv[compareCard1Index].startAnimation(replaceCards[0]);
-				iv[compareCard2Index].startAnimation(replaceCards[1]);
-				iv[compareCard3Index].startAnimation(replaceCards[2]);
-
 				updateUI(controller.getNewCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));
+
 			} else if (controller.getDeckArray().size() == 3) {
 				updateUI(controller.getLastCards(compareCard1Index,
 						compareCard2Index, compareCard3Index));

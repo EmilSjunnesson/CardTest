@@ -29,6 +29,7 @@ public class StartScreen extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		startsound = MediaPlayer.create(getApplicationContext(),
 				R.raw.playbutton);
+		
 		startmusic = MediaPlayer.create(getApplicationContext(),
 				R.raw.startmusic);
 		startanim1 = AnimationUtils.loadAnimation(this, R.anim.menuanim1);
@@ -42,6 +43,7 @@ public class StartScreen extends Activity {
 		highscorecard = (ImageView) findViewById(R.id.highscorecard);
 		// Ljud fšr playkortet
 		startmusic.setLooping(true);
+		startsound.setVolume(0.1f, 0.1f);
 		startmusic.start();
 		playcard.startAnimation(startanim1);
 		highscorecard.startAnimation(startanim2);

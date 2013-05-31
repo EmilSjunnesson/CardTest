@@ -106,9 +106,8 @@ public class Controller {
 		fillingState = isSetFilling(card1, card2, card3);
 		if (numberState && colorState && shapeState && fillingState) {
 			nbrOfSets++;
-			Log.i("TagBag",
-					"Index of SET:" + (card1.getIndex()+1) + " | "
-							+ (card2.getIndex()+1) + " | " + (card3.getIndex()+1));
+			Log.i("TagBag", "Index of SET:" + (card1.getIndex() + 1) + " | "
+					+ (card2.getIndex() + 1) + " | " + (card3.getIndex() + 1));
 		}
 	}
 

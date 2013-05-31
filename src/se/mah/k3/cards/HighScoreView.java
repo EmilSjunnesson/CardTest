@@ -2,7 +2,8 @@ package se.mah.k3.cards;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class HighScoreView extends Activity {
@@ -13,8 +14,13 @@ public class HighScoreView extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+
+		// fullscreen
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 		setContentView(R.layout.highscore_view);
 	}
 

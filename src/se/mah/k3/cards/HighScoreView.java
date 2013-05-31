@@ -1,9 +1,12 @@
 package se.mah.k3.cards;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HighScoreView extends Activity {
@@ -11,6 +14,9 @@ public class HighScoreView extends Activity {
 	TextView score1, score2, score3, score4, score5, score6, score7, score8,
 			score9, score10, name1, name2, name3, name4, name5, name6, name7,
 			name8, name9, name10;
+	AnimationDrawable highscoreAnim;
+	ImageView highscoreview;
+	
 	Highscore highscore;
 
 	@Override
@@ -23,9 +29,15 @@ public class HighScoreView extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.highscore_view);
-
 		highscore = new Highscore(this);
+		highscoreview=(ImageView)findViewById(R.id.highscoreview);
+		highscoreview.setBackgroundResource(R.drawable.highscore_anim);
+		highscoreAnim =(AnimationDrawable) highscoreview.getBackground();
+		highscoreAnim.start();
+		
 
+		
+		
 		TextView[] tv1 = new TextView[10];
 		tv1[0] = (TextView) findViewById(R.id.score1);
 		tv1[1] = (TextView) findViewById(R.id.score2);
@@ -57,5 +69,10 @@ public class HighScoreView extends Activity {
 			tv2[i].setText(String.valueOf(highscore.getScore(i)));
 		}
 	}
-
+public void onBackPressed(){
+	Intent i =new Intent(HighScoreView.this,StartScreen.class);
+	startActivity(i);
+	finish();
+	return;
+}
 }

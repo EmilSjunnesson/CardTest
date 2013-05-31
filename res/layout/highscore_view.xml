@@ -5,19 +5,21 @@
     android:background="@drawable/bg" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/highscoreview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/highscore1" />
+        
+        android:visibility="visible" />
 
     <GridLayout
+        android:id="@+id/gridLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:columnCount="2" >
+        android:columnCount="3" >
 
         <TextView
             android:id="@+id/name1"
@@ -36,7 +38,7 @@
             android:id="@+id/score1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
             android:layout_marginTop="20dp"
             android:layout_row="0"
@@ -50,7 +52,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="1"
+            android:layout_row="2"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -58,9 +60,9 @@
             android:id="@+id/score2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="1"
+            android:layout_row="2"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -71,7 +73,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="2"
+            android:layout_row="3"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -79,9 +81,9 @@
             android:id="@+id/score3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="2"
+            android:layout_row="3"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -92,7 +94,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="3"
+            android:layout_row="4"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -100,9 +102,9 @@
             android:id="@+id/score4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="3"
+            android:layout_row="4"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -113,7 +115,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="4"
+            android:layout_row="5"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -121,9 +123,9 @@
             android:id="@+id/score5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="4"
+            android:layout_row="5"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -134,7 +136,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="5"
+            android:layout_row="7"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -142,9 +144,9 @@
             android:id="@+id/score6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="5"
+            android:layout_row="7"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -155,7 +157,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="6"
+            android:layout_row="8"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -163,9 +165,9 @@
             android:id="@+id/score7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="6"
+            android:layout_row="8"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -176,7 +178,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="7"
+            android:layout_row="9"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -184,9 +186,9 @@
             android:id="@+id/score8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="7"
+            android:layout_row="9"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -197,7 +199,7 @@
             android:layout_column="0"
             android:layout_gravity="left|top"
             android:layout_marginBottom="8dp"
-            android:layout_row="8"
+            android:layout_row="10"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -205,9 +207,9 @@
             android:id="@+id/score9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="8"
+            android:layout_row="10"
             android:text="10000"
             android:textSize="18sp" />
 
@@ -217,7 +219,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_gravity="left|top"
-            android:layout_row="9"
+            android:layout_row="11"
             android:text="Emil"
             android:textSize="18sp" />
 
@@ -225,12 +227,11 @@
             android:id="@+id/score10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="1"
+            android:layout_column="2"
             android:layout_gravity="left|top"
-            android:layout_row="9"
+            android:layout_row="11"
             android:text="10000"
             android:textSize="18sp" />
-
     </GridLayout>
 
 </RelativeLayout>

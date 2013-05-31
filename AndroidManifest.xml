@@ -40,7 +40,8 @@
         </activity>
         <activity
             android:name="se.mah.k3.cards.WriteHighScore"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

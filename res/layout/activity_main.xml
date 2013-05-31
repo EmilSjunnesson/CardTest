@@ -431,15 +431,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/timeglass1" />
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:id="@+id/highscoreView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="35dp"
         android:layout_alignBottom="@+id/higscore_background"
         android:layout_alignLeft="@+id/higscore_background"
         android:layout_alignRight="@+id/higscore_background"

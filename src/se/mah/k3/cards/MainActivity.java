@@ -2,6 +2,7 @@ package se.mah.k3.cards;
 
 import java.util.ArrayList;
 
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -36,6 +37,7 @@ public class MainActivity extends Activity {
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
 	AnimationDrawable[] select_Anim;
+	AnimationDrawable timeglassAnimation;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	Button exitYes, exitNo, winYes, winNo;
@@ -83,6 +85,11 @@ public class MainActivity extends Activity {
 		// Highscore textview
 		highscore = (TextView) findViewById(R.id.highscoreView);
 		highscore.setText(Integer.toString(score));
+		
+		//Timeglass ImageView
+		ImageView timeglassImage = (ImageView) findViewById(R.id.timeglassView);
+		timeglassImage.setBackgroundResource(R.drawable.timeglass_animation);
+		timeglassAnimation = (AnimationDrawable) timeglassImage.getBackground();
 
 		// Create custom dialogs
 		setupCustomDialogs();
@@ -242,6 +249,12 @@ public class MainActivity extends Activity {
 
 			// Add the score you get to the total score
 			score = score + scoreClass.getPoints();
+			
+			//Start timeglass animation, and if it is running; restart it
+			if(timeglassAnimation.isRunning()){
+				timeglassAnimation.stop();
+			}
+			timeglassAnimation.start();
 
 			// Show custom toast based on how much points you get from your set
 			if (scoreClass.getPoints() == 1000) {

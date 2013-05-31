@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 	ImageView[] animView;
 	Animation[] placeCards;
 	Animation[] replaceCards;
-	MediaPlayer selectSound;
+	MediaPlayer selectSound,setsound,nosetsound;
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
 	AnimationDrawable[] select_Anim;
@@ -77,6 +77,8 @@ public class MainActivity extends Activity {
 		setsOnTable = (TextView) findViewById(R.id.textView2);
 		selectSound = MediaPlayer.create(getApplicationContext(),
 				R.raw.playbutton);
+		setsound=MediaPlayer.create(getApplicationContext(), R.raw.set);
+		nosetsound=MediaPlayer.create(getApplicationContext(), R.raw.noset);
 		selectSound.setVolume(0.2f, 0.2f);
 		pressedCount = 0;				
 		// Create custom toasts
@@ -222,8 +224,8 @@ public class MainActivity extends Activity {
 			select_Anim[pos].stop();
 			select_Anim[pos].start();
 			currCard = controller.getActiveArray().get(pos);
-			selectSound.seekTo(0);
-			selectSound.start();
+			//selectSound.seekTo(0);
+			//selectSound.start();
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
@@ -242,11 +244,12 @@ public class MainActivity extends Activity {
 	public void checkSelection() {
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
 		if (set == true) {
-
+			
 			scoreClass.killOldTimer();
 			scoreClass.add1000Points();
 			scoreClass.startComboTimer();
-
+			setsound.seekTo(0);
+			setsound.start();
 			// Add the score you get to the total score
 			score = score + scoreClass.getPoints();
 			
@@ -292,8 +295,11 @@ public class MainActivity extends Activity {
 			}
 			set = false;
 		} else if (set == false) {
+			
 			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
 					.show();
+			nosetsound.seekTo(0);
+			nosetsound.start();
 		}
 		resetSelect();
 	}

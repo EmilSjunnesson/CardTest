@@ -75,6 +75,7 @@ public class MainActivity extends Activity {
 		setsOnTable = (TextView) findViewById(R.id.textView2);
 		selectSound = MediaPlayer.create(getApplicationContext(),
 				R.raw.playbutton);
+		selectSound.setVolume(0.2f, 0.2f);
 		pressedCount = 0;				
 		// Create custom toasts
 		setupToasts();

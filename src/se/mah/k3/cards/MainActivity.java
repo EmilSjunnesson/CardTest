@@ -253,6 +253,26 @@ public class MainActivity extends Activity {
 			// Add the score you get to the total score
 			score = score + scoreClass.getPoints();
 			
+			// Show custom toast based on how much points you get from your set
+			if (scoreClass.getPoints() == 1000) {
+				toast1000.show();
+			}
+			if (scoreClass.getPoints() == 1500) {
+				toast1500.show();
+			}
+			if (scoreClass.getPoints() == 2000) {
+				toast2000.show();
+			}
+			if (scoreClass.getPoints() == 3000) {
+				toast3000.show();
+			}
+			if (scoreClass.getPoints() == 5000) {
+				toast5000.show();
+			}
+			if (scoreClass.getPoints() == 10000) {
+				toast10000.show();
+			}
+			
 			//Start timeglass animation, and if it is running; restart it
 			if(timeglassAnimation.isRunning()){
 				timeglassAnimation.stop();
@@ -267,25 +287,6 @@ public class MainActivity extends Activity {
 
 			if (!controller.getDeckArray().isEmpty()) {
 				
-				// Show custom toast based on how much points you get from your set
-				if (scoreClass.getPoints() == 1000) {
-					toast1000.show();
-				}
-				if (scoreClass.getPoints() == 1500) {
-					toast1500.show();
-				}
-				if (scoreClass.getPoints() == 2000) {
-					toast2000.show();
-				}
-				if (scoreClass.getPoints() == 3000) {
-					toast3000.show();
-				}
-				if (scoreClass.getPoints() == 5000) {
-					toast5000.show();
-				}
-				if (scoreClass.getPoints() == 10000) {
-					toast10000.show();
-				}
 
 				updateUI(controller.getNewCards(compareCard1.getIndex(),
 						compareCard2.getIndex(), compareCard3.getIndex()));

@@ -16,9 +16,16 @@ public class HighScoreView extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
+		// fullscreen
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+		setContentView(R.layout.highscore_view);
+
 		highscore = new Highscore(this);
-		
+
 		TextView[] tv1 = new TextView[10];
 		tv1[0] = (TextView) findViewById(R.id.score1);
 		tv1[1] = (TextView) findViewById(R.id.score2);
@@ -49,13 +56,6 @@ public class HighScoreView extends Activity {
 		for (int i = 0; i < tv2.length; i++) {
 			tv2[i].setText(String.valueOf(highscore.getScore(i)));
 		}
-
-		// fullscreen
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-		setContentView(R.layout.highscore_view);
 	}
 
 }

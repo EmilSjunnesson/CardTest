@@ -2,6 +2,7 @@ package se.mah.k3.cards;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Window;
@@ -11,12 +12,9 @@ import android.widget.TextView;
 
 public class HighScoreView extends Activity {
 
-	TextView score1, score2, score3, score4, score5, score6, score7, score8,
-			score9, score10, name1, name2, name3, name4, name5, name6, name7,
-			name8, name9, name10;
 	AnimationDrawable highscoreAnim;
 	ImageView highscoreview;
-	
+	Typeface typeFace;
 	Highscore highscore;
 
 	@Override
@@ -30,14 +28,14 @@ public class HighScoreView extends Activity {
 
 		setContentView(R.layout.highscore_view);
 		highscore = new Highscore(this);
-		highscoreview=(ImageView)findViewById(R.id.highscoreview);
+		highscoreview = (ImageView) findViewById(R.id.highscoreview);
 		highscoreview.setBackgroundResource(R.drawable.highscore_anim);
-		highscoreAnim =(AnimationDrawable) highscoreview.getBackground();
+		highscoreAnim = (AnimationDrawable) highscoreview.getBackground();
 		highscoreAnim.start();
 		
+		typeFace = Typeface.createFromAsset(getAssets(),
+					"fonts/black.ttf");
 
-		
-		
 		TextView[] tv1 = new TextView[10];
 		tv1[0] = (TextView) findViewById(R.id.score1);
 		tv1[1] = (TextView) findViewById(R.id.score2);
@@ -61,18 +59,41 @@ public class HighScoreView extends Activity {
 		tv2[7] = (TextView) findViewById(R.id.name8);
 		tv2[8] = (TextView) findViewById(R.id.name9);
 		tv2[9] = (TextView) findViewById(R.id.name10);
-
+		
+		TextView[] tv3 = new TextView[10];
+		tv3[0] = (TextView) findViewById(R.id.placing1);
+		tv3[1] = (TextView) findViewById(R.id.placing2);
+		tv3[2] = (TextView) findViewById(R.id.placing3);
+		tv3[3] = (TextView) findViewById(R.id.placing4);
+		tv3[4] = (TextView) findViewById(R.id.placing5);
+		tv3[5] = (TextView) findViewById(R.id.placing6);
+		tv3[6] = (TextView) findViewById(R.id.placing7);
+		tv3[7] = (TextView) findViewById(R.id.placing8);
+		tv3[8] = (TextView) findViewById(R.id.placing9);
+		tv3[9] = (TextView) findViewById(R.id.placing10);
+		
+		//display score
 		for (int i = 0; i < tv1.length; i++) {
-			tv1[i].setText(highscore.getName(i));
+			tv1[i].setTypeface(typeFace);
+			tv1[i].setText(String.valueOf(highscore.getScore(i)));
 		}
+		
+		//display names
 		for (int i = 0; i < tv2.length; i++) {
-			tv2[i].setText(String.valueOf(highscore.getScore(i)));
+			tv2[i].setTypeface(typeFace);
+			tv2[i].setText(highscore.getName(i));
+		}
+		
+		//display placing
+		for (int i = 0; i < tv3.length; i++) {
+			tv3[i].setTypeface(typeFace);
 		}
 	}
-public void onBackPressed(){
-	Intent i =new Intent(HighScoreView.this,StartScreen.class);
-	startActivity(i);
-	finish();
-	return;
-}
+
+	public void onBackPressed() {
+		Intent i = new Intent(HighScoreView.this, StartScreen.class);
+		startActivity(i);
+		finish();
+		return;
+	}
 }

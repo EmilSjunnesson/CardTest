@@ -40,35 +40,35 @@
     <item android:drawable="@drawable/timeglass37" android:duration="550" />
     <item android:drawable="@drawable/timeglass38" android:duration="550" />
     <item android:drawable="@drawable/timeglass39" android:duration="550" />
-    <item android:drawable="@drawable/timeglass40" android:duration="500" />
-    <item android:drawable="@drawable/timeglass41" android:duration="500" />
-    <item android:drawable="@drawable/timeglass42" android:duration="500" />
-    <item android:drawable="@drawable/timeglass43" android:duration="600" />
-    <item android:drawable="@drawable/timeglass44" android:duration="600" />
-    <item android:drawable="@drawable/timeglass45" android:duration="600" />
-    <item android:drawable="@drawable/timeglass46" android:duration="600" />
-    <item android:drawable="@drawable/timeglass47" android:duration="600" />
-    <item android:drawable="@drawable/timeglass48" android:duration="600" />
-    <item android:drawable="@drawable/timeglass49" android:duration="700" />
-    <item android:drawable="@drawable/timeglass50" android:duration="700" />
-    <item android:drawable="@drawable/timeglass51" android:duration="700" />
-    <item android:drawable="@drawable/timeglass52" android:duration="700" />
-    <item android:drawable="@drawable/timeglass53" android:duration="700" />
-    <item android:drawable="@drawable/timeglass54" android:duration="700" />
-    <item android:drawable="@drawable/timeglass55" android:duration="700" />
-    <item android:drawable="@drawable/timeglass56" android:duration="700" />
-    <item android:drawable="@drawable/timeglass57" android:duration="700" />
-    <item android:drawable="@drawable/timeglass58" android:duration="700" />
-    <item android:drawable="@drawable/timeglass59" android:duration="700" />
-    <item android:drawable="@drawable/timeglass60" android:duration="700" />
-    <item android:drawable="@drawable/timeglass61" android:duration="700" />
-    <item android:drawable="@drawable/timeglass62" android:duration="700" />
-    <item android:drawable="@drawable/timeglass63" android:duration="700" />
-    <item android:drawable="@drawable/timeglass64" android:duration="700" />
-    <item android:drawable="@drawable/timeglass65" android:duration="700" />
-    <item android:drawable="@drawable/timeglass66" android:duration="700" />
-    <item android:drawable="@drawable/timeglass67" android:duration="700" />
-    <item android:drawable="@drawable/timeglass68" android:duration="700" />
+    <item android:drawable="@drawable/timeglass40" android:duration="550" />
+    <item android:drawable="@drawable/timeglass41" android:duration="550" />
+    <item android:drawable="@drawable/timeglass42" android:duration="550" />
+    <item android:drawable="@drawable/timeglass43" android:duration="650" />
+    <item android:drawable="@drawable/timeglass44" android:duration="650" />
+    <item android:drawable="@drawable/timeglass45" android:duration="650" />
+    <item android:drawable="@drawable/timeglass46" android:duration="650" />
+    <item android:drawable="@drawable/timeglass47" android:duration="650" />
+    <item android:drawable="@drawable/timeglass48" android:duration="650" />
+    <item android:drawable="@drawable/timeglass49" android:duration="750" />
+    <item android:drawable="@drawable/timeglass50" android:duration="750" />
+    <item android:drawable="@drawable/timeglass51" android:duration="750" />
+    <item android:drawable="@drawable/timeglass52" android:duration="750" />
+    <item android:drawable="@drawable/timeglass53" android:duration="750" />
+    <item android:drawable="@drawable/timeglass54" android:duration="750" />
+    <item android:drawable="@drawable/timeglass55" android:duration="750" />
+    <item android:drawable="@drawable/timeglass56" android:duration="750" />
+    <item android:drawable="@drawable/timeglass57" android:duration="750" />
+    <item android:drawable="@drawable/timeglass58" android:duration="750" />
+    <item android:drawable="@drawable/timeglass59" android:duration="750" />
+    <item android:drawable="@drawable/timeglass60" android:duration="750" />
+    <item android:drawable="@drawable/timeglass61" android:duration="750" />
+    <item android:drawable="@drawable/timeglass62" android:duration="750" />
+    <item android:drawable="@drawable/timeglass63" android:duration="750" />
+    <item android:drawable="@drawable/timeglass64" android:duration="750" />
+    <item android:drawable="@drawable/timeglass65" android:duration="750" />
+    <item android:drawable="@drawable/timeglass66" android:duration="750" />
+    <item android:drawable="@drawable/timeglass67" android:duration="750" />
+    <item android:drawable="@drawable/timeglass68" android:duration="750" />
     <item android:drawable="@drawable/timeglass69" android:duration="700" />
     <item android:drawable="@drawable/timeglass70" android:duration="700" />
     <item android:drawable="@drawable/timeglass71" android:duration="700" />

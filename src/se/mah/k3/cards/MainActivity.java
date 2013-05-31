@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 
 		// Highscore textview
 		highscore = (TextView) findViewById(R.id.highscoreView);
-		highscore.setText("Highscore: " + Integer.toString(score));
+		highscore.setText(Integer.toString(score));
 
 		// Create custom dialogs
 		setupCustomDialogs();
@@ -262,7 +262,7 @@ public class MainActivity extends Activity {
 				toast10000.show();
 			}
 
-			highscore.setText("Highscore: " + Integer.toString(score));
+			highscore.setText(Integer.toString(score));
 			scoreClass.clearAll();
 
 			if (!controller.getDeckArray().isEmpty()) {

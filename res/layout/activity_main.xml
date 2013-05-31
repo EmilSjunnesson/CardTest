@@ -29,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/card1"
-        android:layout_toRightOf="@+id/card1"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/card1"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
@@ -41,8 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/card2"
-        android:layout_toRightOf="@+id/card2"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/card2"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
@@ -53,8 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/card3"
-        android:layout_toRightOf="@+id/card3"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/card3"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
@@ -168,11 +168,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card2"
         android:layout_alignTop="@+id/card2"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame3"
@@ -180,11 +180,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card3"
         android:layout_alignTop="@+id/card3"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame4"
@@ -192,11 +192,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card4"
         android:layout_alignTop="@+id/card4"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame5"
@@ -204,11 +204,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card5"
         android:layout_alignTop="@+id/card5"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame6"
@@ -216,11 +216,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card6"
         android:layout_alignTop="@+id/card6"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame7"
@@ -228,11 +228,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card7"
         android:layout_alignTop="@+id/card7"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame8"
@@ -240,11 +240,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card8"
         android:layout_alignTop="@+id/card8"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame9"
@@ -252,11 +252,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card9"
         android:layout_alignTop="@+id/card9"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame10"
@@ -264,11 +264,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card10"
         android:layout_alignTop="@+id/card10"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame11"
@@ -276,11 +276,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card11"
         android:layout_alignTop="@+id/card11"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/frame12"
@@ -288,11 +288,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card12"
         android:layout_alignTop="@+id/card12"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/starsandwhiteframe" />
+        android:src="@drawable/starsandwhiteframe"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/cardAnim1"
@@ -316,7 +316,7 @@
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
 
-		 <ImageView
+    <ImageView
         android:id="@+id/cardAnim3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -326,8 +326,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		
-		 <ImageView
+
+    <ImageView
         android:id="@+id/cardAnim4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -337,8 +337,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		 
-		 <ImageView
+
+    <ImageView
         android:id="@+id/cardAnim5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -348,8 +348,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		 
-		 <ImageView
+
+    <ImageView
         android:id="@+id/cardAnim6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -359,8 +359,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		 
-		  <ImageView
+
+    <ImageView
         android:id="@+id/cardAnim7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -370,8 +370,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		  
-		<ImageView
+
+    <ImageView
         android:id="@+id/cardAnim8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -381,8 +381,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		
-		<ImageView
+
+    <ImageView
         android:id="@+id/cardAnim9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -392,8 +392,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		
-		<ImageView
+
+    <ImageView
         android:id="@+id/cardAnim10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -403,8 +403,8 @@
         android:maxHeight="223dp"
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
-		
-		<ImageView
+
+    <ImageView
         android:id="@+id/cardAnim11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -415,7 +415,7 @@
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
 
-		<ImageView
+    <ImageView
         android:id="@+id/cardAnim12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -426,34 +426,65 @@
         android:maxWidth="121dp"
         android:src="@drawable/select_anim" />
 
-		<TextView
-		    android:id="@+id/textView1"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignTop="@+id/card1"
-		    android:text="Large Text"
-		    android:textColor="#FFFFFF"
-		    android:textAppearance="?android:attr/textAppearanceLarge" />
+    <ImageView
+        android:id="@+id/timeglassView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/timeglass1" />
 
-		<TextView
-		    android:id="@+id/textView2"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignRight="@+id/textView1"
-		    android:layout_below="@+id/textView1"
-		    android:layout_marginTop="60dp"
-		    android:text="Large Text"
-		    android:textColor="#FFFFFF"
-		    android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/highscoreView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignBottom="@+id/higscore_background"
+        android:layout_alignLeft="@+id/higscore_background"
+        android:layout_alignRight="@+id/higscore_background"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
 
-		<TextView
-		    android:id="@+id/highscoreView"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignLeft="@+id/textView2"
-		    android:layout_below="@+id/card10"
-		    android:textColor="#FFFFFF"
-		    android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/card9"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/card1"
+        android:layout_toLeftOf="@+id/card5"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/higscore_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/card1"
+        android:layout_toLeftOf="@+id/frame1"
+        android:adjustViewBounds="true"
+        android:maxHeight="200dp"
+        android:maxWidth="400dp"
+        android:src="@drawable/forscore" />
 
 </RelativeLayout>

@@ -2,6 +2,7 @@ package se.mah.k3.cards;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -13,11 +14,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class StartScreen extends Activity {
+	
 	Animation startanim1, startanim2, clickanim1, clickanim2;
-	MediaPlayer startsound;
-	MediaPlayer startmusic;
-	ImageView playcard;
-	ImageView highscorecard;
+	MediaPlayer startsound,startmusic;
+	ImageView playcard,highscorecard,candleAnimView;
+	AnimationDrawable candleAnim;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,27 +28,40 @@ public class StartScreen extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		//Reference sounds
 		startsound = MediaPlayer.create(getApplicationContext(),
 				R.raw.playbutton);
-		
 		startmusic = MediaPlayer.create(getApplicationContext(),
 				R.raw.startmusic);
+		
+		// Initiate click animations
 		startanim1 = AnimationUtils.loadAnimation(this, R.anim.menuanim1);
 		startanim2 = AnimationUtils.loadAnimation(this, R.anim.menuanim2);
 		clickanim1 = AnimationUtils.loadAnimation(this, R.anim.menuanim3);
 		clickanim2 = AnimationUtils.loadAnimation(this, R.anim.menuanim4);
 		setContentView(R.layout.menuscreen);
-		// Gšr en imageview av playkortet
+		
+		// Initiate ImageViews
 		playcard = (ImageView) findViewById(R.id.playcard);
-		// Gšr en imageview av highscorekortet
 		highscorecard = (ImageView) findViewById(R.id.highscorecard);
-		// Ljud fšr playkortet
+		candleAnimView = (ImageView) findViewById(R.id.candles);
+		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
+		candleAnim= (AnimationDrawable) candleAnimView.getBackground();
+		
+		// Initiate sounds
 		startmusic.setLooping(true);
-		startsound.setVolume(0.1f, 0.1f);
+		startsound.setVolume(0.2f, 0.2f);
 		startmusic.start();
+		
+		//Initiate start animations
 		playcard.startAnimation(startanim1);
 		highscorecard.startAnimation(startanim2);
+		candleAnim.start();
 		playcard.setVisibility(View.VISIBLE);
+		candleAnimView.setVisibility(View.INVISIBLE);
+		
+		//Playcard listener
 		playcard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -57,6 +71,8 @@ public class StartScreen extends Activity {
 				startmusic.pause();
 			}
 		});
+		
+		//Click playcard animation listener
 		clickanim1.setAnimationListener(new AnimationListener() {
 
 			@Override
@@ -81,7 +97,7 @@ public class StartScreen extends Activity {
 			}
 		});
 
-		// Ljud fšr highscorekortet
+		//Highscore card listener
 		highscorecard.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -92,6 +108,8 @@ public class StartScreen extends Activity {
 				startmusic.pause();
 			}
 		});
+		
+		//Click highscore animation listener
 		clickanim2.setAnimationListener(new AnimationListener() {
 
 			@Override
@@ -115,14 +133,38 @@ public class StartScreen extends Activity {
 				finish();
 			}
 		});
-
+		
+		//Start animation listener for starting flames
+		startanim1.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				// TODO Auto-generated method stub
+				candleAnimView.setVisibility(View.VISIBLE);
+				candleAnim.start();
+			
+			}
+		});
 	}
-
+	
 	@Override
 	protected void onPause() {
 		super.onPause();
 		startmusic.pause();
-
+		candleAnim.stop();
+		candleAnimView.setVisibility(View.INVISIBLE);
 	}
 
 	@Override
@@ -130,7 +172,6 @@ public class StartScreen extends Activity {
 		super.onResume();
 		startmusic.start();
 		playcard.setVisibility(View.VISIBLE);
-
 	}
 
 	@Override
@@ -138,5 +179,6 @@ public class StartScreen extends Activity {
 		super.onDestroy();
 		startmusic.release();
 		startsound.release();
+		
 	}
 }

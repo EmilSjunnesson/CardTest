@@ -2,7 +2,6 @@ package se.mah.k3.cards;
 
 import java.util.ArrayList;
 
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,6 +9,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Gravity;
@@ -35,11 +35,11 @@ public class MainActivity extends Activity {
 	ImageView candleAnimView;
 	Animation[] placeCards;
 	Animation[] replaceCards;
-	MediaPlayer selectSound,setsound,nosetsound;
+	MediaPlayer selectSound, setsound, nosetsound;
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
 	AnimationDrawable[] select_Anim;
-	AnimationDrawable timeglassAnimation,candleAnim;
+	AnimationDrawable timeglassAnimation, candleAnim;
 	Typeface typeFace;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
@@ -73,9 +73,9 @@ public class MainActivity extends Activity {
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
 		animView = new ImageView[12];
-		candleAnimView =(ImageView)findViewById(R.id.candleanim);
+		candleAnimView = (ImageView) findViewById(R.id.candleanim);
 		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
-		candleAnim=(AnimationDrawable) candleAnimView.getBackground();
+		candleAnim = (AnimationDrawable) candleAnimView.getBackground();
 		candleAnim.start();
 		select_Anim = new AnimationDrawable[12];
 		placeCards = new Animation[12];
@@ -84,14 +84,13 @@ public class MainActivity extends Activity {
 		setsOnTable = (TextView) findViewById(R.id.textView2);
 		selectSound = MediaPlayer.create(getApplicationContext(),
 				R.raw.selectsound);
-		setsound=MediaPlayer.create(getApplicationContext(), R.raw.set);
-		nosetsound=MediaPlayer.create(getApplicationContext(), R.raw.noset);
+		setsound = MediaPlayer.create(getApplicationContext(), R.raw.set);
+		nosetsound = MediaPlayer.create(getApplicationContext(), R.raw.noset);
 		selectSound.setVolume(0.2f, 0.2f);
-		pressedCount = 0;	
-		
-		typeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/black.ttf");
-		
+		pressedCount = 0;
+
+		typeFace = Typeface.createFromAsset(getAssets(), "fonts/black.ttf");
+
 		// Create custom toasts
 		setupToasts();
 
@@ -99,14 +98,15 @@ public class MainActivity extends Activity {
 		highscore = (TextView) findViewById(R.id.highscoreView);
 		highscore.setTypeface(typeFace);
 		highscore.setText(Integer.toString(score));
-		
-		//Timeglass ImageView
+
+		// Timeglass ImageView
 		ImageView timeglassImage = (ImageView) findViewById(R.id.timeglassView);
 		timeglassImage.setBackgroundResource(R.drawable.timeglass_animation);
 		timeglassAnimation = (AnimationDrawable) timeglassImage.getBackground();
 
 		// Create custom dialogs
 		setupCustomDialogs();
+
 		bgMusic.setLooping(true);
 		bgMusic.start();
 		bgMusic.setVolume(0.5f, 0.5f);
@@ -114,6 +114,7 @@ public class MainActivity extends Activity {
 		updateUI(controller.getActiveCards(12));
 	}
 
+	// Listener to dialog buttons
 	public OnClickListener dialogListener = new OnClickListener() {
 
 		@Override
@@ -141,6 +142,7 @@ public class MainActivity extends Activity {
 		}
 	};
 
+	// listener to cards
 	public OnClickListener onClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
@@ -194,6 +196,7 @@ public class MainActivity extends Activity {
 
 	};
 
+	// update cards(imageViews) and textViews
 	public void updateUI(ArrayList<Card> activeCards) {
 		for (int i = 0; i < iv.length; i++) {
 			iv[i].setImageResource(activeCards.get(i).getResId());
@@ -209,15 +212,15 @@ public class MainActivity extends Activity {
 			iv[compareCard2.getIndex()].startAnimation(replaceCards[1]);
 			iv[compareCard3.getIndex()].startAnimation(replaceCards[2]);
 			replaceCards[2].setAnimationListener(new AnimationListener() {
-				
+
 				@Override
 				public void onAnimationStart(Animation animation) {
 				}
-				
+
 				@Override
 				public void onAnimationRepeat(Animation animation) {
 				}
-				
+
 				@Override
 				public void onAnimationEnd(Animation animation) {
 					iv[compareCard1.getIndex()].clearAnimation();
@@ -230,6 +233,7 @@ public class MainActivity extends Activity {
 		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());
 	}
 
+	// cards works as togglebuttons
 	public void toggleState(int pos) {
 		toggle[pos] = !toggle[pos];
 		if (toggle[pos] == true) {
@@ -246,6 +250,7 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	// resets frames and selection logic
 	public void resetSelect() {
 		for (int i = 0; i < toggle.length; i++) {
 			toggle[i] = false;
@@ -254,10 +259,14 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	// runs when three cards has been selected
 	public void checkSelection() {
+		Log.i("TagBag", "BUG: " + compareCard1.toString());
+		Log.i("TagBag", "BUG: " + compareCard2.toString());
+		Log.i("TagBag", "BUG: " + compareCard3.toString());
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
 		if (set == true) {
-			
+
 			scoreClass.killOldTimer();
 			scoreClass.add1000Points();
 			scoreClass.startComboTimer();
@@ -265,7 +274,7 @@ public class MainActivity extends Activity {
 			setsound.start();
 			// Add the score you get to the total score
 			score = score + scoreClass.getPoints();
-			
+
 			// Show custom toast based on how much points you get from your set
 			if (scoreClass.getPoints() == 1000) {
 				toast1000.show();
@@ -285,21 +294,17 @@ public class MainActivity extends Activity {
 			if (scoreClass.getPoints() == 10000) {
 				toast10000.show();
 			}
-			
-			//Start timeglass animation, and if it is running; restart it
-			if(timeglassAnimation.isRunning()){
+
+			// Start timeglass animation, and if it is running; restart it
+			if (timeglassAnimation.isRunning()) {
 				timeglassAnimation.stop();
 			}
 			timeglassAnimation.start();
-
-			
-		
 
 			highscore.setText(Integer.toString(score));
 			scoreClass.clearAll();
 
 			if (!controller.getDeckArray().isEmpty()) {
-				
 
 				updateUI(controller.getNewCards(compareCard1.getIndex(),
 						compareCard2.getIndex(), compareCard3.getIndex()));
@@ -309,7 +314,7 @@ public class MainActivity extends Activity {
 			}
 			set = false;
 		} else if (set == false) {
-			
+
 			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
 					.show();
 			nosetsound.seekTo(0);
@@ -318,9 +323,10 @@ public class MainActivity extends Activity {
 		resetSelect();
 	}
 
+	// run when there's not card left in deck
 	public void win() {
 		if (score > hs.getScore(9)) {
-			// till skriv highscore
+			// if you got a new highscore
 			Intent highScoreIntent = new Intent(getApplicationContext(),
 					WriteHighScore.class);
 			highScoreIntent.putExtra("score", score);
@@ -332,13 +338,14 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	// hardware back-button pressed
 	public void onBackPressed() {
 		exitDialog.show();
 		return;
 	}
 
+	// Create custom toasts
 	public void setupToasts() {
-		// Create custom toasts
 		LayoutInflater inflater = getLayoutInflater();
 		View layout1 = inflater.inflate(R.layout.toast_layout,
 				(ViewGroup) findViewById(R.id.toast_layout_root));
@@ -383,6 +390,7 @@ public class MainActivity extends Activity {
 		toast10000.setView(layout6);
 	}
 
+	// sets up imageViews(Cards), frames and animations
 	public void setupImageViews() {
 		iv[0] = (ImageView) findViewById(R.id.card1);
 		iv[1] = (ImageView) findViewById(R.id.card2);
@@ -484,21 +492,23 @@ public class MainActivity extends Activity {
 	}
 
 	@Override
-	protected void onResume(){
+	protected void onResume() {
 		super.onResume();
 		bgMusic.start();
 	}
-	
+
 	@Override
 	protected void onDestroy() {
+		// kills timers and media
 		scoreClass.killOldTimer();
 		super.onDestroy();
-	bgMusic.release();
-	selectSound.release();
+		bgMusic.release();
+		selectSound.release();
 	}
 
 	@Override
 	protected void onPause() {
+		// kills timers and media
 		scoreClass.killOldTimer();
 		bgMusic.pause();
 		candleAnim.stop();

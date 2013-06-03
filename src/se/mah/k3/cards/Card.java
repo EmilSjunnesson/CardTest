@@ -49,7 +49,7 @@ public class Card {
 
 	@Override
 	public String toString() {
-		return "Card at " + index + ": " + number + " | " + color + " | "
+		return "Card at " + (index+1) + ": " + number + " | " + color + " | "
 				+ shape + " | " + filling;
 	}
 

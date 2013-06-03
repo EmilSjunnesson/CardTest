@@ -32,13 +32,14 @@ public class MainActivity extends Activity {
 	ImageView[] iv;
 	ImageView[] selectedImg;
 	ImageView[] animView;
+	ImageView candleAnimView;
 	Animation[] placeCards;
 	Animation[] replaceCards;
 	MediaPlayer selectSound,setsound,nosetsound;
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
 	AnimationDrawable[] select_Anim;
-	AnimationDrawable timeglassAnimation;
+	AnimationDrawable timeglassAnimation,candleAnim;
 	Typeface typeFace;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
@@ -72,6 +73,10 @@ public class MainActivity extends Activity {
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
 		animView = new ImageView[12];
+		candleAnimView =(ImageView)findViewById(R.id.candleanim);
+		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
+		candleAnim=(AnimationDrawable) candleAnimView.getBackground();
+		candleAnim.start();
 		select_Anim = new AnimationDrawable[12];
 		placeCards = new Animation[12];
 		replaceCards = new Animation[3];
@@ -496,7 +501,7 @@ public class MainActivity extends Activity {
 	protected void onPause() {
 		scoreClass.killOldTimer();
 		bgMusic.pause();
-		
+		candleAnim.stop();
 		super.onPause();
 	}
 }

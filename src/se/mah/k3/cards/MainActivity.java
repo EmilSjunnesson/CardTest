@@ -256,6 +256,7 @@ public class MainActivity extends Activity {
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
+			//lastPos istället för 0 
 			currCard = controller.getActiveArray().get(0);
 			pressedCount--;
 		}

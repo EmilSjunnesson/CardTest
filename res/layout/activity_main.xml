@@ -433,12 +433,22 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true" />
 
+    <ImageView
+        android:id="@+id/timeglass_bgd"
+        android:layout_alignTop="@+id/timeglassView"
+        android:layout_alignBottom="@+id/timeglassView"
+        android:layout_alignLeft="@+id/timeglassView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/timeglass_background" />
+
     <TextView
         android:id="@+id/highscoreView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginBottom="35dp"
+        android:gravity="center"
+        android:layout_marginBottom="26dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/higscore_background"
         android:layout_alignLeft="@+id/higscore_background"
         android:layout_alignRight="@+id/higscore_background"
@@ -479,7 +489,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/card1"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="50dp"
         android:layout_toLeftOf="@+id/frame1"
         android:adjustViewBounds="true"
         android:maxHeight="200dp"

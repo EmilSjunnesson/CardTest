@@ -153,8 +153,7 @@ public class MainActivity extends Activity {
 	public OnClickListener onClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Log.i("TagBag", "BUG: "+currCard.toString());
-			Log.i("TagBag", "BUG: "+pressedCount);
+			Log.i("TagBag", "NY TRYCKNING");
 			switch (v.getId()) {
 			case R.id.card1:
 				toggleState(0);
@@ -193,6 +192,8 @@ public class MainActivity extends Activity {
 				toggleState(11);
 				break;
 			}
+			Log.i("TagBag", "BUG: index "+(currCard.getIndex()+1));
+			Log.i("TagBag", "BUG: tryckCount "+pressedCount);
 			if (pressedCount == 1) {
 				compareCard1 = currCard;
 			} else if (pressedCount == 2) {
@@ -255,6 +256,7 @@ public class MainActivity extends Activity {
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
+			currCard = controller.getActiveArray().get(pos);;
 			pressedCount--;
 		}
 	}

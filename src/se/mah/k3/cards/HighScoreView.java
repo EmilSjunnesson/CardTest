@@ -2,6 +2,7 @@ package se.mah.k3.cards;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -75,18 +76,21 @@ public class HighScoreView extends Activity {
 		//display score
 		for (int i = 0; i < tv1.length; i++) {
 			tv1[i].setTypeface(typeFace);
+			tv1[i].setTextColor(Color.BLACK);
 			tv1[i].setText(String.valueOf(highscore.getScore(i)));
 		}
 		
 		//display names
 		for (int i = 0; i < tv2.length; i++) {
 			tv2[i].setTypeface(typeFace);
+			tv2[i].setTextColor(Color.BLACK);
 			tv2[i].setText(highscore.getName(i));
 		}
 		
 		//display placing
 		for (int i = 0; i < tv3.length; i++) {
 			tv3[i].setTypeface(typeFace);
+			tv3[i].setTextColor(Color.BLACK);
 		}
 	}
 

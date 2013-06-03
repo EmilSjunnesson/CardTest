@@ -15,6 +15,7 @@ public class Controller {
 	private boolean shapeState;
 	private boolean fillingState;
 	private int nbrOfSets = 0;
+	private int hintIndex1, hintIndex2;
 	Deck deck = new Deck();
 	ArrayList<Card> deckArray = new ArrayList<Card>();
 	ArrayList<Card> activeCards = new ArrayList<Card>();
@@ -108,6 +109,8 @@ public class Controller {
 			nbrOfSets++;
 			Log.i("TagBag", "Index of SET:" + (card1.getIndex() + 1) + " | "
 					+ (card2.getIndex() + 1) + " | " + (card3.getIndex() + 1));
+			hintIndex1 = card1.getIndex();
+			hintIndex2 = card2.getIndex();
 		}
 	}
 
@@ -166,7 +169,16 @@ public class Controller {
 	public int getNbrOfCardsLeft() {
 		return deckArray.size();
 	}
-
+	
+	public int getHintIndex(int number){
+		if (number==1) {
+			return hintIndex1;
+		}else if (number==2) {
+			return hintIndex2;
+		}
+		return 0;
+	}
+	
 	public void checkForSet() {
 		nbrOfSets = 0;
 		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(2));

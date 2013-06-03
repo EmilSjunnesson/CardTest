@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgblurblue1" >
+    android:background="@drawable/bg" >
 
     <ImageView
         android:id="@+id/highscorecard"
@@ -21,5 +21,15 @@
         android:layout_alignTop="@+id/highscorecard"
         android:layout_marginLeft="303dp"
         android:src="@drawable/playkort" />
+
+    <ImageView
+        android:id="@+id/candles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:adjustViewBounds="false"
+        android:background="@drawable/candle_anim"
+        android:baselineAlignBottom="false"
+        android:cropToPadding="false" />
 
 </RelativeLayout>

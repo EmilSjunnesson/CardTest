@@ -2,6 +2,8 @@ package se.mah.k3.cards;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -17,6 +19,7 @@ public class WriteHighScore extends Activity {
 	private String name;
 	EditText player;
 	TextView scoreview;
+	Typeface typeFace;
 	Highscore highscore;
 
 	@Override
@@ -27,14 +30,23 @@ public class WriteHighScore extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		//disable kayboard at start
+		this.getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 		setContentView(R.layout.write_highscore);
+
 		// get score from MainActivity
 		score = (long) getIntent().getExtras().getInt("score");
 
+		typeFace = Typeface.createFromAsset(getAssets(), "fonts/black.ttf");
+
 		player = (EditText) findViewById(R.id.player); // edittext component
 		scoreview = (TextView) findViewById(R.id.scoreview); // textview
-																// component
+		scoreview.setTypeface(typeFace);
+		scoreview.setTextColor(Color.BLACK);
+
 		highscore = new Highscore(this);
 		scoreview.setText(String.valueOf(score));
 

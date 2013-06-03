@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+<item android:drawable="@drawable/candle_anim01" android:duration="100" />
+<item android:drawable="@drawable/candle_anim02" android:duration="100" />
+<item android:drawable="@drawable/candle_anim03" android:duration="100" />
+<item android:drawable="@drawable/candle_anim04" android:duration="100" />
+<item android:drawable="@drawable/candle_anim05" android:duration="100" />
+<item android:drawable="@drawable/candle_anim06" android:duration="100" />
+</animation-list>

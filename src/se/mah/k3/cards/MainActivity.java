@@ -153,6 +153,8 @@ public class MainActivity extends Activity {
 	public OnClickListener onClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
+			Log.i("TagBag", "BUG: "+currCard.toString());
+			Log.i("TagBag", "BUG: "+pressedCount);
 			switch (v.getId()) {
 			case R.id.card1:
 				toggleState(0);

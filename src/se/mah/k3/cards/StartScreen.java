@@ -1,5 +1,7 @@
 package se.mah.k3.cards;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -15,7 +17,7 @@ import android.widget.ImageView;
 
 public class StartScreen extends Activity {
 	
-	Animation startanim1, startanim2, clickanim1, clickanim2;
+	Animation startanim1, startanim2, clickanim1, clickanim2,changeActivityAnim;
 	MediaPlayer startsound,startmusic;
 	ImageView playcard,highscorecard,candleAnimView;
 	AnimationDrawable candleAnim;
@@ -40,6 +42,7 @@ public class StartScreen extends Activity {
 		startanim2 = AnimationUtils.loadAnimation(this, R.anim.menuanim2);
 		clickanim1 = AnimationUtils.loadAnimation(this, R.anim.menuanim3);
 		clickanim2 = AnimationUtils.loadAnimation(this, R.anim.menuanim4);
+		changeActivityAnim = AnimationUtils.loadAnimation(this, R.anim.changeactivityfrom);
 		setContentView(R.layout.menuscreen);
 		
 		// Initiate ImageViews
@@ -68,7 +71,7 @@ public class StartScreen extends Activity {
 				playcard.startAnimation(clickanim1);
 				startsound.seekTo(0);
 				startsound.start();
-				startmusic.pause();
+				
 			}
 		});
 		
@@ -92,7 +95,10 @@ public class StartScreen extends Activity {
 				Intent intent = new Intent(getApplicationContext(),
 						MainActivity.class);
 				startActivityForResult(intent, 0);
+				
 				playcard.setVisibility(View.INVISIBLE);
+				startmusic.reset();
+				overridePendingTransition(R.anim.changeactivityto, R.anim.changeactivityfrom);
 				finish();
 			}
 		});
@@ -130,6 +136,7 @@ public class StartScreen extends Activity {
 						HighScoreView.class);
 				startActivityForResult(intent, 0);
 				highscorecard.setVisibility(View.INVISIBLE);
+				overridePendingTransition(R.anim.changeactivityto, R.anim.changeactivityfrom);
 				finish();
 			}
 		});
@@ -163,8 +170,8 @@ public class StartScreen extends Activity {
 	protected void onPause() {
 		super.onPause();
 		startmusic.pause();
-		candleAnim.stop();
-		candleAnimView.setVisibility(View.INVISIBLE);
+		//candleAnim.stop();
+		//candleAnimView.setVisibility(View.INVISIBLE);
 	}
 
 	@Override

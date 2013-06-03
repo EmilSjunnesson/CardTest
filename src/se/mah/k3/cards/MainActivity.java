@@ -516,6 +516,9 @@ public class MainActivity extends Activity {
 		super.onDestroy();
 		bgMusic.release();
 		selectSound.release();
+		setsound.release();
+		nosetsound.release();
+		
 	}
 
 	@Override

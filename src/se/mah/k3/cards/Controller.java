@@ -170,7 +170,12 @@ public class Controller {
 		return deckArray.size();
 	}
 	
-	public int getHintIndex(int index){
+	public int getHintIndex(int number){
+		if (number==1) {
+			return hintIndex1;
+		}else if (number==2) {
+			return hintIndex2;
+		}
 		return 0;
 	}
 	

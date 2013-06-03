@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
 		leftInDeck = (TextView) findViewById(R.id.textView1);
 		setsOnTable = (TextView) findViewById(R.id.textView2);
 		selectSound = MediaPlayer.create(getApplicationContext(),
-				R.raw.playbutton);
+				R.raw.selectsound);
 		setsound=MediaPlayer.create(getApplicationContext(), R.raw.set);
 		nosetsound=MediaPlayer.create(getApplicationContext(), R.raw.noset);
 		selectSound.setVolume(0.2f, 0.2f);
@@ -104,6 +104,7 @@ public class MainActivity extends Activity {
 		setupCustomDialogs();
 		bgMusic.setLooping(true);
 		bgMusic.start();
+		bgMusic.setVolume(0.5f, 0.5f);
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));
 	}
@@ -231,8 +232,8 @@ public class MainActivity extends Activity {
 			select_Anim[pos].stop();
 			select_Anim[pos].start();
 			currCard = controller.getActiveArray().get(pos);
-			//selectSound.seekTo(0);
-			//selectSound.start();
+			selectSound.seekTo(0);
+			selectSound.start();
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);

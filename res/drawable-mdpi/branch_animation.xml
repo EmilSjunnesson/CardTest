@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<animation-list xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:oneshot="true">
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
     
-    <item android:drawable="@drawable/branch01" android:duration="20" />
-    <item android:drawable="@drawable/branch02" android:duration="20" />
-    <item android:drawable="@drawable/branch03" android:duration="20" />
-    <item android:drawable="@drawable/branch04" android:duration="20" />
-    <item android:drawable="@drawable/branch05" android:duration="20" />
-    <item android:drawable="@drawable/branch06" android:duration="20" />
-    <item android:drawable="@drawable/branch07" android:duration="20" />
-    <item android:drawable="@drawable/branch08" android:duration="20" />
+    <item android:drawable="@drawable/branch01" android:duration="100" />
+    <item android:drawable="@drawable/branch02" android:duration="100" />
+    <item android:drawable="@drawable/branch03" android:duration="100" />
+    <item android:drawable="@drawable/branch04" android:duration="100" />
+    <item android:drawable="@drawable/branch05" android:duration="100" />
+    <item android:drawable="@drawable/branch06" android:duration="100" />
+    <item android:drawable="@drawable/branch07" android:duration="100" />
+    <item android:drawable="@drawable/branch08" android:duration="100" />
     
 
 </animation-list>

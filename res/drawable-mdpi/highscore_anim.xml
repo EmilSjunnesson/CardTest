@@ -8,4 +8,18 @@
     <item android:drawable="@drawable/highscore_anim04" android:duration="1" />
     <item android:drawable="@drawable/highscore_anim05" android:duration="1" />
     <item android:drawable="@drawable/highscore_anim06" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim07" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim08" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim09" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim10" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim11" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim12" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim13" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim14" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim15" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim16" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim17" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim18" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim19" android:duration="1" />
+    <item android:drawable="@drawable/highscore_anim20" android:duration="1" />
 </animation-list>

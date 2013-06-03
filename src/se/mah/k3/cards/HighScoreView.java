@@ -1,15 +1,24 @@
 package se.mah.k3.cards;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HighScoreView extends Activity {
 
@@ -17,7 +26,12 @@ public class HighScoreView extends Activity {
 	ImageView highscoreview;
 	Typeface typeFace;
 	Highscore highscore;
-
+	Animation fadein;
+	boolean showtext=false;
+	int frames=0;
+	TextView[] tv1;
+	TextView[] tv2;
+	TextView[] tv3; 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,16 +42,19 @@ public class HighScoreView extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.highscore_view);
+		
 		highscore = new Highscore(this);
 		highscoreview = (ImageView) findViewById(R.id.highscoreview);
 		highscoreview.setBackgroundResource(R.drawable.highscore_anim);
 		highscoreAnim = (AnimationDrawable) highscoreview.getBackground();
-		highscoreAnim.start();
+		fadein=AnimationUtils.loadAnimation(this, R.anim.highscorefade);
+		
 		
 		typeFace = Typeface.createFromAsset(getAssets(),
 					"fonts/black.ttf");
-
-		TextView[] tv1 = new TextView[10];
+		
+	
+		 tv1 = new TextView[10];
 		tv1[0] = (TextView) findViewById(R.id.score1);
 		tv1[1] = (TextView) findViewById(R.id.score2);
 		tv1[2] = (TextView) findViewById(R.id.score3);
@@ -49,7 +66,7 @@ public class HighScoreView extends Activity {
 		tv1[8] = (TextView) findViewById(R.id.score9);
 		tv1[9] = (TextView) findViewById(R.id.score10);
 
-		TextView[] tv2 = new TextView[10];
+		 tv2 = new TextView[10];
 		tv2[0] = (TextView) findViewById(R.id.name1);
 		tv2[1] = (TextView) findViewById(R.id.name2);
 		tv2[2] = (TextView) findViewById(R.id.name3);
@@ -61,7 +78,7 @@ public class HighScoreView extends Activity {
 		tv2[8] = (TextView) findViewById(R.id.name9);
 		tv2[9] = (TextView) findViewById(R.id.name10);
 		
-		TextView[] tv3 = new TextView[10];
+		 tv3 = new TextView[10];
 		tv3[0] = (TextView) findViewById(R.id.placing1);
 		tv3[1] = (TextView) findViewById(R.id.placing2);
 		tv3[2] = (TextView) findViewById(R.id.placing3);
@@ -73,6 +90,11 @@ public class HighScoreView extends Activity {
 		tv3[8] = (TextView) findViewById(R.id.placing9);
 		tv3[9] = (TextView) findViewById(R.id.placing10);
 		
+		for (int i=0;i<tv1.length;i++){
+			tv1[i].setVisibility(View.INVISIBLE);
+			tv2[i].setVisibility(View.INVISIBLE);
+			tv3[i].setVisibility(View.INVISIBLE);
+		}
 		//display score
 		for (int i = 0; i < tv1.length; i++) {
 			tv1[i].setTypeface(typeFace);
@@ -92,7 +114,14 @@ public class HighScoreView extends Activity {
 			tv3[i].setTypeface(typeFace);
 			tv3[i].setTextColor(Color.BLACK);
 		}
+		highscoreAnim.start();					      															
+	for (int i=0;i<tv1.length;i++){
+		tv1[i].startAnimation(fadein);
+		tv2[i].startAnimation(fadein);
+		tv3[i].startAnimation(fadein);
 	}
+	}
+	
 
 	public void onBackPressed() {
 		Intent i = new Intent(HighScoreView.this, StartScreen.class);

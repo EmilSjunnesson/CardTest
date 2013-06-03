@@ -422,6 +422,18 @@
         android:src="@drawable/select_anim" />
 
     <ImageView
+        android:id="@+id/candleanim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/candle_anim" />
+
+    <ImageView
+        android:id="@+id/branchViewAnim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/candle_anim" />
+
+    <ImageView
         android:id="@+id/timeglassView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -496,13 +508,5 @@
         android:maxHeight="250dp"
         android:maxWidth="250dp"
         android:src="@drawable/forscore" />
-
-    <ImageView
-        android:id="@+id/candleanim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/candle_anim"/>
 
 </RelativeLayout>

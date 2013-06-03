@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class MainActivity extends Activity {
 	Dialog exitDialog, winDialog;
 	AnimationDrawable[] select_Anim;
 	AnimationDrawable timeglassAnimation;
+	Typeface typeFace;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	Button exitYes, exitNo, winYes, winNo;
@@ -80,12 +82,17 @@ public class MainActivity extends Activity {
 		setsound=MediaPlayer.create(getApplicationContext(), R.raw.set);
 		nosetsound=MediaPlayer.create(getApplicationContext(), R.raw.noset);
 		selectSound.setVolume(0.2f, 0.2f);
-		pressedCount = 0;				
+		pressedCount = 0;	
+		
+		typeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/black.ttf");
+		
 		// Create custom toasts
 		setupToasts();
 
 		// Highscore textview
 		highscore = (TextView) findViewById(R.id.highscoreView);
+		highscore.setTypeface(typeFace);
 		highscore.setText(Integer.toString(score));
 		
 		//Timeglass ImageView

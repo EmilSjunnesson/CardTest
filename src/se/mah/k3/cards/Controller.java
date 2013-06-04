@@ -19,7 +19,8 @@ public class Controller {
 	Deck deck = new Deck();
 	ArrayList<Card> deckArray = new ArrayList<Card>();
 	ArrayList<Card> activeCards = new ArrayList<Card>();
-
+	
+	//Creates deck and places 12 cards in active
 	public void placeCardsOnTable(int cardsNeeded) {
 		if (deckArray.isEmpty()) {
 			deck.getAllCards(deckArray);
@@ -31,28 +32,15 @@ public class Controller {
 		}
 		Log.i("TagBag", "Kort kvar i deck: " + deckArray.size());
 	}
-
+	
+	// returns the first 12 active cards after checks and re-deals
 	public ArrayList<Card> getActiveCards(int cardsNeeded) {
 		placeCardsOnTable(cardsNeeded);
 		checkAndRedeal();
 		return activeCards;
 	}
 
-	public ArrayList<Card> getActiveArray() {
-		return activeCards;
-	}
-
-	public ArrayList<Card> getDeckArray() {
-		return deckArray;
-	}
-
-	public void removeFromActive() {
-		for (int i = 0; i < activeCards.size(); i++) {
-			deckArray.add(activeCards.get(0));
-			activeCards.remove(0);
-		}
-	}
-
+	// take cards from deck and place them in active cards
 	public ArrayList<Card> getNewCards(int card1Index, int card2Index,
 			int card3Index) {
 		activeCards.set(card1Index, deckArray.get(0));
@@ -69,6 +57,7 @@ public class Controller {
 		return activeCards;
 	}
 
+	// check active cards for set and re-deal if needed
 	public void checkAndRedeal() {
 		checkForSet();
 		while (nbrOfSets <= 0) {
@@ -79,15 +68,16 @@ public class Controller {
 			checkForSet();
 		}
 	}
+	
+	// remove all active cards an place them back in deck
+		public void removeFromActive() {
+			for (int i = 0; i < activeCards.size(); i++) {
+				deckArray.add(activeCards.get(0));
+				activeCards.remove(0);
+			}
+		}
 
-	public Dialog createCustomDialog(Dialog d, int layoutId) {
-		d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		d.setContentView(layoutId);
-		d.getWindow().setBackgroundDrawable(
-				new ColorDrawable(android.graphics.Color.TRANSPARENT));
-		return d;
-	}
-
+	// compare selected cards
 	public boolean isSet(Card card1, Card card2, Card card3) {
 		numberState = isSetNumber(card1, card2, card3);
 		colorState = isSetColor(card1, card2, card3);
@@ -100,6 +90,7 @@ public class Controller {
 		}
 	}
 
+	// compare for hint and re-deal logic
 	public void isSetOnTable(Card card1, Card card2, Card card3) {
 		numberState = isSetNumber(card1, card2, card3);
 		colorState = isSetColor(card1, card2, card3);
@@ -114,6 +105,7 @@ public class Controller {
 		}
 	}
 
+	// compare number of symbols on cards
 	public boolean isSetNumber(Card card1, Card card2, Card card3) {
 		if ((card1.getNumber() == card2.getNumber() && card2.getNumber() == card3
 				.getNumber())
@@ -126,6 +118,7 @@ public class Controller {
 		}
 	}
 
+	// compare color of cards
 	public boolean isSetColor(Card card1, Card card2, Card card3) {
 		if ((card1.getColor().equals(card2.getColor()) && card2.getColor()
 				.equals(card3.getColor()))
@@ -138,6 +131,7 @@ public class Controller {
 		}
 	}
 
+	// compare shape of cards
 	public boolean isSetShape(Card card1, Card card2, Card card3) {
 		if ((card1.getShape().equals(card2.getShape()) && card2.getShape()
 				.equals(card3.getShape()))
@@ -150,6 +144,7 @@ public class Controller {
 		}
 	}
 
+	// compare filling of cards
 	public boolean isSetFilling(Card card1, Card card2, Card card3) {
 		if ((card1.getFilling().equals(card2.getFilling()) && card2
 				.getFilling().equals(card3.getFilling()))
@@ -169,16 +164,34 @@ public class Controller {
 	public int getNbrOfCardsLeft() {
 		return deckArray.size();
 	}
-	
-	public int getHintIndex(int number){
-		if (number==1) {
+
+	public int getHintIndex(int number) {
+		if (number == 1) {
 			return hintIndex1;
-		}else if (number==2) {
+		} else if (number == 2) {
 			return hintIndex2;
 		}
 		return 0;
 	}
+
+	public ArrayList<Card> getActiveArray() {
+		return activeCards;
+	}
+
+	public ArrayList<Card> getDeckArray() {
+		return deckArray;
+	}
 	
+	// creates custom transparent dialogs
+		public Dialog createCustomDialog(Dialog d, int layoutId) {
+			d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			d.setContentView(layoutId);
+			d.getWindow().setBackgroundDrawable(
+					new ColorDrawable(android.graphics.Color.TRANSPARENT));
+			return d;
+		}
+	
+	// checks all cards on table for sets
 	public void checkForSet() {
 		nbrOfSets = 0;
 		isSetOnTable(activeCards.get(0), activeCards.get(1), activeCards.get(2));

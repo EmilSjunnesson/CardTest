@@ -52,15 +52,15 @@ public class Score {
 		                public void run(){
 			                Log.i("score", this.toString()+" comboScore: " + comboScore1);
 			                comboScore1++;
-			                //If the player takes too long, stop the counter
+			                
+			                //Show first hint
 			                if (comboScore1==131){
 			                	Message msg = new Message();
 			                	msg.arg1 = MainActivity.SHOW_HINT_ONE;
-			                	
-							
-			                mHandler.sendMessage(msg );
+			                	mHandler.sendMessage(msg );
 			                	
 			                }
+			                //Show second hint
 			                if (comboScore1==191){
 			                	Message msg = new Message();
 			                	msg.arg1 = MainActivity.SHOW_HINT_TWO;
@@ -68,6 +68,7 @@ public class Score {
 							
 			                mHandler.sendMessage(msg );
 			                }
+			              //If the player takes too long, stop the counter
 			                if(comboScore1 > 195){
 			                	
 			                	cancel();			                

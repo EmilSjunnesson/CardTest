@@ -18,8 +18,9 @@ public class TimebonusTimer {
 			@Override
 			public void run() {
 				timebonus++;
+				
 			}
-		}, 1, 1000);
+		}, 5, 1000);
 		
 		return timebonus;
 	}

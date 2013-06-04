@@ -1,6 +1,8 @@
 package se.mah.k3.cards;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -34,6 +36,7 @@ public class MainActivity extends Activity {
 	
 	Controller controller;
 	Highscore hs;
+	TimebonusTimer timebonusTimerClass;
 	ImageView[] iv;
 	ImageView[] selectedImg;
 	ImageView[] animView;
@@ -58,6 +61,7 @@ public class MainActivity extends Activity {
 	private boolean newset = true;
 	private Score scoreClass;
 	private int score = 0; // An int that saves your total score
+	private int timebonus = 0;
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private int lastIndex;
@@ -338,6 +342,7 @@ public class MainActivity extends Activity {
 
 			} else if (controller.getDeckArray().isEmpty()) {
 				win();
+				timebonusTimerClass.killTimebonusTimer();
 			}
 			set = false;
 		} else if (set == false) {
@@ -541,6 +546,8 @@ public class MainActivity extends Activity {
 			}
 		}
 	};
+	
+
 	
 
 	@Override

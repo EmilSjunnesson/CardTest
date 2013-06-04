@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 	ImageView[] selectedImg;
 	ImageView[] animView;
 	ImageView candleAnimView, branchView;
+	ImageView[] hintView;
 	Animation[] placeCards;
 	Animation[] replaceCards;
 	MediaPlayer selectSound, setsound, nosetsound;
@@ -75,6 +76,7 @@ public class MainActivity extends Activity {
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
 		animView = new ImageView[12];
+		hintView = new ImageView[12];
 
 		// Background animations
 		candleAnimView = (ImageView) findViewById(R.id.candleanim);
@@ -470,6 +472,19 @@ public class MainActivity extends Activity {
 		replaceCards[2] = AnimationUtils.loadAnimation(this,
 				R.anim.replacecard_anim3);
 
+		hintView[0]=(ImageView) findViewById(R.id.hintView1);
+		hintView[1]=(ImageView) findViewById(R.id.hintView2);
+		hintView[2]=(ImageView) findViewById(R.id.hintView3);
+		hintView[3]=(ImageView) findViewById(R.id.hintView4);
+		hintView[4]=(ImageView) findViewById(R.id.hintView5);
+		hintView[5]=(ImageView) findViewById(R.id.hintView6);
+		hintView[6]=(ImageView) findViewById(R.id.hintView7);
+		hintView[7]=(ImageView) findViewById(R.id.hintView8);
+		hintView[8]=(ImageView) findViewById(R.id.hintView9);
+		hintView[9]=(ImageView) findViewById(R.id.hintView10);
+		hintView[10]=(ImageView) findViewById(R.id.hintView11);
+		hintView[11]=(ImageView) findViewById(R.id.hintView12);
+		
 		for (int i = 0; i < animView.length; i++) {
 			animView[i].setBackgroundResource(R.drawable.select_anim);
 			select_Anim[i] = (AnimationDrawable) animView[i].getBackground();

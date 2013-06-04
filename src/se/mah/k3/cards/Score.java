@@ -2,6 +2,8 @@ package se.mah.k3.cards;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 
@@ -13,6 +15,13 @@ public class Score {
 	private int comboScore1 = 0;
 	private int comboScore2 = 0;
 	
+	
+	private Handler mHandler;
+	
+	public Score(Handler mHandler) {
+		this.mHandler = mHandler;
+	}
+
 	//return points
 	public int getPoints(){
 		Log.i("score", "returns points");
@@ -44,16 +53,34 @@ public class Score {
 			                Log.i("score", this.toString()+" comboScore: " + comboScore1);
 			                comboScore1++;
 			                //If the player takes too long, stop the counter
-			                if(comboScore1 > 131){
-			                	cancel();
+			                if (comboScore1==131){
+			                	Message msg = new Message();
+			                	msg.arg1 = MainActivity.SHOW_HINT_ONE;
+			                	
+							
+			                mHandler.sendMessage(msg );
+			                	
+			                }
+			                if (comboScore1==191){
+			                	Message msg = new Message();
+			                	msg.arg1 = MainActivity.SHOW_HINT_TWO;
+			                	
+							
+			                mHandler.sendMessage(msg );
+			                }
+			                if(comboScore1 > 195){
+			                	
+			                	cancel();			                
 			                }
 			                
 		                }
+		                
 		            
 		    }, 10, 500);
 		
 		return comboScore1;
 	}
+	
 	
 	public int convertComboPoints(int comboPoints){
 		//converts the points from the comboTimer to the actual points you will get in the game

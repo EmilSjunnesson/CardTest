@@ -9,6 +9,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,6 +29,9 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+	public static final int SHOW_HINT_ONE = 1;
+	public static final int SHOW_HINT_TWO = 2;
+	
 	Controller controller;
 	Highscore hs;
 	ImageView[] iv;
@@ -36,6 +41,7 @@ public class MainActivity extends Activity {
 	ImageView[] hintView;
 	Animation[] placeCards;
 	Animation[] replaceCards;
+	Animation hintAnim,hintAnim2;
 	MediaPlayer selectSound, setsound, nosetsound;
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
@@ -71,7 +77,7 @@ public class MainActivity extends Activity {
 				R.raw.mainmusic);
 		controller = new Controller();
 		hs = new Highscore(this);
-		scoreClass = new Score();
+		scoreClass = new Score(mHandler);
 		iv = new ImageView[12];
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
@@ -95,7 +101,8 @@ public class MainActivity extends Activity {
 		nosetsound = MediaPlayer.create(getApplicationContext(), R.raw.noset);
 		selectSound.setVolume(0.2f, 0.2f);
 		pressedCount = 0;
-
+		hintAnim=AnimationUtils.loadAnimation(getApplicationContext(), R.anim.hintanim);
+		hintAnim2=AnimationUtils.loadAnimation(getApplicationContext(), R.anim.hintanim2);
 		typeFace = Typeface.createFromAsset(getAssets(), "fonts/black.ttf");
 
 		// Create custom toasts
@@ -281,8 +288,12 @@ public class MainActivity extends Activity {
 		Log.i("TagBag", "BUG: " + compareCard2.toString());
 		Log.i("TagBag", "BUG: " + compareCard3.toString());
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
+		
 		if (set == true) {
-
+			for (int i=0;i<hintView.length;i++){
+				hintView[i].setVisibility(View.INVISIBLE);
+				hintView[i].clearAnimation();
+			}
 			scoreClass.killOldTimer();
 			scoreClass.add1000Points();
 			scoreClass.startComboTimer();
@@ -521,6 +532,18 @@ public class MainActivity extends Activity {
 		winNo = (Button) winDialog.findViewById(R.id.winNo);
 		winNo.setOnClickListener(dialogListener);
 	}
+	
+	Handler mHandler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			if( msg.arg1 == SHOW_HINT_ONE ){
+				hintView[controller.getHintIndex(1)].startAnimation(hintAnim);
+			}if( msg.arg1 == SHOW_HINT_TWO ){
+				hintView[controller.getHintIndex(2)].startAnimation(hintAnim2);
+			}
+		}
+	};
+	
 
 	@Override
 	protected void onResume() {

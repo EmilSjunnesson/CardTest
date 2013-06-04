@@ -518,7 +518,8 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
-        android:src="@drawable/highlight_cards1" />
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/hintView2"
@@ -529,6 +530,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -540,6 +542,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -548,6 +551,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card4"
         android:layout_alignTop="@+id/card4"
+        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
@@ -562,6 +566,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -573,6 +578,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -584,6 +590,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -595,6 +602,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -606,6 +614,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -617,6 +626,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -628,6 +638,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
     
     <ImageView
@@ -639,6 +650,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
         android:maxWidth="121dp"
+        android:visibility="invisible"
         android:src="@drawable/highlight_cards1" />
 
 </RelativeLayout>

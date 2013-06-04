@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
 	private boolean newset = true;
 	private Score scoreClass;
 	private int score = 0; // An int that saves your total score
-	private int timebonus = 0;
+	private int timebonus = 0; //An int for your timebonus
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private int lastIndex;
@@ -129,6 +129,8 @@ public class MainActivity extends Activity {
 		bgMusic.setVolume(0.5f, 0.5f);
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));
+		
+		timebonusTimerClass.startTimebonusTimer();
 	}
 
 	// Listener to dialog buttons
@@ -560,6 +562,7 @@ public class MainActivity extends Activity {
 	protected void onDestroy() {
 		// kills timers and media
 		scoreClass.killOldTimer();
+		timebonusTimerClass.killTimebonusTimer();
 		super.onDestroy();
 		bgMusic.release();
 		selectSound.release();
@@ -572,6 +575,7 @@ public class MainActivity extends Activity {
 	protected void onPause() {
 		// kills timers and media
 		scoreClass.killOldTimer();
+		timebonusTimerClass.killTimebonusTimer();
 		bgMusic.pause();
 		candleAnim.stop();
 		super.onPause();

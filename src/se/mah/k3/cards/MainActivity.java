@@ -129,7 +129,8 @@ public class MainActivity extends Activity {
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));
 		
-		//timebonusTimerClass.startTimebonusTimer();
+		timebonusTimerClass = new TimebonusTimer();
+		timebonusTimerClass.startTimebonusTimer();
 	}
 
 	// Listener to dialog buttons
@@ -343,6 +344,7 @@ public class MainActivity extends Activity {
 
 			} else if (controller.getDeckArray().isEmpty()) {
 				win();
+				timebonusTimerClass.killTimebonusTimer();
 			}
 			set = false;
 		} else if (set == false) {
@@ -560,11 +562,12 @@ public class MainActivity extends Activity {
 	protected void onDestroy() {
 		// kills timers and media
 		scoreClass.killOldTimer();
-		super.onDestroy();
+		timebonusTimerClass.killTimebonusTimer();
 		bgMusic.release();
 		selectSound.release();
 		setsound.release();
 		nosetsound.release();
+		super.onDestroy();
 
 	}
 
@@ -572,6 +575,7 @@ public class MainActivity extends Activity {
 	protected void onPause() {
 		// kills timers and media
 		scoreClass.killOldTimer();
+		timebonusTimerClass.killTimebonusTimer();
 		bgMusic.pause();
 		candleAnim.stop();
 		super.onPause();

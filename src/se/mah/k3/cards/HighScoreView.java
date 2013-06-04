@@ -9,9 +9,11 @@ import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ public class HighScoreView extends Activity {
 	Typeface typeFace;
 	Highscore highscore;
 	Animation fadein;
+	Animation fadeout;
 	boolean showtext=false;
 	int frames=0;
 	TextView[] tv1;
@@ -45,7 +48,7 @@ public class HighScoreView extends Activity {
 		highscoreview.setBackgroundResource(R.drawable.highscore_anim);
 		highscoreAnim = (AnimationDrawable) highscoreview.getBackground();
 		fadein=AnimationUtils.loadAnimation(this, R.anim.highscorefade);
-		
+		fadeout=AnimationUtils.loadAnimation(this, R.anim.highscorefadeout);
 		
 		typeFace = Typeface.createFromAsset(getAssets(),
 					"fonts/black.ttf");
@@ -117,13 +120,51 @@ public class HighScoreView extends Activity {
 		tv2[i].startAnimation(fadein);
 		tv3[i].startAnimation(fadein);
 	}
+	highscoreview.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			
+			for(int i=0;i<tv1.length;i++){
+				tv1[i].startAnimation(fadeout);
+				tv2[i].startAnimation(fadeout);
+				tv3[i].startAnimation(fadeout);
+			}
+			fadeout.setAnimationListener(new AnimationListener() {
+				
+				@Override
+				public void onAnimationStart(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					// TODO Auto-generated method stub
+					Intent i = new Intent(HighScoreView.this, StartScreen.class);
+					startActivity(i);
+					finish();	
+				}
+			});
+			
+			
+		}
+	});
 	}
 	
 
 	public void onBackPressed() {
-		Intent i = new Intent(HighScoreView.this, StartScreen.class);
-		startActivity(i);
-		finish();
+		for(int i=0;i<tv1.length;i++){
+			tv1[i].startAnimation(fadeout);
+			tv2[i].startAnimation(fadeout);
+			tv3[i].startAnimation(fadeout);
+		}
 		return;
 	}
 }

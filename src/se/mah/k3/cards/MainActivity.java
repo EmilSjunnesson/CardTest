@@ -33,7 +33,8 @@ public class MainActivity extends Activity {
 
 	public static final int SHOW_HINT_ONE = 1;
 	public static final int SHOW_HINT_TWO = 2;
-	
+	public static final int SHOW_START_HINT_ONE = 1;
+	public static final int SHOW_START_HINT_TWO = 2;
 	Controller controller;
 	Highscore hs;
 	TimebonusTimer timebonusTimerClass;
@@ -51,7 +52,6 @@ public class MainActivity extends Activity {
 	AnimationDrawable[] select_Anim;
 	AnimationDrawable timeglassAnimation, candleAnim;
 	Typeface typeFace;
-	
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	Button exitYes, exitNo, winYes, winNo;
 	TextView highscore;
@@ -64,6 +64,7 @@ public class MainActivity extends Activity {
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private int lastIndex;
+	private boolean gamestarted=true;
 	private boolean lastIndexState = true;
 
 	@Override
@@ -86,7 +87,6 @@ public class MainActivity extends Activity {
 		toggle = new boolean[12];
 		animView = new ImageView[12];
 		hintView = new ImageView[12];
-
 		// Background animations
 		candleAnimView = (ImageView) findViewById(R.id.candleanim);
 		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));
 		
-		timebonusTimerClass = new TimebonusTimer();
+		timebonusTimerClass = new TimebonusTimer(nHandler);
 		timebonusTimerClass.startTimebonusTimer();
 	}
 
@@ -294,6 +294,7 @@ public class MainActivity extends Activity {
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
 		
 		if (set == true) {
+			gamestarted=false;
 			for (int i=0;i<hintView.length;i++){
 				hintView[i].setVisibility(View.INVISIBLE);
 				hintView[i].clearAnimation();
@@ -349,8 +350,8 @@ public class MainActivity extends Activity {
 			set = false;
 		} else if (set == false) {
 
-			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
-					.show();
+//			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
+//					.show();
 			nosetsound.seekTo(0);
 			nosetsound.start();
 		}
@@ -549,7 +550,16 @@ public class MainActivity extends Activity {
 		}
 	};
 	
-
+	Handler nHandler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			if( msg.arg1 == SHOW_START_HINT_ONE && (gamestarted==true) ){
+				hintView[controller.getHintIndex(1)].startAnimation(hintAnim);
+			}if( msg.arg1 == SHOW_START_HINT_TWO && (gamestarted==true)){
+				hintView[controller.getHintIndex(2)].startAnimation(hintAnim2);
+			}
+		}
+	};
 	
 
 	@Override

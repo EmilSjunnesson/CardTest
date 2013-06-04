@@ -3,12 +3,17 @@ package se.mah.k3.cards;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.os.Handler;
+import android.os.Message;
+
 public class TimebonusTimer {
 	
 	private Timer timebonusTimer;
 	private int timebonus;
-
-	public TimebonusTimer() {
+	private Handler nHandler;
+	
+	public TimebonusTimer(Handler nHandler) {
+		this.nHandler = nHandler;
 	}
 	
 	public int startTimebonusTimer(){
@@ -18,7 +23,15 @@ public class TimebonusTimer {
 			@Override
 			public void run() {
 				timebonus++;
-				
+				if (timebonus==120){
+					Message msg = new Message();
+                	msg.arg1 = MainActivity.SHOW_START_HINT_ONE;
+                	nHandler.sendMessage(msg );
+				}if (timebonus==180){
+					Message msg = new Message();
+                	msg.arg1 = MainActivity.SHOW_START_HINT_TWO;
+                	nHandler.sendMessage(msg );
+				}
 			}
 		}, 5, 1000);
 		

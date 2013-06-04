@@ -64,8 +64,6 @@ public class Score {
 			                if (comboScore1==191){
 			                	Message msg = new Message();
 			                	msg.arg1 = MainActivity.SHOW_HINT_TWO;
-			                	
-							
 			                mHandler.sendMessage(msg );
 			                }
 			              //If the player takes too long, stop the counter

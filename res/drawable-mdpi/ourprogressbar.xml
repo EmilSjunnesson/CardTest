@@ -3,6 +3,8 @@
   <item android:id="@android:id/background">
     <shape>
       <corners android:radius="30dip" />
+      <stroke android:color="#FFFF00"
+                android:width="1dip" />
       <gradient
         android:angle="270"
         android:centerColor="#000000"

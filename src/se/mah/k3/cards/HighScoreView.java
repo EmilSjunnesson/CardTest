@@ -164,6 +164,29 @@ public class HighScoreView extends Activity {
 			tv1[i].startAnimation(fadeout);
 			tv2[i].startAnimation(fadeout);
 			tv3[i].startAnimation(fadeout);
+			
+			fadeout.setAnimationListener(new AnimationListener() {
+				
+				@Override
+				public void onAnimationStart(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					// TODO Auto-generated method stub
+					Intent i = new Intent(HighScoreView.this, StartScreen.class);
+					startActivity(i);
+					finish();	
+				}
+			});
 		}
 		return;
 	}

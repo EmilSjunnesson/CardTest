@@ -44,6 +44,7 @@ public class MainActivity extends Activity {
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	Button exitYes, exitNo, winYes, winNo;
+	TextView highscore;
 	private boolean[] toggle;
 	private int pressedCount;
 	private boolean set;
@@ -52,7 +53,8 @@ public class MainActivity extends Activity {
 	private int score = 0; // An int that saves your total score
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
-	private TextView highscore;
+	private int lastIndex;
+	private boolean lastIndexState = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +75,8 @@ public class MainActivity extends Activity {
 		selectedImg = new ImageView[12];
 		toggle = new boolean[12];
 		animView = new ImageView[12];
-		
-		//Background animations
+
+		// Background animations
 		candleAnimView = (ImageView) findViewById(R.id.candleanim);
 		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
 		candleAnim = (AnimationDrawable) candleAnimView.getBackground();
@@ -83,7 +85,7 @@ public class MainActivity extends Activity {
 		branchView.setBackgroundResource(R.drawable.branch_animation);
 		branchViewAnim = (AnimationDrawable) branchView.getBackground();
 		branchViewAnim.start();
-		
+
 		select_Anim = new AnimationDrawable[12];
 		placeCards = new Animation[12];
 		replaceCards = new Animation[3];
@@ -192,10 +194,14 @@ public class MainActivity extends Activity {
 				toggleState(11);
 				break;
 			}
-			Log.i("TagBag", "BUG: index "+(currCard.getIndex()+1));
-			Log.i("TagBag", "BUG: tryckCount "+pressedCount);
+			Log.i("TagBag", "BUG: index " + (currCard.getIndex() + 1));
+			Log.i("TagBag", "BUG: tryckCount " + pressedCount);
 			if (pressedCount == 1) {
 				compareCard1 = currCard;
+				if (lastIndexState) {
+					lastIndex = currCard.getIndex();
+					lastIndexState = false;
+				}
 			} else if (pressedCount == 2) {
 				compareCard2 = currCard;
 			} else if (pressedCount == 3) {
@@ -256,8 +262,7 @@ public class MainActivity extends Activity {
 			pressedCount++;
 		} else if (toggle[pos] == false) {
 			selectedImg[pos].setVisibility(View.INVISIBLE);
-			//lastPos istället för 0 
-			currCard = controller.getActiveArray().get(0);
+			currCard = controller.getActiveArray().get(lastIndex);
 			pressedCount--;
 		}
 	}
@@ -268,6 +273,7 @@ public class MainActivity extends Activity {
 			toggle[i] = false;
 			selectedImg[i].setVisibility(View.INVISIBLE);
 			pressedCount = 0;
+			lastIndexState = true;
 		}
 	}
 
@@ -287,24 +293,26 @@ public class MainActivity extends Activity {
 			// Add the score you get to the total score
 			score = score + scoreClass.getPoints();
 
-			// Show custom toast based on how much points you get from your set
-			if (scoreClass.getPoints() == 1000) {
-				toast1000.show();
-			}
-			if (scoreClass.getPoints() == 1500) {
-				toast1500.show();
-			}
-			if (scoreClass.getPoints() == 2000) {
-				toast2000.show();
-			}
-			if (scoreClass.getPoints() == 3000) {
-				toast3000.show();
-			}
-			if (scoreClass.getPoints() == 5000) {
-				toast5000.show();
-			}
-			if (scoreClass.getPoints() == 10000) {
-				toast10000.show();
+			if (!controller.getDeckArray().isEmpty()) {
+				// Show custom toast based on points you get from your set
+				if (scoreClass.getPoints() == 1000) {
+					toast1000.show();
+				}
+				if (scoreClass.getPoints() == 1500) {
+					toast1500.show();
+				}
+				if (scoreClass.getPoints() == 2000) {
+					toast2000.show();
+				}
+				if (scoreClass.getPoints() == 3000) {
+					toast3000.show();
+				}
+				if (scoreClass.getPoints() == 5000) {
+					toast5000.show();
+				}
+				if (scoreClass.getPoints() == 10000) {
+					toast10000.show();
+				}
 			}
 
 			// Start timeglass animation, and if it is running; restart it
@@ -518,7 +526,7 @@ public class MainActivity extends Activity {
 		selectSound.release();
 		setsound.release();
 		nosetsound.release();
-		
+
 	}
 
 	@Override

@@ -61,7 +61,6 @@ public class MainActivity extends Activity {
 	private boolean newset = true;
 	private Score scoreClass;
 	private int score = 0; // An int that saves your total score
-	private int timebonus = 0; //An int for your timebonus
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private int lastIndex;

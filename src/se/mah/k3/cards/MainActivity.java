@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 	AnimationDrawable[] select_Anim;
 	AnimationDrawable timeglassAnimation, candleAnim;
 	Typeface typeFace;
-	TextView leftInDeck, setsOnTable;
+	
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	Button exitYes, exitNo, winYes, winNo;
 	TextView highscore;
@@ -93,8 +93,7 @@ public class MainActivity extends Activity {
 		select_Anim = new AnimationDrawable[12];
 		placeCards = new Animation[12];
 		replaceCards = new Animation[3];
-		leftInDeck = (TextView) findViewById(R.id.textView1);
-		setsOnTable = (TextView) findViewById(R.id.textView2);
+		
 		selectSound = MediaPlayer.create(getApplicationContext(),
 				R.raw.selectsound);
 		setsound = MediaPlayer.create(getApplicationContext(), R.raw.set);
@@ -250,8 +249,7 @@ public class MainActivity extends Activity {
 				}
 			});
 		}
-		leftInDeck.setText("Left in deck: " + controller.getNbrOfCardsLeft());
-		setsOnTable.setText("Set on table: " + controller.getNbrOfSets());
+	
 	}
 
 	// cards works as togglebuttons

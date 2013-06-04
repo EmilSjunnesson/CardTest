@@ -428,12 +428,6 @@
         android:background="@drawable/candle_anim" />
 
     <ImageView
-        android:id="@+id/branchViewAnim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/candle_anim" />
-
-    <ImageView
         android:id="@+id/timeglassView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

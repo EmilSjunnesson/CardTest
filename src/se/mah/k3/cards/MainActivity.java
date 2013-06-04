@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 	ImageView[] iv;
 	ImageView[] selectedImg;
 	ImageView[] animView;
-	ImageView candleAnimView, branchView;
+	ImageView candleAnimView;
 	ImageView[] hintView;
 	Animation[] placeCards;
 	Animation[] replaceCards;
@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
 	AnimationDrawable[] select_Anim;
-	AnimationDrawable timeglassAnimation, candleAnim, branchViewAnim;
+	AnimationDrawable timeglassAnimation, candleAnim;
 	Typeface typeFace;
 	TextView leftInDeck, setsOnTable;
 	Card currCard, compareCard1, compareCard2, compareCard3;
@@ -83,10 +83,6 @@ public class MainActivity extends Activity {
 		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
 		candleAnim = (AnimationDrawable) candleAnimView.getBackground();
 		candleAnim.start();
-		branchView = (ImageView) findViewById(R.id.branchViewAnim);
-		branchView.setBackgroundResource(R.drawable.branch_animation);
-		branchViewAnim = (AnimationDrawable) branchView.getBackground();
-		branchViewAnim.start();
 
 		select_Anim = new AnimationDrawable[12];
 		placeCards = new Animation[12];

@@ -509,4 +509,148 @@
         android:maxWidth="250dp"
         android:src="@drawable/forscore" />
 
+    <ImageView
+        android:id="@+id/hintView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card1"
+        android:layout_alignTop="@+id/card1"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/hintView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card2"
+        android:layout_alignTop="@+id/card2"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card3"
+        android:layout_alignTop="@+id/card3"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card4"
+        android:layout_alignTop="@+id/card4"
+        android:visibility="invisible"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card5"
+        android:layout_alignTop="@+id/card5"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card6"
+        android:layout_alignTop="@+id/card6"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card7"
+        android:layout_alignTop="@+id/card7"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card8"
+        android:layout_alignTop="@+id/card8"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card9"
+        android:layout_alignTop="@+id/card9"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card10"
+        android:layout_alignTop="@+id/card10"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card11"
+        android:layout_alignTop="@+id/card11"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+    
+    <ImageView
+        android:id="@+id/hintView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/card12"
+        android:layout_alignTop="@+id/card12"
+        android:adjustViewBounds="true"
+        android:maxHeight="223dp"
+        android:maxWidth="121dp"
+        android:visibility="invisible"
+        android:src="@drawable/highlight_cards1" />
+
 </RelativeLayout>

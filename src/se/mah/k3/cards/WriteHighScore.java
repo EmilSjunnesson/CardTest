@@ -38,7 +38,7 @@ public class WriteHighScore extends Activity {
 		setContentView(R.layout.write_highscore);
 
 		// get score from MainActivity
-		score = (long) getIntent().getExtras().getInt("score");
+		score = (long) getIntent().getExtras().getInt("finalScore");
 
 		typeFace = Typeface.createFromAsset(getAssets(), "fonts/black.ttf");
 

@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
 	Animation hintAnim, hintAnim2;
 	MediaPlayer selectSound, setsound, nosetsound;
 	MediaPlayer bgMusic;
-	Dialog exitDialog, winDialog;
+	Dialog exitDialog;
 	AnimationDrawable[] select_Anim;
 	AnimationDrawable timeglassAnimation, candleAnim;
 	Typeface typeFace;
@@ -152,16 +152,6 @@ public class MainActivity extends Activity {
 				break;
 			case R.id.no:
 				exitDialog.cancel();
-				break;
-			case R.id.winYes:
-				recreate();
-				winDialog.cancel();
-				break;
-			case R.id.winNo:
-				Intent toStart = new Intent(MainActivity.this,
-						StartScreen.class);
-				startActivity(toStart);
-				finish();
 				break;
 			}
 		}
@@ -363,18 +353,6 @@ public class MainActivity extends Activity {
 		showScoreIntent.putExtra("score", score);
 		startActivity(showScoreIntent);
 		finish();
-
-		// if (score > hs.getScore(9)) {
-		// // if you got a new highscore
-		// Intent highScoreIntent = new Intent(getApplicationContext(),
-		// WriteHighScore.class);
-		// highScoreIntent.putExtra("score", score);
-		// startActivity(highScoreIntent);
-		// finish();
-		// } else {
-		// // popup
-		// winDialog.show();
-		// }
 	}
 
 	// hardware back-button pressed
@@ -533,14 +511,6 @@ public class MainActivity extends Activity {
 		exitYes.setOnClickListener(dialogListener);
 		exitNo = (Button) exitDialog.findViewById(R.id.no);
 		exitNo.setOnClickListener(dialogListener);
-
-		winDialog = new Dialog(MainActivity.this);
-		winDialog = controller.createCustomDialog(winDialog,
-				R.layout.win_dialog);
-		winYes = (Button) winDialog.findViewById(R.id.winYes);
-		winYes.setOnClickListener(dialogListener);
-		winNo = (Button) winDialog.findViewById(R.id.winNo);
-		winNo.setOnClickListener(dialogListener);
 	}
 
 	Handler mHandler = new Handler() {

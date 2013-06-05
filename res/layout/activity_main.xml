@@ -7,19 +7,6 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/card1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="380dp"
-        android:layout_marginTop="60dp"
-        android:adjustViewBounds="true"
-        android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:src="@drawable/card1" />
-
-    <ImageView
         android:id="@+id/card2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +15,7 @@
         android:layout_toRightOf="@+id/card1"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card2" />
 
     <ImageView
@@ -40,7 +27,7 @@
         android:layout_toRightOf="@+id/card2"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card3" />
 
     <ImageView
@@ -52,7 +39,7 @@
         android:layout_toRightOf="@+id/card3"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card4" />
 
     <ImageView
@@ -64,7 +51,7 @@
         android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card5" />
 
     <ImageView
@@ -75,7 +62,7 @@
         android:layout_alignTop="@+id/card5"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card6" />
 
     <ImageView
@@ -86,7 +73,7 @@
         android:layout_alignTop="@+id/card6"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card7" />
 
     <ImageView
@@ -97,7 +84,7 @@
         android:layout_alignTop="@+id/card7"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card8" />
 
     <ImageView
@@ -109,7 +96,7 @@
         android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card9" />
 
     <ImageView
@@ -120,7 +107,7 @@
         android:layout_alignTop="@+id/card9"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card10" />
 
     <ImageView
@@ -131,7 +118,7 @@
         android:layout_alignTop="@+id/card10"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card11" />
 
     <ImageView
@@ -142,7 +129,7 @@
         android:layout_alignTop="@+id/card11"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/card12" />
 
     <ImageView
@@ -153,7 +140,7 @@
         android:layout_alignTop="@+id/card1"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -165,7 +152,7 @@
         android:layout_alignTop="@+id/card2"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -177,7 +164,7 @@
         android:layout_alignTop="@+id/card3"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -189,7 +176,7 @@
         android:layout_alignTop="@+id/card4"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -201,7 +188,7 @@
         android:layout_alignTop="@+id/card5"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -213,7 +200,7 @@
         android:layout_alignTop="@+id/card6"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -225,7 +212,7 @@
         android:layout_alignTop="@+id/card7"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -237,7 +224,7 @@
         android:layout_alignTop="@+id/card8"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -249,7 +236,7 @@
         android:layout_alignTop="@+id/card9"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -261,7 +248,7 @@
         android:layout_alignTop="@+id/card10"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -273,7 +260,7 @@
         android:layout_alignTop="@+id/card11"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -285,7 +272,7 @@
         android:layout_alignTop="@+id/card12"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/starsandwhiteframe"
         android:visibility="invisible" />
 
@@ -297,7 +284,7 @@
         android:layout_alignTop="@+id/card1"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -308,7 +295,7 @@
         android:layout_alignTop="@+id/card2"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -319,7 +306,7 @@
         android:layout_alignTop="@+id/card3"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -330,7 +317,7 @@
         android:layout_alignTop="@+id/card4"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -341,7 +328,7 @@
         android:layout_alignTop="@+id/card5"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -352,7 +339,7 @@
         android:layout_alignTop="@+id/card6"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -363,7 +350,7 @@
         android:layout_alignTop="@+id/card7"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -374,7 +361,7 @@
         android:layout_alignTop="@+id/card8"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -385,7 +372,7 @@
         android:layout_alignTop="@+id/card9"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -396,7 +383,7 @@
         android:layout_alignTop="@+id/card10"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -407,7 +394,7 @@
         android:layout_alignTop="@+id/card11"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -418,7 +405,7 @@
         android:layout_alignTop="@+id/card12"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/select_anim" />
 
     <ImageView
@@ -426,15 +413,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/candle_anim" />
-
-    <ImageView
-        android:id="@+id/timeglassView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="52dp"
-        android:layout_marginRight="140dp" />
 
     <ImageView
         android:id="@+id/timeglass_bgd"
@@ -460,21 +438,6 @@
         android:textColor="#d9bd8c" />
 
     <ImageView
-        android:id="@+id/higscore_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
-        android:layout_marginBottom="50dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="40dp"
-        android:layout_toLeftOf="@+id/frame1"
-        android:adjustViewBounds="true"
-        android:maxHeight="250dp"
-        android:maxWidth="250dp"
-        android:src="@drawable/forscore" />
-
-    <ImageView
         android:id="@+id/hintView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -482,7 +445,7 @@
         android:layout_alignTop="@+id/card1"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
+        android:maxWidth="50dp"
         android:src="@drawable/highlight_cards1"
         android:visibility="invisible" />
 
@@ -494,9 +457,9 @@
         android:layout_alignTop="@+id/card2"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView3"
@@ -506,9 +469,9 @@
         android:layout_alignTop="@+id/card3"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView4"
@@ -516,11 +479,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/card4"
         android:layout_alignTop="@+id/card4"
-        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView5"
@@ -530,9 +493,9 @@
         android:layout_alignTop="@+id/card5"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView6"
@@ -542,9 +505,9 @@
         android:layout_alignTop="@+id/card6"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView7"
@@ -554,9 +517,9 @@
         android:layout_alignTop="@+id/card7"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView8"
@@ -566,9 +529,9 @@
         android:layout_alignTop="@+id/card8"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView9"
@@ -578,9 +541,9 @@
         android:layout_alignTop="@+id/card9"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView10"
@@ -590,9 +553,9 @@
         android:layout_alignTop="@+id/card10"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView11"
@@ -602,9 +565,9 @@
         android:layout_alignTop="@+id/card11"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
     
     <ImageView
         android:id="@+id/hintView12"
@@ -614,8 +577,42 @@
         android:layout_alignTop="@+id/card12"
         android:adjustViewBounds="true"
         android:maxHeight="223dp"
-        android:maxWidth="121dp"
-        android:visibility="invisible"
-        android:src="@drawable/highlight_cards1" />
+        android:maxWidth="50dp"
+        android:src="@drawable/highlight_cards1"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/higscore_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="10dp"
+        android:maxHeight="50dp"
+        android:maxWidth="150dp"
+        android:src="@drawable/forscore" />
+
+    <ImageView
+        android:id="@+id/card1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/highscoreView"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:maxHeight="223dp"
+        android:maxWidth="50dp"
+        android:src="@drawable/card1" />
+
+    <ImageView
+        android:id="@+id/timeglassView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:maxHeight="50dp"
+        android:maxWidth="10dp" />
 
 </RelativeLayout>

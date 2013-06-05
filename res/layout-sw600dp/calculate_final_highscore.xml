@@ -27,7 +27,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="TextView"
-        android:textColor="#FFFFFF" />
+        android:textColor="#d9bd8c" />
 
     <TextView
         android:id="@+id/calculate_highscore_timebonus_title"
@@ -40,7 +40,7 @@
         android:gravity="center"
         android:text="Time bonus:"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#d9bd8c" />
 
     <TextView
         android:id="@+id/calculate_highscore_timebonusint"
@@ -52,7 +52,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="TextView"
-        android:textColor="#FFFFFF" />
+        android:textColor="#d9bd8c" />
 
     <TextView
         android:id="@+id/calculate_highscore_finalscore_title"
@@ -65,7 +65,7 @@
         android:gravity="center"
         android:text="Final score:"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#d9bd8c" />
 
     <TextView
         android:id="@+id/calculate_highscore_title"
@@ -78,7 +78,7 @@
         android:gravity="center"
         android:text="Score:"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#d9bd8c" />
 
     <TextView
         android:id="@+id/calculate_highscore_finalscoreint"
@@ -89,7 +89,7 @@
         android:layout_below="@+id/calculate_highscore_finalscore_title"
         android:layout_marginTop="40dp"
         android:gravity="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#d9bd8c"
         android:text="TextView" />
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -19,7 +20,8 @@ public class StartScreen extends Activity {
 	
 	Animation startanim1, startanim2, clickanim1, clickanim2,changeActivityAnim;
 	MediaPlayer startsound,startmusic;
-	ImageView playcard,highscorecard,candleAnimView;
+	ImageView playcard,highscorecard,candleAnimView,hexbutton;
+	
 	AnimationDrawable candleAnim;
 
 	@Override
@@ -30,6 +32,7 @@ public class StartScreen extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.menuscreen);
 		
 		//Reference sounds
 		startsound = MediaPlayer.create(getApplicationContext(),
@@ -43,12 +46,13 @@ public class StartScreen extends Activity {
 		clickanim1 = AnimationUtils.loadAnimation(this, R.anim.menuanim3);
 		clickanim2 = AnimationUtils.loadAnimation(this, R.anim.menuanim4);
 		changeActivityAnim = AnimationUtils.loadAnimation(this, R.anim.changeactivityfrom);
-		setContentView(R.layout.menuscreen);
+		
 		
 		// Initiate ImageViews
 		playcard = (ImageView) findViewById(R.id.playcard);
 		highscorecard = (ImageView) findViewById(R.id.highscorecard);
 		candleAnimView = (ImageView) findViewById(R.id.candles);
+		hexbutton= (ImageView) findViewById(R.id.hexbutton);
 		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
 		candleAnim= (AnimationDrawable) candleAnimView.getBackground();
 		
@@ -74,7 +78,17 @@ public class StartScreen extends Activity {
 				
 			}
 		});
-		
+		hexbutton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(),
+						Creditscreen.class);
+				startActivityForResult(intent, 0);
+				finish();
+				
+			}
+		});
 		//Click playcard animation listener
 		clickanim1.setAnimationListener(new AnimationListener() {
 

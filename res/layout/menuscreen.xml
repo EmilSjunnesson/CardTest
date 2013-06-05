@@ -33,12 +33,13 @@
         android:cropToPadding="false" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/hexbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="600dp"
         android:adjustViewBounds="true"
         android:maxHeight="143dp"
         android:maxWidth="219dp"

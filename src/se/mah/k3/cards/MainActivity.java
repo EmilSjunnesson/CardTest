@@ -1,11 +1,10 @@
 package se.mah.k3.cards;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
@@ -13,7 +12,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Gravity;
@@ -45,7 +44,7 @@ public class MainActivity extends Activity {
 	ImageView[] hintView;
 	Animation[] placeCards;
 	Animation[] replaceCards;
-	Animation hintAnim,hintAnim2;
+	Animation hintAnim, hintAnim2;
 	MediaPlayer selectSound, setsound, nosetsound;
 	MediaPlayer bgMusic;
 	Dialog exitDialog, winDialog;
@@ -55,6 +54,7 @@ public class MainActivity extends Activity {
 	Card currCard, compareCard1, compareCard2, compareCard3;
 	Button exitYes, exitNo, winYes, winNo;
 	TextView highscore;
+	Vibrator vib;
 	private boolean[] toggle;
 	private int pressedCount;
 	private boolean set;
@@ -64,13 +64,13 @@ public class MainActivity extends Activity {
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000,
 			toast10000;
 	private int lastIndex;
-	private boolean gamestarted=true;
+	private boolean gamestarted = true;
 	private boolean lastIndexState = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// commit
+
 		// fullscreen
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -87,6 +87,10 @@ public class MainActivity extends Activity {
 		toggle = new boolean[12];
 		animView = new ImageView[12];
 		hintView = new ImageView[12];
+		
+		//Initialize vibrator
+		vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		
 		// Background animations
 		candleAnimView = (ImageView) findViewById(R.id.candleanim);
 		candleAnimView.setBackgroundResource(R.drawable.candle_anim);
@@ -96,15 +100,17 @@ public class MainActivity extends Activity {
 		select_Anim = new AnimationDrawable[12];
 		placeCards = new Animation[12];
 		replaceCards = new Animation[3];
-		
+
 		selectSound = MediaPlayer.create(getApplicationContext(),
 				R.raw.selectsound);
 		setsound = MediaPlayer.create(getApplicationContext(), R.raw.set);
 		nosetsound = MediaPlayer.create(getApplicationContext(), R.raw.noset);
 		selectSound.setVolume(0.2f, 0.2f);
 		pressedCount = 0;
-		hintAnim=AnimationUtils.loadAnimation(getApplicationContext(), R.anim.hintanim);
-		hintAnim2=AnimationUtils.loadAnimation(getApplicationContext(), R.anim.hintanim2);
+		hintAnim = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.hintanim);
+		hintAnim2 = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.hintanim2);
 		typeFace = Typeface.createFromAsset(getAssets(), "fonts/black.ttf");
 
 		// Create custom toasts
@@ -128,7 +134,7 @@ public class MainActivity extends Activity {
 		bgMusic.setVolume(0.5f, 0.5f);
 		setupImageViews();
 		updateUI(controller.getActiveCards(12));
-		
+
 		timebonusTimerClass = new TimebonusTimer(nHandler);
 		timebonusTimerClass.startTimebonusTimer();
 	}
@@ -165,7 +171,6 @@ public class MainActivity extends Activity {
 	public OnClickListener onClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Log.i("TagBag", "NY TRYCKNING");
 			switch (v.getId()) {
 			case R.id.card1:
 				toggleState(0);
@@ -204,8 +209,6 @@ public class MainActivity extends Activity {
 				toggleState(11);
 				break;
 			}
-			Log.i("TagBag", "BUG: index " + (currCard.getIndex() + 1));
-			Log.i("TagBag", "BUG: tryckCount " + pressedCount);
 			if (pressedCount == 1) {
 				compareCard1 = currCard;
 				if (lastIndexState) {
@@ -255,7 +258,7 @@ public class MainActivity extends Activity {
 				}
 			});
 		}
-	
+
 	}
 
 	// cards works as togglebuttons
@@ -288,14 +291,11 @@ public class MainActivity extends Activity {
 
 	// runs when three cards has been selected
 	public void checkSelection() {
-		Log.i("TagBag", "BUG: " + compareCard1.toString());
-		Log.i("TagBag", "BUG: " + compareCard2.toString());
-		Log.i("TagBag", "BUG: " + compareCard3.toString());
 		set = controller.isSet(compareCard1, compareCard2, compareCard3);
-		
+
 		if (set == true) {
-			gamestarted=false;
-			for (int i=0;i<hintView.length;i++){
+			gamestarted = false;
+			for (int i = 0; i < hintView.length; i++) {
 				hintView[i].setVisibility(View.INVISIBLE);
 				hintView[i].clearAnimation();
 			}
@@ -349,9 +349,7 @@ public class MainActivity extends Activity {
 			}
 			set = false;
 		} else if (set == false) {
-
-//			Toast.makeText(MainActivity.this, "No SET", Toast.LENGTH_SHORT)
-//					.show();
+			vib.vibrate(400);
 			nosetsound.seekTo(0);
 			nosetsound.start();
 		}
@@ -360,17 +358,23 @@ public class MainActivity extends Activity {
 
 	// run when there's not card left in deck
 	public void win() {
-		if (score > hs.getScore(9)) {
-			// if you got a new highscore
-			Intent highScoreIntent = new Intent(getApplicationContext(),
-					WriteHighScore.class);
-			highScoreIntent.putExtra("score", score);
-			startActivity(highScoreIntent);
-			finish();
-		} else {
-			// popup
-			winDialog.show();
-		}
+		Intent showScoreIntent = new Intent(getApplicationContext(),
+				ShowScore.class);
+		showScoreIntent.putExtra("score", score);
+		startActivity(showScoreIntent);
+		finish();
+
+		// if (score > hs.getScore(9)) {
+		// // if you got a new highscore
+		// Intent highScoreIntent = new Intent(getApplicationContext(),
+		// WriteHighScore.class);
+		// highScoreIntent.putExtra("score", score);
+		// startActivity(highScoreIntent);
+		// finish();
+		// } else {
+		// // popup
+		// winDialog.show();
+		// }
 	}
 
 	// hardware back-button pressed
@@ -485,19 +489,19 @@ public class MainActivity extends Activity {
 		replaceCards[2] = AnimationUtils.loadAnimation(this,
 				R.anim.replacecard_anim3);
 
-		hintView[0]=(ImageView) findViewById(R.id.hintView1);
-		hintView[1]=(ImageView) findViewById(R.id.hintView2);
-		hintView[2]=(ImageView) findViewById(R.id.hintView3);
-		hintView[3]=(ImageView) findViewById(R.id.hintView4);
-		hintView[4]=(ImageView) findViewById(R.id.hintView5);
-		hintView[5]=(ImageView) findViewById(R.id.hintView6);
-		hintView[6]=(ImageView) findViewById(R.id.hintView7);
-		hintView[7]=(ImageView) findViewById(R.id.hintView8);
-		hintView[8]=(ImageView) findViewById(R.id.hintView9);
-		hintView[9]=(ImageView) findViewById(R.id.hintView10);
-		hintView[10]=(ImageView) findViewById(R.id.hintView11);
-		hintView[11]=(ImageView) findViewById(R.id.hintView12);
-		
+		hintView[0] = (ImageView) findViewById(R.id.hintView1);
+		hintView[1] = (ImageView) findViewById(R.id.hintView2);
+		hintView[2] = (ImageView) findViewById(R.id.hintView3);
+		hintView[3] = (ImageView) findViewById(R.id.hintView4);
+		hintView[4] = (ImageView) findViewById(R.id.hintView5);
+		hintView[5] = (ImageView) findViewById(R.id.hintView6);
+		hintView[6] = (ImageView) findViewById(R.id.hintView7);
+		hintView[7] = (ImageView) findViewById(R.id.hintView8);
+		hintView[8] = (ImageView) findViewById(R.id.hintView9);
+		hintView[9] = (ImageView) findViewById(R.id.hintView10);
+		hintView[10] = (ImageView) findViewById(R.id.hintView11);
+		hintView[11] = (ImageView) findViewById(R.id.hintView12);
+
 		for (int i = 0; i < animView.length; i++) {
 			animView[i].setBackgroundResource(R.drawable.select_anim);
 			select_Anim[i] = (AnimationDrawable) animView[i].getBackground();
@@ -538,29 +542,30 @@ public class MainActivity extends Activity {
 		winNo = (Button) winDialog.findViewById(R.id.winNo);
 		winNo.setOnClickListener(dialogListener);
 	}
-	
-	Handler mHandler = new Handler(){
+
+	Handler mHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
-			if( msg.arg1 == SHOW_HINT_ONE ){
+			if (msg.arg1 == SHOW_HINT_ONE) {
 				hintView[controller.getHintIndex(1)].startAnimation(hintAnim);
-			}if( msg.arg1 == SHOW_HINT_TWO ){
+			}
+			if (msg.arg1 == SHOW_HINT_TWO) {
 				hintView[controller.getHintIndex(2)].startAnimation(hintAnim2);
 			}
 		}
 	};
-	
-	Handler nHandler = new Handler(){
+
+	Handler nHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
-			if( msg.arg1 == SHOW_START_HINT_ONE && (gamestarted==true) ){
+			if (msg.arg1 == SHOW_START_HINT_ONE && (gamestarted == true)) {
 				hintView[controller.getHintIndex(1)].startAnimation(hintAnim);
-			}if( msg.arg1 == SHOW_START_HINT_TWO && (gamestarted==true)){
+			}
+			if (msg.arg1 == SHOW_START_HINT_TWO && (gamestarted == true)) {
 				hintView[controller.getHintIndex(2)].startAnimation(hintAnim2);
 			}
 		}
 	};
-	
 
 	@Override
 	protected void onResume() {

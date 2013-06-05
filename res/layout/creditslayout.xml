@@ -17,7 +17,7 @@
         android:textAllCaps="false"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFFFFF"
-        android:textSize="40sp" />
+        android:textSize="60sp" />
 
     <ImageView
         android:id="@+id/cupcake"
@@ -27,8 +27,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="44dp"
         android:adjustViewBounds="true"
-        android:maxHeight="100dp"
-        android:maxWidth="70dp"
+        android:maxHeight="200dp"
+        android:maxWidth="322dp"
         android:src="@drawable/cupcake_farg_logo" />
 
 </RelativeLayout>

@@ -11,8 +11,6 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="52dp"
         android:layout_toRightOf="@+id/playcard"
-        android:adjustViewBounds="true"
-        android:maxWidth="140dp"
         android:src="@drawable/highscorekort" />
 
     <ImageView
@@ -21,9 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/highscorecard"
-        android:layout_marginLeft="160dp"
-        android:adjustViewBounds="true"
-        android:maxWidth="140dp"
+        android:layout_marginLeft="303dp"
         android:src="@drawable/playkort" />
 
     <ImageView
@@ -43,10 +39,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="600dp"
         android:adjustViewBounds="true"
         android:maxHeight="143dp"
-        android:maxWidth="100dp"
+        android:maxWidth="219dp"
         android:src="@drawable/hex_knapp" />
 
 </RelativeLayout>

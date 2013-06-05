@@ -24,8 +24,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/calculate_highscore_title"
-        android:layout_marginTop="10dp"
-        android:textSize="12sp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#d9bd8c" />
@@ -37,10 +36,10 @@
         android:layout_alignLeft="@+id/calculate_highscore_title"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/calculate_highscore_highscoreint"
-        android:layout_marginTop="15dp"
-        android:textSize="15sp"
+        android:layout_marginTop="65dp"
         android:gravity="center"
         android:text="Time bonus:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#d9bd8c" />
 
     <TextView
@@ -50,8 +49,7 @@
         android:layout_alignLeft="@+id/calculate_highscore_highscoreint"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/calculate_highscore_timebonus_title"
-        android:layout_marginTop="10dp"
-        android:textSize="12sp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#d9bd8c" />
@@ -63,10 +61,22 @@
         android:layout_alignLeft="@+id/calculate_highscore_timebonus_title"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/calculate_highscore_timebonusint"
-        android:layout_marginTop="15dp"
-        android:textSize="15sp"
+        android:layout_marginTop="65dp"
         android:gravity="center"
         android:text="Final score:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#d9bd8c" />
+
+    <TextView
+        android:id="@+id/calculate_highscore_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="134dp"
+        android:gravity="center"
+        android:text="Score:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#d9bd8c" />
 
@@ -77,24 +87,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/calculate_highscore_finalscore_title"
-        android:layout_marginTop="10dp"
-        android:textSize="12sp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:textColor="#d9bd8c"
         android:text="TextView" />
-
-    <TextView
-        android:id="@+id/calculate_highscore_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="45dp"
-        android:textSize="15sp"
-        android:gravity="center"
-        android:text="Score:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#d9bd8c" />
 
 </RelativeLayout>

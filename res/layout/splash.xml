@@ -10,21 +10,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="30dp"
-        android:adjustViewBounds="false"
-        android:paddingLeft="8dp"
+        android:layout_marginBottom="0dp"
+        android:paddingLeft="18dp"
         android:src="@drawable/hex" />
 
     <ProgressBar
         android:id="@+id/myprogress"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="90dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="140dp"
-        android:minHeight="10dp"
-        android:progressDrawable="@drawable/ourprogressbar" />
+        android:layout_marginBottom="270dp" 
+        android:progressDrawable="@drawable/ourprogressbar"/>
 
     <TextView
         android:id="@+id/versionnumber"
@@ -34,8 +32,7 @@
         android:layout_alignParentRight="true"
         android:paddingRight="10dp"
         android:text="V.0.98"
-        android:textColor="#ffffff"
-        android:textSize="5sp" />
+        android:textColor="#ffffff" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -45,8 +42,8 @@
         android:layout_alignParentRight="true"
         android:adjustViewBounds="true"
         android:maxHeight="96dp"
-        android:maxWidth="60dp"
-        android:paddingRight="15dp"
+        android:maxWidth="221dp"
+        android:paddingRight="10dp"
         android:src="@drawable/cupcake_logo" />
 
 </RelativeLayout>

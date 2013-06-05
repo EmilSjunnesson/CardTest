@@ -24,6 +24,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,7 +53,7 @@ public class MainActivity extends Activity {
 	AnimationDrawable timeglassAnimation, candleAnim;
 	Typeface typeFace;
 	Card currCard, compareCard1, compareCard2, compareCard3;
-	Button exitYes, exitNo, winYes, winNo;
+	ImageButton exitYes, exitNo;
 	TextView highscore;
 	Vibrator vib;
 	private boolean[] toggle;
@@ -508,9 +509,9 @@ public class MainActivity extends Activity {
 		exitDialog = new Dialog(MainActivity.this);
 		exitDialog = controller.createCustomDialog(exitDialog,
 				R.layout.exit_dialog);
-		exitYes = (Button) exitDialog.findViewById(R.id.yes);
+		exitYes = (ImageButton) exitDialog.findViewById(R.id.yes);
 		exitYes.setOnClickListener(dialogListener);
-		exitNo = (Button) exitDialog.findViewById(R.id.no);
+		exitNo = (ImageButton) exitDialog.findViewById(R.id.no);
 		exitNo.setOnClickListener(dialogListener);
 	}
 

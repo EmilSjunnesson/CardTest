@@ -3,6 +3,8 @@ package se.mah.k3.cards;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -15,6 +17,7 @@ Animation scrollanim;
 TextView credits;
 ImageView cupcake; 
 Animation bounce;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -23,6 +26,7 @@ Animation bounce;
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);	
 		setContentView(R.layout.creditslayout);
+		
 		cupcake= (ImageView) findViewById(R.id.cupcake);
 		credits=(TextView) findViewById(R.id.credits);
 		scrollanim= AnimationUtils.loadAnimation(this,R.anim.scrolltext);
@@ -30,6 +34,24 @@ Animation bounce;
 		scrollanim.setRepeatCount(-1);
 		credits.startAnimation(scrollanim);
 		cupcake.startAnimation(bounce);
+		cupcake.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(Creditscreen.this, StartScreen.class);
+				startActivity(i);
+				finish();	
+			}
+		});
+	credits.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			Intent i = new Intent(Creditscreen.this, StartScreen.class);
+			startActivity(i);
+			finish();	
+		}
+	});
 	}
 	public void onBackPressed() {
 		Intent i = new Intent(Creditscreen.this, StartScreen.class);

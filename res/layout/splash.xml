@@ -32,6 +32,18 @@
         android:layout_alignParentRight="true"
         android:paddingRight="10dp"
         android:text="V.0.98"
-        android:textColor="#666666" />
+        android:textColor="#ffffff" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:adjustViewBounds="true"
+        android:maxHeight="96dp"
+        android:maxWidth="221dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/cupcake_logo" />
 
 </RelativeLayout>

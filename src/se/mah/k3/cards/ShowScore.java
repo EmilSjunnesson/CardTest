@@ -3,6 +3,7 @@ package se.mah.k3.cards;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -132,6 +133,7 @@ public class ShowScore extends Activity {
 		// changes typeface on textViews
 		for (int i = 0; i < tv.length; i++) {
 			tv[i].setTypeface(typeFace);
+			tv[i].setTextColor(Color.parseColor("#D9BD8C"));
 		}
 	}
 }

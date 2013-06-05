@@ -18,7 +18,7 @@
         android:layout_alignTop="@+id/highscoreview"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="@string/congrats"
+        android:text="@string/nohs"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

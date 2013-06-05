@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/calculate_final_highscore_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bgblurblue1" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/final_score_pic" />
+
+    <TextView
+        android:id="@+id/calculate_highscore_highscoreint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/calculate_highscore_title"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/calculate_highscore_timebonus_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/calculate_highscore_title"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/calculate_highscore_highscoreint"
+        android:layout_marginTop="65dp"
+        android:gravity="center"
+        android:text="Time bonus:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/calculate_highscore_timebonusint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/calculate_highscore_highscoreint"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/calculate_highscore_timebonus_title"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/calculate_highscore_finalscore_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/calculate_highscore_timebonus_title"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/calculate_highscore_timebonusint"
+        android:layout_marginTop="65dp"
+        android:gravity="center"
+        android:text="Final score:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/calculate_highscore_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="134dp"
+        android:gravity="center"
+        android:text="Score:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/calculate_highscore_finalscoreint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/calculate_highscore_finalscore_title"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:text="TextView" />
+
+</RelativeLayout>

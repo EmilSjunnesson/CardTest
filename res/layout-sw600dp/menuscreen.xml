@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
+
+    <ImageView
+        android:id="@+id/highscorecard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="52dp"
+        android:layout_toRightOf="@+id/playcard"
+        android:src="@drawable/highscorekort" />
+
+    <ImageView
+        android:id="@+id/playcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/highscorecard"
+        android:layout_marginLeft="303dp"
+        android:src="@drawable/playkort" />
+
+    <ImageView
+        android:id="@+id/candles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:adjustViewBounds="false"
+        android:background="@drawable/candle_anim"
+        android:baselineAlignBottom="false"
+        android:cropToPadding="false" />
+
+    <ImageView
+        android:id="@+id/hexbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="600dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="143dp"
+        android:maxWidth="219dp"
+        android:src="@drawable/hex_knapp" />
+
+</RelativeLayout>

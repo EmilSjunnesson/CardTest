@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
+
+    <ImageView
+        android:id="@+id/highscoreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/highscore1" />
+
+    <TextView
+        android:id="@+id/scoreview"
+        android:layout_width="436dp"
+        android:layout_height="125dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="212dp"
+        android:gravity="center"
+        android:hint="Your score"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/player"
+        android:layout_width="436dp"
+        android:layout_height="125dp"
+        android:layout_alignLeft="@+id/scoreview"
+        android:layout_below="@+id/scoreview"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter your name"
+        android:imeOptions="actionGo"
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        android:singleLine="true"
+        android:textSize="30sp" >
+
+        <requestFocus />
+    </EditText>
+    
+</RelativeLayout>

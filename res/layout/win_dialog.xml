@@ -49,13 +49,13 @@
             android:id="@+id/winYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:background="@drawable/button_yes" />
 
         <ImageButton
             android:id="@+id/winNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:background="@drawable/button_no" />
 
     </LinearLayout>
 

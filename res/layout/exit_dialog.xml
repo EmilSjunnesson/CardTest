@@ -45,17 +45,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" >
 
-        <Button
+        <ImageButton
             android:id="@+id/yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/yes" />
+            android:background="@drawable/button_yes" />
 
-        <Button
+        <ImageButton
             android:id="@+id/no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no" />
+            android:background="@drawable/button_no" />
 
     </LinearLayout>
 

@@ -351,6 +351,7 @@ public class MainActivity extends Activity {
 		Intent showScoreIntent = new Intent(getApplicationContext(),
 				ShowScore.class);
 		showScoreIntent.putExtra("score", score);
+		showScoreIntent.putExtra("Timebonus", timebonusTimerClass.getTimebonus());
 		startActivity(showScoreIntent);
 		finish();
 	}

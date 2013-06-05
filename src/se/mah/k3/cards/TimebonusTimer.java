@@ -23,11 +23,11 @@ public class TimebonusTimer {
 			@Override
 			public void run() {
 				timebonus++;
-				if (timebonus==120){
+				if (timebonus==60){
 					Message msg = new Message();
                 	msg.arg1 = MainActivity.SHOW_START_HINT_ONE;
                 	nHandler.sendMessage(msg );
-				}if (timebonus==180){
+				}if (timebonus==90){
 					Message msg = new Message();
                 	msg.arg1 = MainActivity.SHOW_START_HINT_TWO;
                 	nHandler.sendMessage(msg );
